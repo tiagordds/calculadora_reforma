@@ -1,0 +1,5 @@
+/scratch/*
+!/scratch/00a/
+/scratch/00a/*
+!/scratch/00a/probe.py
+!/scratch/00a/replay.py

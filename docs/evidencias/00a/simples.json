@@ -1,0 +1,665 @@
+{
+  "engine": "simples",
+  "utc": "2026-11-19T22:55:31.123120+00:00",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "cpu_logical": 24,
+  "jvm_args": [
+    "-Xmx512m",
+    "-jar",
+    "target\\api-simples-nacional.jar",
+    "--spring.profiles.active=offline",
+    "--server.address=127.0.0.1",
+    "--server.port=18082",
+    "--management.server.address=127.0.0.1",
+    "--management.server.port=19103",
+    "--versao.url=http://127.0.0.1:1/unavailable",
+    "--management.tracing.enabled=false"
+  ],
+  "jar": {
+    "bytes": 89951835,
+    "sha256": "5e9820211877a1e7b719166d551e1b85c5ff2c3e6b36c28b5877aefc51c79a6d"
+  },
+  "database": {
+    "bytes": 5484544,
+    "sha256": "4160a29e4f1a6a2c4f2d5d5527b64af2a84fb4ea2915693b70104865db533293"
+  },
+  "cases": {
+    "version": {
+      "path": "/api/versao",
+      "input": null,
+      "status": 200,
+      "ms": 5.83,
+      "app_version": "0.0.6",
+      "db_version": "V0059",
+      "warning": null,
+      "body": {
+        "versaoApp": "0.0.6",
+        "versaoDb": "V0059",
+        "descricaoVersaoDb": "Habilitação de 820 para NFSe.",
+        "dataVersaoDb": "2026-09-30",
+        "ambiente": "offline"
+      }
+    },
+    "activity_2026": {
+      "path": "/api/calculadora/simples-nacional/atividades/01?data=2026-03-15",
+      "input": null,
+      "status": 404,
+      "ms": 79.36,
+      "app_version": null,
+      "db_version": null,
+      "warning": null,
+      "body": null
+    },
+    "activity_2027": {
+      "path": "/api/calculadora/simples-nacional/atividades/01?data=2027-03-15",
+      "input": null,
+      "status": 200,
+      "ms": 35.03,
+      "app_version": "0.0.6",
+      "db_version": "V0059",
+      "warning": null,
+      "body": {
+        "codigo": "01",
+        "ordem": 1,
+        "descricao": "Revenda de mercadorias, venda de mercadorias industrializadas pelo contribuinte",
+        "anexoSemFatorR": "I",
+        "anexoComFatorR": null,
+        "sujeitaFatorR": false,
+        "rotuloAnexo": "I",
+        "rotuloCurtoAnexo": "I",
+        "disponivel": true,
+        "anexosFaltantes": [],
+        "modoFatorR": "NAO_APLICAVEL",
+        "tpDocsAdmissiveis": [
+          "55",
+          "65"
+        ]
+      }
+    },
+    "calculation": {
+      "path": "/api/calculadora/observabilidade/simples-nacional",
+      "input": {
+        "id": "507f1f77bcf86cd799439011",
+        "versao": "2.0.0",
+        "data": "2027-03-15",
+        "tpDoc": "55",
+        "CRT": "1",
+        "itens": [
+          {
+            "numero": 1,
+            "cAtivSN": "01",
+            "cClassTrib": "000001",
+            "baseCalculo": "950.00",
+            "valorImpostoSeletivo": "50.00",
+            "pIBSSN": "1.25",
+            "pCBSSN": "2.75"
+          }
+        ]
+      },
+      "status": 200,
+      "ms": 91.64,
+      "app_version": "0.0.6",
+      "db_version": "V0059",
+      "warning": null,
+      "body": {
+        "oper": {
+          "data": "2027-03-15",
+          "tpDoc": "55",
+          "CRT": "1"
+        },
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "CALCULADO",
+            "tribCalc": {
+              "vRBSNitem": "950.00",
+              "tpRBSN": 1,
+              "tpRBSNDescricao": "Receita bruta - interna",
+              "vBC": "950.00",
+              "pIBSSN": "1.25",
+              "vIBSSN": "11.88",
+              "vIBSPendSusp": "0.00",
+              "pCBSSN": "2.75",
+              "vCBSSN": "26.12",
+              "vCBSPendSusp": "0.00",
+              "IS": {
+                "valor": "50.00"
+              },
+              "totalItem": "88.00"
+            }
+          }
+        ],
+        "total": {
+          "vRBSNtot": "950.00",
+          "vBC": "950.00",
+          "vIBSSNtot": "11.88",
+          "vIBSSNtotPendSusp": "0.00",
+          "vCBSSNtot": "26.12",
+          "vCBSSNtotPendSusp": "0.00",
+          "totalIs": "50.00",
+          "totalTributos": "88.00"
+        }
+      }
+    },
+    "previous_year": {
+      "path": "/api/calculadora/observabilidade/simples-nacional",
+      "input": {
+        "id": "507f1f77bcf86cd799439011",
+        "versao": "2.0.0",
+        "data": "2026-03-15",
+        "tpDoc": "55",
+        "CRT": "1",
+        "itens": [
+          {
+            "numero": 1,
+            "cAtivSN": "01",
+            "cClassTrib": "000001",
+            "baseCalculo": "950.00",
+            "valorImpostoSeletivo": "50.00",
+            "pIBSSN": "1.25",
+            "pCBSSN": "2.75"
+          }
+        ]
+      },
+      "status": 422,
+      "ms": 46.09,
+      "app_version": null,
+      "db_version": null,
+      "warning": null,
+      "body": {
+        "type": "about:blank",
+        "title": "Erros no processamento do cálculo do Simples Nacional",
+        "status": 422,
+        "detail": "O cálculo contém 1 erro(s).",
+        "instance": "/api/calculadora/observabilidade/simples-nacional",
+        "timestamp": "2026-11-19T22:55:46.896002900Z",
+        "errors": [
+          {
+            "type": "http://127.0.0.1/calculadora/observabilidade/simples-nacional/erros?codigo=VSN-015",
+            "title": "Tipo de documento fiscal (tpDoc) não suportado",
+            "code": "VSN-015",
+            "pointer": "#/tpDoc",
+            "detail": "Tipo de documento não suportado pelo cálculo do Simples Nacional, recebido: '55'."
+          }
+        ]
+      }
+    },
+    "next_year": {
+      "path": "/api/calculadora/observabilidade/simples-nacional",
+      "input": {
+        "id": "507f1f77bcf86cd799439011",
+        "versao": "2.0.0",
+        "data": "2028-03-15",
+        "tpDoc": "55",
+        "CRT": "1",
+        "itens": [
+          {
+            "numero": 1,
+            "cAtivSN": "01",
+            "cClassTrib": "000001",
+            "baseCalculo": "950.00",
+            "valorImpostoSeletivo": "50.00",
+            "pIBSSN": "1.25",
+            "pCBSSN": "2.75"
+          }
+        ]
+      },
+      "status": 200,
+      "ms": 40.76,
+      "app_version": "0.0.6",
+      "db_version": "V0059",
+      "warning": null,
+      "body": {
+        "oper": {
+          "data": "2028-03-15",
+          "tpDoc": "55",
+          "CRT": "1"
+        },
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "CALCULADO",
+            "tribCalc": {
+              "vRBSNitem": "950.00",
+              "tpRBSN": 1,
+              "tpRBSNDescricao": "Receita bruta - interna",
+              "vBC": "950.00",
+              "pIBSSN": "1.25",
+              "vIBSSN": "11.88",
+              "vIBSPendSusp": "0.00",
+              "pCBSSN": "2.75",
+              "vCBSSN": "26.12",
+              "vCBSPendSusp": "0.00",
+              "IS": {
+                "valor": "50.00"
+              },
+              "totalItem": "88.00"
+            }
+          }
+        ],
+        "total": {
+          "vRBSNtot": "950.00",
+          "vBC": "950.00",
+          "vIBSSNtot": "11.88",
+          "vIBSSNtotPendSusp": "0.00",
+          "vCBSSNtot": "26.12",
+          "vCBSSNtotPendSusp": "0.00",
+          "totalIs": "50.00",
+          "totalTributos": "88.00"
+        }
+      }
+    },
+    "global_error": {
+      "path": "/api/calculadora/observabilidade/simples-nacional",
+      "input": {
+        "id": "507f1f77bcf86cd799439011",
+        "versao": "2.0.0",
+        "data": "2027-03-15",
+        "tpDoc": "55",
+        "CRT": "1",
+        "itens": [
+          {
+            "numero": 1,
+            "cAtivSN": "01",
+            "cClassTrib": "000001",
+            "baseCalculo": "950.00",
+            "valorImpostoSeletivo": "50.00",
+            "pIBSSN": "1.25",
+            "pCBSSN": "2.75"
+          }
+        ],
+        "tpEnteGov": "7"
+      },
+      "status": 422,
+      "ms": 24.37,
+      "app_version": null,
+      "db_version": null,
+      "warning": null,
+      "body": {
+        "type": "about:blank",
+        "title": "Erros no processamento do cálculo do Simples Nacional",
+        "status": 422,
+        "detail": "O cálculo contém 1 erro(s).",
+        "instance": "/api/calculadora/observabilidade/simples-nacional",
+        "timestamp": "2026-11-19T22:55:47.001502500Z",
+        "errors": [
+          {
+            "type": "http://127.0.0.1/calculadora/observabilidade/simples-nacional/erros?codigo=VSN-024",
+            "title": "Tipo de ente governamental (tpEnteGov) inválido",
+            "code": "VSN-024",
+            "pointer": "#/tpEnteGov",
+            "detail": "Tipo de ente governamental inválido, recebido: '7' (esperado 1, 2, 3 ou 4)."
+          }
+        ]
+      }
+    },
+    "missing_activity": {
+      "path": "/api/calculadora/observabilidade/simples-nacional",
+      "input": {
+        "id": "507f1f77bcf86cd799439011",
+        "versao": "2.0.0",
+        "data": "2027-03-15",
+        "tpDoc": "55",
+        "CRT": "1",
+        "itens": [
+          {
+            "numero": 1,
+            "cAtivSN": "99",
+            "cClassTrib": "000001",
+            "baseCalculo": "950.00",
+            "valorImpostoSeletivo": "50.00",
+            "pIBSSN": "1.25",
+            "pCBSSN": "2.75"
+          }
+        ]
+      },
+      "status": 200,
+      "ms": 28.27,
+      "app_version": "0.0.6",
+      "db_version": "V0059",
+      "warning": null,
+      "body": {
+        "oper": {
+          "data": "2027-03-15",
+          "tpDoc": "55",
+          "CRT": "1"
+        },
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "NAO_CALCULADO",
+            "tribCalc": {
+              "vRBSNitem": "950.00",
+              "tpRBSN": 1,
+              "tpRBSNDescricao": "Receita bruta - interna"
+            }
+          }
+        ],
+        "total": {
+          "vRBSNtot": "950.00"
+        }
+      }
+    },
+    "mixed": {
+      "path": "/api/calculadora/observabilidade/simples-nacional",
+      "input": {
+        "id": "507f1f77bcf86cd799439011",
+        "versao": "2.0.0",
+        "data": "2027-03-15",
+        "tpDoc": "55",
+        "CRT": "1",
+        "itens": [
+          {
+            "numero": 1,
+            "cAtivSN": "01",
+            "cClassTrib": "000001",
+            "baseCalculo": "950.00",
+            "valorImpostoSeletivo": "50.00",
+            "pIBSSN": "1.25",
+            "pCBSSN": "2.75"
+          },
+          {
+            "numero": 2,
+            "cAtivSN": "01",
+            "cClassTrib": "999999",
+            "baseCalculo": "950.00",
+            "valorImpostoSeletivo": "50.00",
+            "pIBSSN": "1.25",
+            "pCBSSN": "2.75"
+          }
+        ]
+      },
+      "status": 200,
+      "ms": 37.97,
+      "app_version": "0.0.6",
+      "db_version": "V0059",
+      "warning": null,
+      "body": {
+        "oper": {
+          "data": "2027-03-15",
+          "tpDoc": "55",
+          "CRT": "1"
+        },
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "CALCULADO",
+            "tribCalc": {
+              "vRBSNitem": "950.00",
+              "tpRBSN": 1,
+              "tpRBSNDescricao": "Receita bruta - interna",
+              "vBC": "950.00",
+              "pIBSSN": "1.25",
+              "vIBSSN": "11.88",
+              "vIBSPendSusp": "0.00",
+              "pCBSSN": "2.75",
+              "vCBSSN": "26.12",
+              "vCBSPendSusp": "0.00",
+              "IS": {
+                "valor": "50.00"
+              },
+              "totalItem": "88.00"
+            }
+          },
+          {
+            "nObj": 2,
+            "estadoItem": "INCONSISTENCIA_ENTRADA",
+            "erros": [
+              {
+                "type": "http://127.0.0.1/calculadora/observabilidade/simples-nacional/erros?codigo=VSN-021",
+                "title": "cClassTrib desconhecido ou fora de vigência",
+                "code": "VSN-021",
+                "pointer": "#/itens/1/cClassTrib",
+                "detail": "O cClassTrib '999999' não existe ou não está vigente na data '2027-03-15': o tpRBSN não pôde ser determinado."
+              }
+            ]
+          }
+        ],
+        "total": {
+          "vRBSNtot": "950.00",
+          "vBC": "950.00",
+          "vIBSSNtot": "11.88",
+          "vIBSSNtotPendSusp": "0.00",
+          "vCBSSNtot": "26.12",
+          "vCBSSNtotPendSusp": "0.00",
+          "totalIs": "50.00",
+          "totalTributos": "88.00"
+        }
+      }
+    },
+    "missing_effective_rates": {
+      "path": "/api/calculadora/observabilidade/simples-nacional",
+      "input": {
+        "id": "507f1f77bcf86cd799439011",
+        "versao": "2.0.0",
+        "data": "2027-03-15",
+        "tpDoc": "55",
+        "CRT": "1",
+        "itens": [
+          {
+            "numero": 1,
+            "cAtivSN": "01",
+            "cClassTrib": "000001",
+            "baseCalculo": "950.00",
+            "valorImpostoSeletivo": "50.00",
+            "pIBSSN": null,
+            "pCBSSN": null
+          }
+        ]
+      },
+      "status": 200,
+      "ms": 13.83,
+      "app_version": "0.0.6",
+      "db_version": "V0059",
+      "warning": null,
+      "body": {
+        "oper": {
+          "data": "2027-03-15",
+          "tpDoc": "55",
+          "CRT": "1"
+        },
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "INCONSISTENCIA_ENTRADA",
+            "erros": [
+              {
+                "type": "http://127.0.0.1/calculadora/observabilidade/simples-nacional/erros?codigo=VSN-004",
+                "title": "Alíquota pCBSSN ausente",
+                "code": "VSN-004",
+                "pointer": "#/itens/0/pCBSSN",
+                "detail": "A alíquota é exigida para o cálculo do item e não foi informada."
+              },
+              {
+                "type": "http://127.0.0.1/calculadora/observabilidade/simples-nacional/erros?codigo=VSN-006",
+                "title": "Alíquota pIBSSN ausente",
+                "code": "VSN-006",
+                "pointer": "#/itens/0/pIBSSN",
+                "detail": "A alíquota é exigida para o cálculo do item e não foi informada."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "nfse_820001": {
+      "path": "/api/calculadora/observabilidade/simples-nacional",
+      "input": {
+        "id": "507f1f77bcf86cd799439011",
+        "versao": "2.0.0",
+        "data": "2027-03-15",
+        "tpDoc": "91",
+        "CRT": "1",
+        "itens": [
+          {
+            "numero": 1,
+            "cAtivSN": "07",
+            "cClassTrib": "820001",
+            "baseCalculo": "1000.00",
+            "valorImpostoSeletivo": "0.00",
+            "pIBSSN": "1.25",
+            "pCBSSN": "2.75"
+          }
+        ]
+      },
+      "status": 200,
+      "ms": 32.75,
+      "app_version": "0.0.6",
+      "db_version": "V0059",
+      "warning": null,
+      "body": {
+        "oper": {
+          "data": "2027-03-15",
+          "tpDoc": "91",
+          "CRT": "1"
+        },
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "CALCULADO",
+            "tribCalc": {
+              "vRBSNitem": "1000.00",
+              "tpRBSN": 9,
+              "tpRBSNDescricao": "Fornecimento incompatível com SN",
+              "vBC": "0.00",
+              "pIBSSN": "1.25",
+              "vIBSSN": "0.00",
+              "vIBSPendSusp": "0.00",
+              "pCBSSN": "2.75",
+              "vCBSSN": "0.00",
+              "vCBSPendSusp": "0.00",
+              "IS": {
+                "valor": "0.00"
+              },
+              "totalItem": "0.00"
+            }
+          }
+        ],
+        "total": {
+          "vRBSNtot": "1000.00",
+          "vBC": "0.00",
+          "vIBSSNtot": "0.00",
+          "vIBSSNtotPendSusp": "0.00",
+          "vCBSSNtot": "0.00",
+          "vCBSSNtotPendSusp": "0.00",
+          "totalIs": "0.00",
+          "totalTributos": "0.00"
+        }
+      }
+    },
+    "regular_option": {
+      "path": "/api/calculadora/observabilidade/simples-nacional",
+      "input": {
+        "id": "507f1f77bcf86cd799439011",
+        "versao": "2.0.0",
+        "data": "2027-03-15",
+        "tpDoc": "55",
+        "CRT": "1",
+        "itens": [
+          {
+            "numero": 1,
+            "cAtivSN": "01",
+            "cClassTrib": "000001",
+            "baseCalculo": "950.00",
+            "valorImpostoSeletivo": "50.00",
+            "pIBSSN": "1.25",
+            "pCBSSN": "2.75"
+          }
+        ],
+        "tpRegimeIBSCBS": "1"
+      },
+      "status": 422,
+      "ms": 28.11,
+      "app_version": null,
+      "db_version": null,
+      "warning": null,
+      "body": {
+        "type": "about:blank",
+        "title": "Erros no processamento do cálculo do Simples Nacional",
+        "status": 422,
+        "detail": "O cálculo contém 1 erro(s).",
+        "instance": "/api/calculadora/observabilidade/simples-nacional",
+        "timestamp": "2026-11-19T22:55:47.218502600Z",
+        "errors": [
+          {
+            "type": "http://127.0.0.1/calculadora/observabilidade/simples-nacional/erros?codigo=VSN-019",
+            "title": "Operação fora do escopo do cálculo assistido do Simples Nacional",
+            "code": "VSN-019",
+            "pointer": "#/tpRegimeIBSCBS",
+            "detail": "Operação fora do escopo do cálculo assistido do Simples Nacional: optante pelo regime regular do IBS/CBS (tpRegimeIBSCBS=1) tem a tributação calculada pelo regime regular, não por este endpoint."
+          }
+        ]
+      }
+    },
+    "version_status": {
+      "path": "/api/versao/status",
+      "input": null,
+      "status": 200,
+      "ms": 12.06,
+      "app_version": "0.0.6",
+      "db_version": "V0059",
+      "warning": null,
+      "body": {
+        "aplicacaoAtualizada": false,
+        "dbAtualizada": false,
+        "dataDbAtualizada": false,
+        "versaoAplicacaoLocal": "0.0.6",
+        "versaoDbLocal": "V0059",
+        "dataDbLocal": "2026-09-30"
+      }
+    }
+  },
+  "startup_to_version_s": 15.15,
+  "after_start": {
+    "WorkingSet64": 419074048,
+    "PeakWorkingSet64": 498438144,
+    "CPU": 41.96875
+  },
+  "warm_ms": [
+    31.16,
+    12.37,
+    37.0,
+    37.65,
+    29.22,
+    33.69,
+    34.55,
+    39.1,
+    24.72,
+    32.22
+  ],
+  "concurrent": [
+    {
+      "id": "rtc-00a-0",
+      "base": "500",
+      "ms": 32.77,
+      "status": 200,
+      "matches_serial": true
+    },
+    {
+      "id": "rtc-00a-1",
+      "base": "600",
+      "ms": 21.8,
+      "status": 200,
+      "matches_serial": true
+    },
+    {
+      "id": "rtc-00a-2",
+      "base": "700",
+      "ms": 12.41,
+      "status": 200,
+      "matches_serial": true
+    },
+    {
+      "id": "rtc-00a-3",
+      "base": "800",
+      "ms": 40.04,
+      "status": 200,
+      "matches_serial": true
+    }
+  ],
+  "after_calls": {
+    "WorkingSet64": 418213888,
+    "PeakWorkingSet64": 498438144,
+    "CPU": 43.90625
+  }
+}

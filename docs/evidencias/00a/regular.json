@@ -1,0 +1,834 @@
+{
+  "engine": "regular",
+  "utc": "2026-11-19T22:55:12.091019+00:00",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "cpu_logical": 24,
+  "jvm_args": [
+    "-Xmx512m",
+    "-jar",
+    "target\\api-regime-geral.jar",
+    "--spring.profiles.active=offline",
+    "--server.address=127.0.0.1",
+    "--server.port=18080",
+    "--management.server.address=127.0.0.1",
+    "--management.server.port=19101",
+    "--versao.url=http://127.0.0.1:1/unavailable",
+    "--management.tracing.enabled=false"
+  ],
+  "jar": {
+    "bytes": 96847998,
+    "sha256": "3f7baa20442301e2ba6733fc274263a8756a7e21b3ed4e4020b0f1ecf51f9d61"
+  },
+  "database": {
+    "bytes": 5484544,
+    "sha256": "4160a29e4f1a6a2c4f2d5d5527b64af2a84fb4ea2915693b70104865db533293"
+  },
+  "cases": {
+    "version": {
+      "path": "/api/calculadora/dados-abertos/versao",
+      "input": null,
+      "status": 200,
+      "ms": 5.6,
+      "app_version": null,
+      "db_version": null,
+      "warning": null,
+      "body": {
+        "versaoApp": "1.6.1",
+        "descricaoVersaoApp": "1.6.1",
+        "versaoDb": "V0059",
+        "descricaoVersaoDb": "Habilitação de 820 para NFSe.",
+        "dataVersaoDb": "2026-09-30",
+        "ambiente": "offline"
+      }
+    },
+    "classification": {
+      "path": "/api/calculadora/dados-abertos/classificacoes-tributarias/cbs-ibs/class-trib/000001?data=2027-01-01",
+      "input": null,
+      "status": 200,
+      "ms": 121.09,
+      "app_version": null,
+      "db_version": null,
+      "warning": null,
+      "body": {
+        "codigo": "000001",
+        "descricao": "Situações tributadas integralmente pelo IBS e CBS.",
+        "tipoAliquota": "Padrão",
+        "nomenclatura": "NBS ou NCM",
+        "descricaoTratamentoTributario": "Tributação integral",
+        "incompativelComSuspensao": false,
+        "exigeGrupoDesoneracao": false,
+        "possuiPercentualReducao": false,
+        "indicaApropriacaoCreditoAdquirenteCbs": true,
+        "indicaApropriacaoCreditoAdquirenteIbs": true,
+        "indicaCreditoPresumidoFornecedor": false,
+        "indicaCreditoPresumidoAdquirente": false,
+        "creditoOperacaoAntecedente": "Manutenção",
+        "percentualReducaoCbs": 0.0,
+        "percentualReducaoIbsUf": 0.0,
+        "percentualReducaoIbsMun": 0.0,
+        "tipoReceitaBrutaSimplesNacional": 1,
+        "tiposDfeClassificacao": [
+          {
+            "tipo": 55,
+            "sigla": "NF-e",
+            "descricao": "Nota Fiscal Eletrônica"
+          },
+          {
+            "tipo": 65,
+            "sigla": "NFC-e",
+            "descricao": "Nota Fiscal de Consumidor Eletrônica"
+          },
+          {
+            "tipo": 57,
+            "sigla": "CT-e",
+            "descricao": "Conhecimento de Transporte Eletrônico"
+          },
+          {
+            "tipo": 67,
+            "sigla": "CT-e OS",
+            "descricao": "Conhecimento de Transporte Eletrônico para Outros Serviços "
+          },
+          {
+            "tipo": 63,
+            "sigla": "BP-e",
+            "descricao": "Bilhete de Passagem Eletrônico"
+          },
+          {
+            "tipo": 83,
+            "sigla": "BP-e TA",
+            "descricao": "Bilhete de Passagem Eletrônico para Transporte Aéreo"
+          },
+          {
+            "tipo": 66,
+            "sigla": "NF3-e",
+            "descricao": "Nota Fiscal de Energia Elétrica Eletrônica"
+          },
+          {
+            "tipo": 91,
+            "sigla": "NFS-e",
+            "descricao": "Nota Fiscal de Serviços Eletrônica"
+          },
+          {
+            "tipo": 62,
+            "sigla": "NFCom",
+            "descricao": "Nota Fiscal de Fatura de Serviços de Comunicação Eletrônica"
+          },
+          {
+            "tipo": 75,
+            "sigla": "NFAg",
+            "descricao": "Nota Fiscal da Água e Saneamento Eletrônica"
+          },
+          {
+            "tipo": 76,
+            "sigla": "NFGas",
+            "descricao": "Nota Fiscal Eletrônica do Gás"
+          },
+          {
+            "tipo": 95,
+            "sigla": "DIR",
+            "descricao": "Declaração de Importação de Remessa"
+          },
+          {
+            "tipo": 96,
+            "sigla": "Duimp",
+            "descricao": "Declaração Única de Importação "
+          }
+        ],
+        "dataAtualizacao": "2025-12-15"
+      }
+    },
+    "rate_2026": {
+      "path": "/api/calculadora/dados-abertos/aliquota-uf?codigoUf=43&data=2026-06-01",
+      "input": null,
+      "status": 200,
+      "ms": 33.1,
+      "app_version": null,
+      "db_version": null,
+      "warning": null,
+      "body": {
+        "aliquotaReferencia": 0.1
+      }
+    },
+    "rate_2027": {
+      "path": "/api/calculadora/dados-abertos/aliquota-uf?codigoUf=43&data=2027-06-01",
+      "input": null,
+      "status": 404,
+      "ms": 27.03,
+      "app_version": null,
+      "db_version": null,
+      "warning": null,
+      "body": {
+        "type": "http://127.0.0.1/errors/aliquota-nao-encontrada",
+        "title": "Alíquota não encontrada",
+        "status": 404,
+        "detail": "Alíquota de referencia ou padrão não encontrada para o tributo com id 3, UF 43, município null e data 2027-06-01",
+        "instance": "/api/calculadora/dados-abertos/aliquota-uf",
+        "timestamp": "2026-11-19T22:55:29.573005900Z"
+      }
+    },
+    "calculation": {
+      "path": "/api/calculadora/observabilidade/regime-geral",
+      "input": {
+        "id": "6194602ea71cbf9431c236de4409d920",
+        "versao": "0.0.1",
+        "dataHoraEmissao": "2026-01-01T09:50:05-03:00",
+        "municipio": 4314902,
+        "uf": "RS",
+        "itens": [
+          {
+            "numero": 1,
+            "ncm": "24021000",
+            "cst": "000",
+            "cClassTrib": "000001",
+            "baseCalculo": 200,
+            "quantidade": 1,
+            "unidade": "VN"
+          }
+        ]
+      },
+      "status": 200,
+      "ms": 287.22,
+      "app_version": "1.6.1",
+      "db_version": "V0059",
+      "warning": null,
+      "body": {
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "CALCULADO",
+            "tribCalc": {
+              "IBSCBS": {
+                "CST": "000",
+                "cClassTrib": "000001",
+                "gIBSCBS": {
+                  "vBC": "200.00",
+                  "gIBSUF": {
+                    "pIBSUF": "0.10",
+                    "vIBSUF": "0.20",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em LC 214/2025, tributada conforme Tributação integral. A base de cálculo utilizada é de R$ 200.00000000, com alíquota de 0.100000%."
+                  },
+                  "gIBSMun": {
+                    "pIBSMun": "0.00",
+                    "vIBSMun": "0.00",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em LC 214/2025, tributada conforme Tributação integral. A base de cálculo utilizada é de R$ 200.00000000, com alíquota de 0.000000%."
+                  },
+                  "vIBS": "0.20",
+                  "gCBS": {
+                    "pCBS": "0.90",
+                    "vCBS": "1.80",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em LC 214/2025, tributada conforme Tributação integral. A base de cálculo utilizada é de R$ 200.00000000, com alíquota de 0.900000%."
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "total": {
+          "tribCalc": {
+            "IBSCBSTot": {
+              "vBCIBSCBS": "200.00",
+              "gIBS": {
+                "gIBSUF": {
+                  "vDif": "0.00",
+                  "vDevTrib": "0.00",
+                  "vIBSUF": "0.20"
+                },
+                "gIBSMun": {
+                  "vDif": "0.00",
+                  "vDevTrib": "0.00",
+                  "vIBSMun": "0.00"
+                },
+                "vIBS": "0.20",
+                "vCredPres": "0.00",
+                "vCredPresCondSus": "0.00"
+              },
+              "gCBS": {
+                "vDif": "0.00",
+                "vDevTrib": "0.00",
+                "vCBS": "1.80",
+                "vCredPres": "0.00",
+                "vCredPresCondSus": "0.00"
+              },
+              "gMono": {
+                "vIBSMono": "0.00",
+                "vCBSMono": "0.00",
+                "vIBSMonoReten": "0.00",
+                "vCBSMonoReten": "0.00",
+                "vIBSMonoRet": "0.00",
+                "vCBSMonoRet": "0.00"
+              }
+            }
+          }
+        }
+      }
+    },
+    "missing_rates_2027": {
+      "path": "/api/calculadora/observabilidade/regime-geral",
+      "input": {
+        "id": "6194602ea71cbf9431c236de4409d920",
+        "versao": "0.0.1",
+        "municipio": 4314902,
+        "uf": "RS",
+        "itens": [
+          {
+            "numero": 1,
+            "ncm": "24021000",
+            "cst": "000",
+            "cClassTrib": "000001",
+            "baseCalculo": 200,
+            "quantidade": 1,
+            "unidade": "VN"
+          }
+        ],
+        "dhFatoGerador": "2027-01-01T09:50:05-03:00"
+      },
+      "status": 200,
+      "ms": 36.86,
+      "app_version": "1.6.1",
+      "db_version": "V0059",
+      "warning": "6",
+      "body": {
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "INCONSISTENCIA_ENTRADA",
+            "erros": [
+              {
+                "type": "http://127.0.0.1/api/calculadora/observabilidade/erros?codigo=REG-037",
+                "title": "Alíquotas nominais não informadas",
+                "code": "REG-037",
+                "pointer": "#/itens/0/aliquotasNominais",
+                "detail": "As alíquotas nominais (os três campos cbs, ibsEstadual e ibsMunicipal) devem ser informadas para operações com fato gerador a partir de 01/01/2027"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "single_2027": {
+      "path": "/api/calculadora/observabilidade/regime-geral",
+      "input": {
+        "id": "6194602ea71cbf9431c236de4409d920",
+        "versao": "1.0.0",
+        "dhFatoGerador": "2027-03-10T10:00:00-03:00",
+        "municipio": 4314902,
+        "uf": "RS",
+        "itens": [
+          {
+            "numero": 1,
+            "nbs": "122011200",
+            "cst": "200",
+            "cClassTrib": "200028",
+            "baseCalculo": 1200.0,
+            "aliquotasNominais": {
+              "cbs": 8.8,
+              "ibsEstadual": 0.05,
+              "ibsMunicipal": 0.05
+            }
+          }
+        ]
+      },
+      "status": 200,
+      "ms": 100.93,
+      "app_version": "1.6.1",
+      "db_version": "V0059",
+      "warning": "6",
+      "body": {
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "CALCULO_SIMULADO",
+            "tribCalc": {
+              "IBSCBS": {
+                "CST": "200",
+                "cClassTrib": "200028",
+                "gIBSCBS": {
+                  "vBC": "1200.00",
+                  "gIBSUF": {
+                    "pIBSUF": "0.05",
+                    "gRed": {
+                      "pRedAliq": "60.00",
+                      "pAliqEfet": "0.02"
+                    },
+                    "vIBSUF": "0.24",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em Art. 129, tributada conforme Alíquota reduzida em 60%. A base de cálculo utilizada é de R$ 1200.00000000, com alíquota de 0.050000%, sendo que esse regime define uma redução de 60.000000% na alíquota."
+                  },
+                  "gIBSMun": {
+                    "pIBSMun": "0.05",
+                    "gRed": {
+                      "pRedAliq": "60.00",
+                      "pAliqEfet": "0.02"
+                    },
+                    "vIBSMun": "0.24",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em Art. 129, tributada conforme Alíquota reduzida em 60%. A base de cálculo utilizada é de R$ 1200.00000000, com alíquota de 0.050000%, sendo que esse regime define uma redução de 60.000000% na alíquota."
+                  },
+                  "vIBS": "0.48",
+                  "gCBS": {
+                    "pCBS": "8.80",
+                    "gRed": {
+                      "pRedAliq": "60.00",
+                      "pAliqEfet": "3.52"
+                    },
+                    "vCBS": "42.24",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em Art. 129, tributada conforme Alíquota reduzida em 60%. A base de cálculo utilizada é de R$ 1200.00000000, com alíquota de 8.800000%, sendo que esse regime define uma redução de 60.000000% na alíquota."
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "total": {
+          "tribCalc": {
+            "IBSCBSTot": {
+              "vBCIBSCBS": "1200.00",
+              "gIBS": {
+                "gIBSUF": {
+                  "vDif": "0.00",
+                  "vDevTrib": "0.00",
+                  "vIBSUF": "0.24"
+                },
+                "gIBSMun": {
+                  "vDif": "0.00",
+                  "vDevTrib": "0.00",
+                  "vIBSMun": "0.24"
+                },
+                "vIBS": "0.48",
+                "vCredPres": "0.00",
+                "vCredPresCondSus": "0.00"
+              },
+              "gCBS": {
+                "vDif": "0.00",
+                "vDevTrib": "0.00",
+                "vCBS": "42.24",
+                "vCredPres": "0.00",
+                "vCredPresCondSus": "0.00"
+              },
+              "gMono": {
+                "vIBSMono": "0.00",
+                "vCBSMono": "0.00",
+                "vIBSMonoReten": "0.00",
+                "vCBSMonoReten": "0.00",
+                "vIBSMonoRet": "0.00",
+                "vCBSMonoRet": "0.00"
+              }
+            }
+          }
+        }
+      }
+    },
+    "mixed_2027": {
+      "path": "/api/calculadora/observabilidade/regime-geral",
+      "input": {
+        "id": "6194602ea71cbf9431c236de4409d920",
+        "versao": "1.0.0",
+        "dhFatoGerador": "2027-03-10T10:00:00-03:00",
+        "municipio": 4314902,
+        "uf": "RS",
+        "itens": [
+          {
+            "numero": 1,
+            "ncm": "10063021",
+            "cst": "200",
+            "cClassTrib": "200003",
+            "baseCalculo": 100.0,
+            "quantidade": 20,
+            "unidade": "KG",
+            "aliquotasNominais": {
+              "cbs": 8.8,
+              "ibsEstadual": 0.05,
+              "ibsMunicipal": 0.05
+            }
+          },
+          {
+            "numero": 2,
+            "ncm": "22030000",
+            "cst": "000",
+            "cClassTrib": "000001",
+            "quantidade": 12,
+            "unidade": "LT",
+            "impostoSeletivo": {
+              "cst": "000",
+              "cClassTrib": "000001",
+              "baseCalculo": 150.0,
+              "quantidade": 12,
+              "unidade": "LT",
+              "impostoInformado": 15.0
+            },
+            "aliquotasNominais": {
+              "cbs": 8.8,
+              "ibsEstadual": 0.05,
+              "ibsMunicipal": 0.05,
+              "impostoSeletivo": {
+                "adValorem": 10.0
+              }
+            }
+          },
+          {
+            "numero": 3,
+            "nbs": "122011200",
+            "cst": "200",
+            "cClassTrib": "200028",
+            "baseCalculo": 1200.0,
+            "aliquotasNominais": {
+              "cbs": 8.8,
+              "ibsEstadual": 0.05,
+              "ibsMunicipal": 0.05
+            }
+          },
+          {
+            "numero": 4,
+            "ncm": "02013000",
+            "cst": "200",
+            "cClassTrib": "200035",
+            "baseCalculo": 80.0,
+            "aliquotasNominais": {
+              "cbs": 8.8,
+              "ibsEstadual": 0.05,
+              "ibsMunicipal": 0.05
+            }
+          }
+        ]
+      },
+      "status": 200,
+      "ms": 80.15,
+      "app_version": "1.6.1",
+      "db_version": "V0059",
+      "warning": "6",
+      "body": {
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "CALCULO_SIMULADO",
+            "tribCalc": {
+              "IBSCBS": {
+                "CST": "200",
+                "cClassTrib": "200003",
+                "gIBSCBS": {
+                  "vBC": "100.00",
+                  "gIBSUF": {
+                    "pIBSUF": "0.05",
+                    "gRed": {
+                      "pRedAliq": "100.00",
+                      "pAliqEfet": "0.00"
+                    },
+                    "vIBSUF": "0.00",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em Art. 125, tributada conforme Alíquota zero. A base de cálculo utilizada é de R$ 100.00000000, com alíquota de zero."
+                  },
+                  "gIBSMun": {
+                    "pIBSMun": "0.05",
+                    "gRed": {
+                      "pRedAliq": "100.00",
+                      "pAliqEfet": "0.00"
+                    },
+                    "vIBSMun": "0.00",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em Art. 125, tributada conforme Alíquota zero. A base de cálculo utilizada é de R$ 100.00000000, com alíquota de zero."
+                  },
+                  "vIBS": "0.00",
+                  "gCBS": {
+                    "pCBS": "8.80",
+                    "gRed": {
+                      "pRedAliq": "100.00",
+                      "pAliqEfet": "0.00"
+                    },
+                    "vCBS": "0.00",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em Art. 125, tributada conforme Alíquota zero. A base de cálculo utilizada é de R$ 100.00000000, com alíquota de zero."
+                  }
+                }
+              }
+            }
+          },
+          {
+            "nObj": 2,
+            "estadoItem": "CALCULO_SIMULADO",
+            "tribCalc": {
+              "IS": {
+                "CSTIS": "000",
+                "cClassTribIS": "000001",
+                "vBCIS": "150.00",
+                "pIS": "10.00",
+                "uTrib": "LT",
+                "qTrib": "12",
+                "vIS": "15.00",
+                "memoriaCalculo": "Operação de consumo sujeita à tributação pelo Imposto Seletivo, com enquadramento legal em Art. 412, I, tributada conforme Tributação pelo Imposto Seletivo - Com Cálculo. A base de cálculo utilizada é de R$ 150.0, com alíquota ad valorem de 10.000000%. A alíquota ad rem é de ."
+              },
+              "IBSCBS": {
+                "CST": "000",
+                "cClassTrib": "000001",
+                "gIBSCBS": {
+                  "vBC": "165.00",
+                  "gIBSUF": {
+                    "pIBSUF": "0.05",
+                    "vIBSUF": "0.08",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em LC 214/2025, tributada conforme Tributação integral. A base de cálculo utilizada é de R$ 165.00000000, com alíquota de 0.050000%."
+                  },
+                  "gIBSMun": {
+                    "pIBSMun": "0.05",
+                    "vIBSMun": "0.08",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em LC 214/2025, tributada conforme Tributação integral. A base de cálculo utilizada é de R$ 165.00000000, com alíquota de 0.050000%."
+                  },
+                  "vIBS": "0.16",
+                  "gCBS": {
+                    "pCBS": "8.80",
+                    "vCBS": "14.52",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em LC 214/2025, tributada conforme Tributação integral. A base de cálculo utilizada é de R$ 165.00000000, com alíquota de 8.800000%."
+                  }
+                }
+              }
+            }
+          },
+          {
+            "nObj": 3,
+            "estadoItem": "CALCULO_SIMULADO",
+            "tribCalc": {
+              "IBSCBS": {
+                "CST": "200",
+                "cClassTrib": "200028",
+                "gIBSCBS": {
+                  "vBC": "1200.00",
+                  "gIBSUF": {
+                    "pIBSUF": "0.05",
+                    "gRed": {
+                      "pRedAliq": "60.00",
+                      "pAliqEfet": "0.02"
+                    },
+                    "vIBSUF": "0.24",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em Art. 129, tributada conforme Alíquota reduzida em 60%. A base de cálculo utilizada é de R$ 1200.00000000, com alíquota de 0.050000%, sendo que esse regime define uma redução de 60.000000% na alíquota."
+                  },
+                  "gIBSMun": {
+                    "pIBSMun": "0.05",
+                    "gRed": {
+                      "pRedAliq": "60.00",
+                      "pAliqEfet": "0.02"
+                    },
+                    "vIBSMun": "0.24",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em Art. 129, tributada conforme Alíquota reduzida em 60%. A base de cálculo utilizada é de R$ 1200.00000000, com alíquota de 0.050000%, sendo que esse regime define uma redução de 60.000000% na alíquota."
+                  },
+                  "vIBS": "0.48",
+                  "gCBS": {
+                    "pCBS": "8.80",
+                    "gRed": {
+                      "pRedAliq": "60.00",
+                      "pAliqEfet": "3.52"
+                    },
+                    "vCBS": "42.24",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em Art. 129, tributada conforme Alíquota reduzida em 60%. A base de cálculo utilizada é de R$ 1200.00000000, com alíquota de 8.800000%, sendo que esse regime define uma redução de 60.000000% na alíquota."
+                  }
+                }
+              }
+            }
+          },
+          {
+            "nObj": 4,
+            "estadoItem": "INCONSISTENCIA_ENTRADA",
+            "erros": [
+              {
+                "type": "http://127.0.0.1/api/calculadora/observabilidade/erros?codigo=REG-011",
+                "title": "NCM não vinculada",
+                "code": "REG-011",
+                "pointer": "#/itens/3/ncm",
+                "detail": "NCM de código 02013000 não vinculada à Classificação Tributária de código 200035 (CBS e IBS)"
+              }
+            ]
+          }
+        ],
+        "total": {
+          "tribCalc": {
+            "ISTot": {
+              "vIS": "15.00"
+            },
+            "IBSCBSTot": {
+              "vBCIBSCBS": "1465.00",
+              "gIBS": {
+                "gIBSUF": {
+                  "vDif": "0.00",
+                  "vDevTrib": "0.00",
+                  "vIBSUF": "0.32"
+                },
+                "gIBSMun": {
+                  "vDif": "0.00",
+                  "vDevTrib": "0.00",
+                  "vIBSMun": "0.32"
+                },
+                "vIBS": "0.64",
+                "vCredPres": "0.00",
+                "vCredPresCondSus": "0.00"
+              },
+              "gCBS": {
+                "vDif": "0.00",
+                "vDevTrib": "0.00",
+                "vCBS": "56.76",
+                "vCredPres": "0.00",
+                "vCredPresCondSus": "0.00"
+              },
+              "gMono": {
+                "vIBSMono": "0.00",
+                "vCBSMono": "0.00",
+                "vIBSMonoReten": "0.00",
+                "vCBSMonoReten": "0.00",
+                "vIBSMonoRet": "0.00",
+                "vCBSMonoRet": "0.00"
+              }
+            }
+          }
+        }
+      }
+    },
+    "strict_2027": {
+      "path": "/api/calculadora/regime-geral",
+      "input": {
+        "id": "6194602ea71cbf9431c236de4409d920",
+        "versao": "1.0.0",
+        "dhFatoGerador": "2027-03-10T10:00:00-03:00",
+        "municipio": 4314902,
+        "uf": "RS",
+        "itens": [
+          {
+            "numero": 1,
+            "ncm": "10063021",
+            "cst": "200",
+            "cClassTrib": "200003",
+            "baseCalculo": 100.0,
+            "quantidade": 20,
+            "unidade": "KG",
+            "aliquotasNominais": {
+              "cbs": 8.8,
+              "ibsEstadual": 0.05,
+              "ibsMunicipal": 0.05
+            }
+          },
+          {
+            "numero": 2,
+            "ncm": "22030000",
+            "cst": "000",
+            "cClassTrib": "000001",
+            "quantidade": 12,
+            "unidade": "LT",
+            "impostoSeletivo": {
+              "cst": "000",
+              "cClassTrib": "000001",
+              "baseCalculo": 150.0,
+              "quantidade": 12,
+              "unidade": "LT",
+              "impostoInformado": 15.0
+            },
+            "aliquotasNominais": {
+              "cbs": 8.8,
+              "ibsEstadual": 0.05,
+              "ibsMunicipal": 0.05,
+              "impostoSeletivo": {
+                "adValorem": 10.0
+              }
+            }
+          },
+          {
+            "numero": 3,
+            "nbs": "122011200",
+            "cst": "200",
+            "cClassTrib": "200028",
+            "baseCalculo": 1200.0,
+            "aliquotasNominais": {
+              "cbs": 8.8,
+              "ibsEstadual": 0.05,
+              "ibsMunicipal": 0.05
+            }
+          },
+          {
+            "numero": 4,
+            "ncm": "02013000",
+            "cst": "200",
+            "cClassTrib": "200035",
+            "baseCalculo": 80.0,
+            "aliquotasNominais": {
+              "cbs": 8.8,
+              "ibsEstadual": 0.05,
+              "ibsMunicipal": 0.05
+            }
+          }
+        ]
+      },
+      "status": 422,
+      "ms": 13.85,
+      "app_version": null,
+      "db_version": null,
+      "warning": null,
+      "body": {
+        "type": "http://127.0.0.1/errors/ncm-nao-vinculada",
+        "title": "NCM não vinculada",
+        "status": 422,
+        "detail": "NCM de código 02013000 não vinculada à Classificação Tributária de código 200035 (CBS e IBS)",
+        "instance": "/api/calculadora/regime-geral",
+        "timestamp": "2026-11-19T22:55:30.183005800Z"
+      }
+    },
+    "version_status": {
+      "path": "/api/versao/status",
+      "input": null,
+      "status": 500,
+      "ms": 35.85,
+      "app_version": null,
+      "db_version": null,
+      "warning": null,
+      "body": {
+        "type": "http://127.0.0.1/errors/erro-de-sistema-nao-previsto",
+        "title": "Erro de sistema não previsto",
+        "status": 500,
+        "detail": "I/O error on GET request for \"http://127.0.0.1:1/unavailable\": Connection refused: connect",
+        "instance": "/api/versao/status",
+        "timestamp": "2026-11-19T22:55:30.230002400Z"
+      }
+    }
+  },
+  "startup_to_version_s": 16.953,
+  "after_start": {
+    "WorkingSet64": 589561856,
+    "PeakWorkingSet64": 589565952,
+    "CPU": 48.46875
+  },
+  "warm_ms": [
+    41.84,
+    11.77,
+    38.74,
+    23.9,
+    26.44,
+    20.65,
+    33.31,
+    32.43,
+    33.85,
+    33.19
+  ],
+  "concurrent": [
+    {
+      "id": "rtc-00a-0",
+      "base": "500",
+      "ms": 37.96,
+      "status": 200,
+      "matches_serial": true
+    },
+    {
+      "id": "rtc-00a-1",
+      "base": "600",
+      "ms": 8.79,
+      "status": 200,
+      "matches_serial": true
+    },
+    {
+      "id": "rtc-00a-2",
+      "base": "700",
+      "ms": 31.27,
+      "status": 200,
+      "matches_serial": true
+    },
+    {
+      "id": "rtc-00a-3",
+      "base": "800",
+      "ms": 33.34,
+      "status": 200,
+      "matches_serial": true
+    }
+  ],
+  "after_calls": {
+    "WorkingSet64": 601534464,
+    "PeakWorkingSet64": 608833536,
+    "CPU": 51.3125
+  }
+}
