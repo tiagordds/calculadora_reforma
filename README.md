@@ -2,11 +2,13 @@
 
 Projeto independente para ajudar empresas brasileiras a estimar sua carga tributária e comparar cenários com premissas, vigências e memória de cálculo visíveis. O ponto de entrada previsto é uma simulação pelo navegador, sem cadastro, com processamento no servidor.
 
-Este repositório contém a especificação, a investigação dos motores da Receita Federal (00A) e a metodologia de apuração empresarial (00B). O exemplo de março/2027 acompanha uma revenda de Florianópolis desde os cálculos por item até o DAS e a comparação com IBS/CBS no regime regular.
+Este repositório contém a investigação dos motores da Receita Federal (00A), a metodologia de apuração empresarial (00B) e o planejamento da aplicação web (00C). A referência é uma revenda de canetas em Florianópolis em março/2027. A próxima entrega é a primeira página Django local. O [plano executável da 01](docs/PHASE_01_PLAN.md) está pronto, aguardando autorização do titular.
 
 | Para consultar | Documento |
 |---|---|
 | Visão, usuários e requisitos | [Especificação do produto](docs/PRODUCT_SPEC.md) |
+| Arquitetura, contratos, parâmetros e replay | [Arquitetura](docs/ARCHITECTURE.md) · [Modelo de dados](docs/DATA_MODEL.md) |
+| Experiência, wireframes e tratamento de dados | [Experiência web](docs/WEB_EXPERIENCE.md) · [Segurança e privacidade](docs/SECURITY.md) |
 | Etapas, estado e critérios de aceite | [Roadmap](docs/ROADMAP.md) |
 | O que cada motor calcula e o que exige do chamador | [Motores oficiais](docs/OFFICIAL_ENGINES.md) |
 | Contratos HTTP e exemplos | [Integração](docs/API_INTEGRATION.md) |

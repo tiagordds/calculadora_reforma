@@ -1,5 +1,7 @@
 # Limitações de cobertura em 19/11/2026
 
+[DECISÃO] A 00C delimitou o alvo interno à revenda de canetas da memória, março/2027, faixa 4 do Anexo I e entrega local em Florianópolis. O ponto de referência tem ensaio aritmético e documental. O atendimento de outra mercadoria, faixa, mês ou território depende de qualificação específica. A lista de recortes públicos ainda está vazia. [Cobertura e triagem](PRODUCT_SPEC.md) · [Bloqueios por etapa](RISKS_AND_OPEN_QUESTIONS.md)
+
 ## NFS-e 820001 · exclusão expressa do MVP
 
 [EXECUTADO][CÓDIGO] No Simples 0.0.6, a alteração V0059 de 30/09/2026 muda **TRTR_IN_POSSUI_AJUSTE** de 1 para 0 no tratamento 32, habilitando a passagem do CST 820 pelo teste de ajuste no fluxo NFS-e. O UPDATE não contém predicado de data. A classe 820001 já tem início cadastrado em 01/01/2026, sem fim na linha consultada. A migração não cria uma nova data de incidência legal. Para 15/03/2027, documento 91, atividade 07, base R$ 1.000 e mesmo payload, V0058 devolve `NAO_IMPLEMENTADO`, VSN-027 e ausência de total. V0059 devolve `CALCULADO`, receita R$ 1.000, tpRBSN 9, IBS/CBS zero e total tributário zero. A suíte original de 155 testes tem duas falhas na V0059. Asserções de “não implementado” e de totalização mudam com a base. [Relatório e links para testes](OFFICIAL_ENGINES.md) · [Replay original](evidencias/00a/replay.json)

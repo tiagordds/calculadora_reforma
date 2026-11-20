@@ -1,5 +1,15 @@
 # Histórico de alterações
 
+## 19/11/2026 · Arquitetura web, experiência e planejamento 00C
+
+- Delimitado o primeiro MVP interno à revenda de referência. Pesquisa de cinco ofertas públicas orientou uma entrada por preço final, com refinamento e memória por competência.
+- Definidos monólito Django, contratos decimais, catálogo JSON versionado, hipóteses separadas, manifesto por execução, adaptadores privados e política para calcular e descartar os dados anônimos.
+- Desenhados wireframes para computador e celular, testes por fase vinculados aos 21 casos, critérios de publicação por recorte, metas de desempenho e alternativas de hospedagem.
+- Conferido ambiente Windows. Python 3.14.0 e JDK portátil disponíveis. O cliente Docker 28.5.1 e Compose responderam; a conexão ao daemon falhou. A fundação local independe dos motores.
+- Entregue plano executável da 01, pendente de autorização. Homologação de março/2027, qualificação de containers e restauração fora da estação permanecem pendentes.
+
+[Arquitetura](docs/ARCHITECTURE.md) · [Plano da 01](docs/PHASE_01_PLAN.md) · [Roadmap](docs/ROADMAP.md)
+
 ## 19/11/2026 · Matriz tributária e metodologia 00B
 
 - Delimitadas a apuração mensal do Simples tradicional e a opção semestral por IBS/CBS regulares. Mapeadas as responsabilidades, as fontes, os parâmetros de 2027, os eventos de crédito e os limites de comparação.

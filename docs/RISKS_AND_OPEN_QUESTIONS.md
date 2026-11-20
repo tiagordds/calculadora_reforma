@@ -50,3 +50,18 @@ A matriz, as regras próprias, o dimensionamento de produção e a validação f
 | R15 | Alteração legal entre consulta e fato gerador | [OFICIAL] S140, IS27, C27 | A | A | Alta | Qualquer caso atingido pela mudança | Rechecagem por vigência e replay fixado. Suspender só o recorte afetado | Ato em vigor, NT/tabela correspondente e confronto | Curadoria por liberação | Permanente |
 
 [Responsabilidades](TAX_RESPONSIBILITIES.md) · [Tratamento da divergência](KNOWN_LIMITATIONS.md) · [Casos e responsáveis](TEST_SCENARIOS.md)
+
+## Posição após o planejamento 00C · 19/11/2026
+
+| Risco vigente | Etapa ou funcionalidade bloqueada | O que pode continuar e como retirar o bloqueio |
+|---|---|---|
+| R01/R03/R15 · CBS regular, vigência e exclusões da base | Total híbrido com incidência confirmada no PA | Desenvolver cenário simbólico ou hipotético explícito. Conferir C27 e ato aplicável, ajuste em pontos percentuais e composição documental do preço antes de habilitar. Processo de [curadoria](DECISIONS.md) |
+| R02/R04/R05/R13 · PGDAS, créditos e opção | Atribuição de líquido/guia e elegibilidade à empresa; publicação como homologado | Testar aritmética e telas com referência sintética. Designar profissional, obter guia, documentos e conta assistida equivalentes de março/27 quando disponíveis. Conferir centavos, titular e data de cada crédito |
+| R06/R07/R08 · Classificação, IS, serviços e fronteiras | Somente casos excluídos e novos perfis | Manter exclusão no roteamento e na consolidação. Ensaiar faixa limite, Fator R e novos documentos com referências próprias. A caneta sem IS segue independente |
+| R09/R11 · Versões e perda do acervo local | Replay que exija bytes perdidos, promoção de combinação desconhecida e liberação operacional | Fixar hashes por pedido, testar atualização concorrente e rollback, revisar licenças e demonstrar restauração em outro host autorizado |
+| R10 · Gestor interpretar preço, guia, subtotal ou hipótese como fato | Aceite de experiência e eventual recomendação | Na 05 observar tarefas com as duas personas e preservar linguagem simples para taxas e estados desconhecidos. [Roteiro](WEB_EXPERIENCE.md) |
+| R12 · Daemon indisponível e recursos medidos um motor por vez | Ensaio Linux/Compose na 02 e aceite operacional até 05; impede dimensionamento de produção | Na 01 usar Python local. Para 02 nativa usar JDK portátil e par preservado. Alguém com ambiente Linux/daemon funcional precisa demonstrar rede, limites e restauração; medir ambos ativos e comparar a um só |
+| R14 · Retenção, dependências e licenças | Distribuição e abertura ao público | Ensaiar com dados sintéticos, revisar telemetria real das JVMs e borda, confirmar direito de armazenar/distribuir bases, runtime e tabelas e acesso à segunda cópia |
+| Política de cobertura estar estreita para demanda real | Decisão de expandir, não a primeira fundação | Apresentar objeto, território e mês antes de pedir dados. Medir se o profissional consegue identificar o que precisa de nova qualificação, sem registrar as finanças do visitante |
+
+**Início da 01.** A decisão pendente é a autorização do titular. O patch de Python e as dependências recomendadas precisam ser preparados na execução. Nenhuma escolha de provedor, contratação de revisor, mudança do Docker ou decisão fiscal adicional é necessária para começar a página local. [Ambiente observado](INFRASTRUCTURE.md) · [Plano da 01](PHASE_01_PLAN.md)

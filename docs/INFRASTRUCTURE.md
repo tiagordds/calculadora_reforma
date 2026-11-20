@@ -115,3 +115,54 @@ A cópia atual está em um único host. Uma regeneração por Flyway pode ter ha
 [EXECUTADO] Em três inicializações adicionais, abrimos os JARs preservados com diretórios de trabalho separados, copiando a base arquivada para `calculadora/db/calculadora-pro.db` e verificando o hash da cópia. Usamos loopback nas portas 18200 e 19200. Com V0059, quatro corpos HTTP de sucesso foram integralmente reproduzidos (dois de cada motor). Com o mesmo JAR do Simples e V0058, a revenda de R$ 950,00 permaneceu idêntica. A NFS-e 820001 voltou a `NAO_IMPLEMENTADO`, com `VSN-027` e sem total. Nas seis chamadas o HTTP foi 200. Isso verifica a recuperação local dos recortes e a dependência da base com uma diferença observável. [Seis retornos](evidencias/00a/replay.json) · [Script de restauração](../scratch/00a/replay.py)
 
 Para repetir com as cópias preservadas, executar na raiz `python scratch/00a/replay.py --java CAMINHO_ABSOLUTO_DO_JAVA`. O script lê as entradas arquivadas em `docs/evidencias/00a/` e grava o novo resultado em `scratch/results/replay.json`. Nesta execução foi usado `--output docs/evidencias/00a/replay.json` para conservar a captura.
+
+## Diagnóstico de desenvolvimento na 00C
+
+[EXECUTADO] 19/11/2026, PowerShell na raiz da cópia de trabalho Windows. Sondas de leitura; nenhum serviço foi iniciado. A existência do cliente Compose é verificável separadamente do daemon e de uma imagem executável.
+
+| Comando e entrada | Retorno observado |
+|---|---|
+| `python --version` e `py -0p` | Ambos 0. Python 3.14.0, instalação de usuário 64 bits da série 3.14 |
+| `python -m pip show Django pytest pytest-django` | 0 pelo pacote encontrado: pytest 9.0.2 global. Aviso de Django e pytest-django ausentes. A 01 criará ambiente próprio |
+| `git --version` | 0, 2.51.1.windows.1 |
+| `Get-Command python,py,java,docker -ErrorAction SilentlyContinue` | Python, launcher e Docker localizados; Java ausente no PATH (retorno 1) |
+| `& 'scratch/jdk/jdk-21.0.13+9/bin/java.exe' -version` | 0, Temurin 21.0.13+9 LTS preservado no laboratório |
+| `docker context show` e `docker compose version` | 0 em ambos, contexto `desktop-linux`, Compose `v2.40.2-desktop.1` |
+| `docker version` | 1. Cliente 28.5.1; pipe `dockerDesktopLinuxEngine` não encontrado. Sem seção Server. Docker/Compose em execução continuam pendentes |
+
+[DECISÃO] Na 01 usar ambiente Python local e servidor em `127.0.0.1:8000`. O [plano de execução](PHASE_01_PLAN.md) especifica dependências, variáveis de ambiente, arquivo de exemplo, comandos e testes nos dois SOs. Na 02 usar Java 21 local com o par preservado se o daemon ainda estiver indisponível. Para o ensaio Compose, montar base em leitura, temporário gravável, imagem de runtime fixada por digest e web em rede privada com o regular; mapear apenas a web em loopback. A gestão e a porta do cálculo permanecem internas. Confirmar o acesso por nome de serviço e a restauração da edição anterior. Ensaiar a primeira integração em containers na 02; se houver impedimento ambiental, registrar a integração nativa separadamente. Exigir o ensaio Linux/Compose para o aceite operacional da 05 e antes de qualquer publicação.
+
+### Metas a medir, a partir das observações da 00A
+
+[HIPÓTESE] As medianas aquecidas de 32,81/32,96 ms vieram de 10 POSTs de um item, Windows em loopback, um processo Java por vez. Somar os dois picos individuais (580,63 + 475,35 MiB) dá cerca de 1,03 GiB apenas como ordem de grandeza da memória residente; essa soma não mede as duas JVMs simultâneas. Acrescentar web, SO, proxy, cache de páginas do sistema, temporários, observabilidade e folga. Iniciar cada JVM por cálculo acrescentaria os 15–17 s de inicialização observados. Manter aquecido apenas o motor exigido pelo perfil habilitado.
+
+| Caminho ou recurso | Alvo de ensaio e método | Reação a falha |
+|---|---|---|
+| Página inicial | LCP p75 ≤ 2,5 s em navegador móvel simulado, cache frio, viewport e perfil de rede fixados no relatório | Medir peso do CSS/HTML e recursos bloqueantes |
+| Cálculo agregado rápido | p95 ≤ 0,5 s do POST à resposta HTML no servidor. Zero POSTs fiscais. Medir tradicional e híbrido condicional com saída parcial | Isolar resolução de catálogo e custo de construir a memória |
+| Cálculo com JVM pronta | p95 ≤ 2 s do POST web à resposta; prazo de parede de 5 s por pedido. Medir aquecido e primeiro canário separadamente | Informar indisponibilidade/saturação e preservar resultados independentes no prazo |
+| Memória e CPU | Para primeiro ensaio Linux: RSS alvo até 768 MiB por JVM e 256 MiB para web de um worker. Medir serviço isolado, depois ambos simultâneos e sob repetição; registrar pico do conjunto, CPU, OOM e reinícios | Se exceder, ajustar heap/concorrência e repetir antes de dimensionar |
+| Concorrência e volume | Um usuário, depois 4 usuários simultâneos; admissão inicial até 2 operações em voo por motor no total. No mínimo 100 requisições por perfil aquecido, registrar p50/p95, vazão, erros e amostra. 1 documento/cenário, até 2 cenários e 10 itens por entrada rápida; na 02 apenas um item | Recusar trabalho acima do orçamento antes do fan-out. Sem fila persistente. Saturação retorna resposta curta e recuperável |
+| Falhas | Ensaiar um timeout, hash incorreto, lote parcial, concorrência entre casos distintos e reinício com comparador remoto inacessível. Medir tempo até resposta e retorno à prontidão | Nenhum zero substituto, cruzamento de usuário ou total indevido. Contar falhas por estágio |
+
+Medir também um ciclo sustentado (proposta de 30 min) com cenários sintéticos alternados e períodos diferentes de aquecimento. Comparar corpos e estados a referências seriais antes de aceitar concorrência. Medições do navegador, servidor e motor usam relógios e amostras separados. Recalibrar metas na 05, registrando SO, CPU/memória, runtime, versões, dados, percentis e carga. [Limites do pedido](SECURITY.md)
+
+Cache de resultados fiscais só se a medição mostrar necessidade. Preferir reutilizar catálogo público imutável por revisão. Qualquer chave de cálculo precisaria distinguir entradas normalizadas, fato/competência, território, condições, cenário, regras, parâmetros, premissas e par JAR/base. Manter dados/resultados privados fora de cache compartilhado. A primeira versão não precisa de filas, cache fiscal ou processamento assíncrono.
+
+### Alternativas para a primeira hospedagem
+
+[DOCUMENTADO][DECISÃO] Comparação conceitual em 19/11/2026. Não há orçamento monetário nem dimensionamento contratado. Para cotar na 06, usar região e moeda explícitas, horas das JVMs prontas, CPU/RAM medidas conjuntamente, tráfego, armazenamento versionado, backups, retenção de métricas, impostos e trabalho de operação.
+
+| Modelo | Distribuição e disponibilidade | Operação, custo recorrente e recuperação |
+|---|---|---|
+| VPS Linux | Proxy TLS, web e containers privados em um host. Começar com um motor quando o recorte permitir. Falha do host afeta o conjunto | Custo de capacidade reservada mesmo em repouso. Equipe cuida de SO, certificados, alertas e recuperação. Restaurar manifesto e imagens em outra VM; snapshot sozinho não qualifica o replay. [Exemplo de snapshots de instância](https://docs.aws.amazon.com/lightsail/latest/userguide/understanding-instance-snapshots-in-amazon-lightsail.html) |
+| Plataforma gerenciada de containers | Web com HTTPS gerenciado e motores acessíveis só pela rede privada/identidade de serviço. Verificar suporte a processos aquecidos, tempo máximo e espaço temporário | Instância mínima reduz partida fria e gera custo quando ociosa. Fixar artefatos fora de disco efêmero, medir latência entre serviços e custo mínimo de ambos ativos. [Instâncias mínimas no Cloud Run](https://docs.cloud.google.com/run/docs/configuring/min-instances) |
+| Serviços gerenciados em cloud | Tarefas em sub-redes privadas, balanceador/TLS, repositório de artefatos e monitoramento. Banco gerenciado somente com escrita própria | Maior custo operacional inicial de configurar rede, identidade e políticas; pagar por tarefas, balanceador, logs, cópias e tráfego. Pode distribuir réplicas quando houver demanda. [Rede de tarefas no Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-task-networking.html) |
+
+Recomendação para a prova interna: um host Linux controlado com serviços privados. Para a primeira oferta online, escolher entre VPS e containers gerenciados **após** o ensaio de carga/recuperação e a análise de quem consegue operar atualizações e incidentes. Monitorar disponibilidade da web, prontidão por motor, taxa de falhas, latência e memória, sem registrar a simulação. Definir objetivo de recuperação com o titular antes de contratar e medir uma restauração completa.
+
+### Preservação fora da estação e restauração futura
+
+A cópia da 00A em um host já permitiu replays locais. Para uso durável, inventariar bytes dos JARs, bases, fontes fixadas, SQL, tabelas/leiautes, runtime, regras próprias, premissas e manifesto com hash e licença/avisos por componente. Conferir separadamente os termos das nomenclaturas/dados e dos binários de terceiros. Se a redistribuição for vedada, documentar aquisição permitida e limites de recuperação. Em etapa autorizada, manter segunda cópia privada, versionada, com acesso mínimo, integridade conferida e política de preservação das revisões referenciadas. Sem dados de simulações anônimas nesses backups.
+
+Para aceitar a recuperação, usar host limpo: obter manifesto e artefatos pelos IDs, conferir SHA-256 antes de iniciar, restaurar diretório/temporário, subir em rede isolada, conferir versão local e canário, repetir C03 e um caso de divergência em ambiente de teste, confrontar corpo/estados e registrar tempo e diferenças. Preservar bytes originais pois recompilar ou remigrar pode mudar metadados e hash. Em falha listar o artefato ausente e restringir o replay. Nenhum binário ou base foi transferido pela 00C. [Política de versões](API_INTEGRATION.md)
