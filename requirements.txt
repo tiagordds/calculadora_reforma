@@ -2,3 +2,8 @@ Django==5.2.19
 asgiref==3.13.0
 sqlparse==0.6.1
 tzdata==2026.6 ; sys_platform == "win32"
+requests==2.34.2
+certifi==2026.10.23
+charset-normalizer==3.5.2
+idna==3.20
+urllib3==2.8.0

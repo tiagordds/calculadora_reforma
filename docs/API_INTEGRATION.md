@@ -1,5 +1,7 @@
 # Integração HTTP com os motores oficiais
 
+[EXECUTADO] Em 20/11/2026 o adaptador regular foi exercitado no Windows e em Compose. Consulta versão local antes do POST e confere os cabeçalhos depois dele. O lançador condiciona o acesso ao canário exato após cada partida e ao certificado da instância. O transporte da 02 usa HTTPS com autenticação mútua nos destinos internos fixos `127.0.0.1:18080` ou `regular:8080`. Os exemplos HTTP abaixo documentam a investigação anterior. [Entrada e retorno C03](evidencias/02/c03.json) · [Variação NF-e 55](evidencias/02/c03-tpdoc55.json) · [Lote parcial](evidencias/02/c15.json)
+
 **Rascunho técnico de 19/11/2026.** Contratos das revisões regular 1.6.1 e Simples 0.0.6. As capturas HTTP abaixo usaram V0059. Os endereços são internos. Os caminhos nas tabelas são relativos a `/api`. As portas padrão do perfil offline são 8080 e 8082. O ensaio usou 18080 e 18082 em loopback. [Captura regular](evidencias/00a/regular.json) · [Captura Simples](evidencias/00a/simples.json)
 
 ## Regime regular

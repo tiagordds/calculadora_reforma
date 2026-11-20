@@ -1,0 +1,57 @@
+name: calculadora-fase02
+x-jar: &jar
+  type: bind
+  source: ./scratch/regular/target/api-regime-geral.jar
+  target: /app/scratch/regular/target/api-regime-geral.jar
+  read_only: true
+  bind:
+    create_host_path: false
+x-db: &db
+  type: bind
+  source: ./scratch/regular/calculadora/db/calculadora-pro.db
+  target: /app/scratch/regular/calculadora/db/calculadora-pro.db
+  read_only: true
+  bind:
+    create_host_path: false
+services:
+  regular:
+    build:
+      context: .
+      target: regular
+    environment:
+      REGULAR_ENGINE_URL: https://regular:8080
+    networks: [fiscal]
+    volumes:
+      - *jar
+      - *db
+      - identity:/app/scratch/phase02
+    init: true
+    healthcheck:
+      test: ["CMD", "python", "-c", "from adapters.regular import call; call(None)"]
+      interval: 10s
+      timeout: 6s
+      start_period: 60s
+      retries: 3
+  web:
+    build:
+      context: .
+      target: web
+    environment:
+      REGULAR_ENGINE_URL: https://regular:8080
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Defina DJANGO_SECRET_KEY no ambiente}
+    ports:
+      - "127.0.0.1:8003:8000"
+    networks: [fiscal, local]
+    volumes:
+      - *jar
+      - *db
+      - identity:/app/scratch/phase02:ro
+    depends_on:
+      regular:
+        condition: service_healthy
+networks:
+  fiscal:
+    internal: true
+  local: {}
+volumes:
+  identity: {}

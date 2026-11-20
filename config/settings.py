@@ -23,6 +23,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 INSTALLED_APPS = ["web", "django.contrib.staticfiles"]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "web.middleware.private_operation",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -35,3 +36,16 @@ LANGUAGE_CODE = "pt-br"
 TIME_ZONE = "America/Sao_Paulo"
 USE_TZ = True
 STATIC_URL = "/static/"
+CSRF_COOKIE_AGE = None
+DATA_UPLOAD_MAX_MEMORY_SIZE = 65536
+CSRF_FAILURE_VIEW = "web.views.csrf_failure"
+# Local access logs can include an arbitrary query string on rejected requests.
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"discard": {"class": "logging.NullHandler"}},
+    "loggers": {
+        name: {"handlers": ["discard"], "propagate": False}
+        for name in ("django.server", "django.request", "django.security")
+    },
+}

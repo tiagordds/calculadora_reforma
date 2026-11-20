@@ -1,5 +1,7 @@
 # Arquitetura da primeira versão web
 
+[CÓDIGO] Na 02, `web.forms` valida a confirmação, `simulation.service` fixa o exemplo e coordena a chamada, `adapters.regular` controla admissão e prazo, `adapters.transport` usa Requests e `adapters.result` reconcilia itens e totais em Decimal. A JVM permanece ativa entre pedidos. A fronteira de transporte usa um processo Python descartável para permitir cancelamento de leitura bloqueada nos dois sistemas. [Ensaio e limites](PHASE_02.md)
+
 [DECISÃO] Em 19/11/2026, a 00C adota um monólito modular Python/Django. Uma requisição chega ao formulário Django e retorna HTML já calculado. O núcleo Python recebe dados explícitos e pode ser exercitado offline. Só o cálculo por operação cruza a fronteira HTTP para um motor oficial. Na 01 basta a página inicial. [Recorte de produto](PRODUCT_SPEC.md) · [Plano da fundação](PHASE_01_PLAN.md)
 
 ```mermaid

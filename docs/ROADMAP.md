@@ -1,6 +1,6 @@
 # Roadmap
 
-**Posição em 20/11/2026.** A Fase 01 entregou a página Django local e reproduziu a instalação no Windows. A compatibilidade em Linux está documentada e aguarda execução nativa. A fundação está pronta para receber a primeira operação após autorização específica da 02. [Testes e evidências da 01](PHASE_01_PLAN.md#encerramento--20112026)
+**Posição em 20/11/2026.** A primeira operação real reproduziu o C03 no Windows e em containers Linux. O navegador distingue a hipótese de CBS, os valores simulados e a indisponibilidade. A Fase 03 tem pré-requisito técnico atendido e depende de autorização própria. [Fundação](PHASE_01_PLAN.md) · [Aceite, evidências e pendências da 02](PHASE_02.md)
 
 ## Abertura da Fase 00C · 19/11/2026
 
@@ -14,7 +14,7 @@ Plano: delimitar cobertura e pesquisar interfaces e versões, desenhar jornada e
 | 00B · Matriz, metodologia e riscos | Atribuir responsabilidades, reconciliar operação e empresa, delimitar créditos, fontes, comparação e riscos. | Concluída no escopo metodológico |
 | 00C · Arquitetura, produto e planejamento | Delimitar recorte, pesquisar ofertas, desenhar jornada e arquitetura mínima, vincular os casos de teste e preparar a 01. Validação com usuários prevista na 05. | Concluída no escopo de planejamento |
 | 01 · Fundação web | Django mínimo, página inicial funcional no navegador, ambiente reproduzível, testes e documentação. | Concluída para desenvolvimento local no Windows. Reprodução em Linux pendente |
-| 02 · Primeira operação | Formulário, validação, adaptador interno, cálculo oficial, erros e resultado rastreável de um caso suportado. | Planejada. Aguarda autorização própria |
+| 02 · Primeira operação | Formulário, validação, adaptador interno, cálculo oficial, erros e resultado rastreável de um caso suportado. | Concluída no recorte técnico C03, Windows e Compose Linux. Validação fiscal pendente |
 | 03 · Simples rápido | Estimativa mensal e anual para perfis definidos, sem cadastro, com premissas, RBT12, anexos e memória. | Planejada |
 | 04 · Tradicional e híbrido | Comparar opção de IBS/CBS regular com recolhimento tradicional em bases consistentes, incluindo demais parcelas, créditos e elegibilidade. | Planejada |
 | 05 · Consolidação do MVP | Refinar cenário sem recadastro, demonstrar sensibilidade, validar cálculos e avaliar interface, segurança e desempenho. | Planejada |

@@ -1,5 +1,7 @@
 # Execução interna e caderno de experimentos
 
+[EXECUTADO] Em 20/11/2026, Windows nativo e Docker Linux/amd64 executaram a 02. O daemon inicialmente parado iniciou com `docker desktop start --timeout 45`. No Compose, apenas Django publica porta de loopback. O JAR e a SQLite são montagens somente leitura e o serviço regular participa somente da rede interna. A JVM nativa também usa SQLite em `mode=ro`. [Digests, comandos e medições](PHASE_02.md)
+
 **20/11/2026 · Fase 01.** [EXECUTADO] A aplicação Django iniciou em loopback no Windows com CPython 3.14.10 extraído no laboratório e venv próprio. A reprodução usou outro checkout e outro venv. O Chrome da estação foi acionado por uma ferramenta isolada em `scratch/phase01/browser`. Os comandos de uso estão no [README](../README.md#executar-localmente) e os resultados por ambiente no [registro de aceite](PHASE_01_PLAN.md#encerramento--20112026).
 
 **19/11/2026 · Fase 00A.** Os dois motores foram compilados, testados e executados separadamente no Windows. Cada JAR precisa de Java 21, caminho de trabalho previsível e base SQLite compatível. O Simples depende dos dados publicados com o regular. Uma instância do serviço regular em execução não foi necessária para o Simples responder. [Regular](evidencias/00a/regular.json) · [Simples](evidencias/00a/simples.json)

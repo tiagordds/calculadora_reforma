@@ -1,5 +1,7 @@
 # Experiência da calculadora rápida
 
+[EXECUTADO] A página inicial agora abre a revenda C03. O formulário identifica a base e o preço final desconhecido e exige confirmação da CBS. O POST posiciona o foco no título do resultado. No Chrome, Tab e Enter abriram a memória e o replay com JavaScript desligado nas duas larguras. [Sucesso em desktop](evidencias/02/sucesso-1366.png) · [Falha em 320 px](evidencias/02/indisponivel-320.png)
+
 [DECISÃO] O gestor começa com o preço da venda e chega à primeira estimativa sem cadastro. O contador pode abrir a memória, conferir a janela de receitas e substituir uma premissa sem redigitar o cenário. O percurso principal cabe em uma página de formulário e resultado. Um POST devolve a página com os dados informados, os resultados e as próximas perguntas, inclusive com JavaScript desativado. Na 01, só a apresentação inicial estará disponível. [Cobertura do produto](PRODUCT_SPEC.md)
 
 ## Da primeira visita à primeira estimativa

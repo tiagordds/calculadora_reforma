@@ -1,5 +1,7 @@
 # Decisões
 
+[DECISÃO] Em 20/11/2026, habilitar C03 somente para ensaio técnico com confirmação da hipótese de CBS. Usar a entrada original sem `tpDoc` no formulário e ensaiar o inteiro 55 separadamente. Fixar o par por hash e exigir mTLS, versão offline e canário por instância. Usar uma JVM reutilizável e dois trabalhos simultâneos no único processo web. O titular reservou a Fase 03 para autorização independente. [Execução e fundamentos](PHASE_02.md)
+
 ## 19/11/2026 · Inicialização e Fase 00A
 
 | Decisão | Razão e consequência | Reavaliar quando |

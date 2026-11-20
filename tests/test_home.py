@@ -32,7 +32,7 @@ def test_home(client):
         "Março de 2027",
         "Simples Nacional tradicional",
         "Apuração regular de IBS e CBS",
-        "Os cálculos estarão disponíveis em etapas posteriores.",
+        'href="/operacao/caneta/">Calcular a revenda de uma caneta',
     ):
         assert fragment in html
 

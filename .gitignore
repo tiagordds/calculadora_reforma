@@ -6,6 +6,9 @@
 !/scratch/00b/
 /scratch/00b/*
 !/scratch/00b/reference.py
+!/scratch/02/
+/scratch/02/*
+!/scratch/02/measure.py
 
 .venv/
 venv/

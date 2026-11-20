@@ -1,0 +1,87 @@
+{% load static %}<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Revenda de uma caneta · Simulação tributária</title>
+    <link rel="stylesheet" href="{% static 'web/site.css' %}">
+</head>
+<body>
+<header class="masthead">
+    <div class="container masthead-inner"><span class="mark" aria-hidden="true"></span>
+        <a href="{% url 'home' %}">Planejamento tributário</a>
+    </div>
+</header>
+<main class="container operation">
+    <h1>Revenda de uma caneta</h1>
+    <p class="lead">Exemplo de uma operação em Florianópolis, SC, em 15 de março de 2027.</p>
+    {% if outcome %}
+    <section class="result" aria-labelledby="result-heading">
+        <h2 id="result-heading" tabindex="-1" autofocus>{% if outcome.result.totals %}Tributos simulados{% else %}Operação sem cálculo{% endif %}</h2>
+        {% if outcome.error %}<p>{{ outcome.error }}</p>{% endif %}
+        {% if outcome.result.totals %}
+        <div class="summary">
+            <div><span>{% if outcome.completeness == "Parcial" %}Subtotal de IBS e CBS dos itens calculados{% else %}Soma de IBS e CBS nesta operação{% endif %}</span><strong>R$ {{ outcome.result.totals.combined|floatformat:"2" }}</strong></div>
+            <p>Este valor inclui a hipótese de CBS de 10%. A validação fiscal está pendente.</p>
+        </div>
+        <dl class="amounts">
+            <div><dt>CBS hipotética</dt><dd>R$ {{ outcome.result.totals.cbs|floatformat:"2" }}</dd></div>
+            <div><dt>IBS estadual</dt><dd>R$ {{ outcome.result.totals.state_ibs|floatformat:"2" }}</dd></div>
+            <div><dt>IBS municipal</dt><dd>R$ {{ outcome.result.totals.city_ibs|floatformat:"2" }}</dd></div>
+            <div><dt>Total de IBS</dt><dd>R$ {{ outcome.result.totals.ibs|floatformat:"2" }}</dd></div>
+        </dl>
+        {% endif %}
+        {% for item in outcome.result.items %}{% for error in item.errors %}
+            <p>O motor rejeitou o item {{ item.number }} ({{ error.code }}). Campo indicado no retorno: {{ error.pointer }}.</p>
+        {% endfor %}{% endfor %}
+        <details>
+            <summary>Memória de cálculo e estados</summary>
+            <dl class="facts">
+                <div><dt>Estado técnico</dt><dd>{{ outcome.technical }}</dd></div>
+                <div><dt>Completude</dt><dd>{{ outcome.completeness }}</dd></div>
+                <div><dt>Natureza</dt><dd>{{ outcome.nature }}</dd></div>
+                <div><dt>Validação</dt><dd>{{ outcome.validation }}</dd></div>
+                <div><dt>Elegibilidade</dt><dd>{{ outcome.eligibility }}</dd></div>
+            </dl>
+            {% for item in outcome.result.items %}
+                <p>Motor regular {{ outcome.replay.version.versaoApp }} · SQLite {{ outcome.replay.version.versaoDb }} · Item {{ item.number }} · {{ item.state }}</p>
+                {% for label, memory in item.memory %}<h3>{{ label }}</h3><p>{{ memory }}</p>{% endfor %}
+            {% endfor %}
+            {% if outcome.trace %}<details><summary>Entrada, resposta e revisões para reprodução</summary><pre>{{ outcome.trace }}</pre></details>{% endif %}
+        </details>
+    </section>
+    {% endif %}
+    <section class="operation-data" aria-labelledby="operation-heading">
+        <div>
+            <h2 id="operation-heading">Dados da operação</h2>
+            <p>Uma caneta esferográfica comum revendida dentro do município. O exemplo considera somente IBS e CBS deste item.</p>
+            <dl class="facts">
+                <div><dt>Competência</dt><dd>Março de 2027</dd></div>
+                <div><dt>Quantidade</dt><dd>1 unidade (UN)</dd></div>
+                <div><dt>Base de cálculo</dt><dd>R$ 100,00</dd></div>
+                <div><dt>Preço final ao cliente</dt><dd>Não informado</dd></div>
+            </dl>
+            <details><summary>Classificação e município</summary>
+                <p>NCM 96081000 · CST 000 · cClassTrib 000001 · IBGE 4205407 (SC).</p>
+                <p>A entrada reproduz a referência da 00B, com o modelo de documento omitido.</p>
+            </details>
+        </div>
+        <form method="post" action="{% url 'pen' %}" class="confirm">
+            {% csrf_token %}
+            <h2>Alíquotas do exemplo</h2>
+            <p>O IBS de transição usa 0,05% estadual e 0,05% municipal. A CBS de 10% é uma hipótese escolhida para simular esta venda.</p>
+            {{ form.non_field_errors }}
+            <label for="confirm_cbs">
+                <input type="checkbox" name="confirm_cbs" value="yes" id="confirm_cbs" required
+                    {% if form.confirm_cbs.value == "yes" %}checked{% endif %}
+                    {% if form.confirm_cbs.errors %}aria-invalid="true" aria-describedby="confirm-errors"{% endif %}>
+                Confirmo o uso de CBS hipotética de 10% neste exemplo.
+            </label>
+            {% if form.confirm_cbs.errors %}<div id="confirm-errors">{{ form.confirm_cbs.errors }}</div>{% endif %}
+            <button class="action" type="submit">Calcular a operação</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

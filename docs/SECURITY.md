@@ -1,5 +1,7 @@
 # Segurança e privacidade proporcionais ao MVP
 
+[CÓDIGO][EXECUTADO] A operação da 02 usa POST com CSRF de sessão, allowlist estrita, corpo de até 64 KiB, HTML com autoescape, `private, no-store`, `noindex` e referrer restrito à mesma origem. Os logs de acesso/requisição do ambiente local são suprimidos. A JVM exige certificado cliente, desativa gestão e tracing e só recebe o exemplo do servidor. Chaves efêmeras ficam fora do repositório. Acesso administrativo ou acesso aos arquivos da conta local permanece uma fronteira de confiança. [Limites de tempo, tamanho e concorrência](PHASE_02.md)
+
 [DECISÃO] Finalidade do fluxo anônimo: calcular e explicar a simulação solicitada enquanto o usuário trabalha na aba. Fronteiras de confiança: navegador → Django, Django → motores internos e curadoria → artefatos qualificados. Só o backend decide se um dado pode entrar no cálculo. Endereços de motores e edição ativa pertencem à configuração da instalação. [Modelo de dados](DATA_MODEL.md)
 
 ## Dados, acesso e descarte

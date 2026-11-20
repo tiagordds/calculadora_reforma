@@ -1,5 +1,11 @@
 # Histórico de alterações
 
+## 20/11/2026 · Operação real da Fase 02
+
+- [CÓDIGO] A página inicial dá acesso ao exemplo C03. O formulário exige confirmação da CBS hipotética e apresenta os valores, as cinco dimensões de estado e a memória da revenda.
+- [EXECUTADO] O regular 1.6.1/V0059 reproduziu o corpo da 00B no Windows e em containers Linux. As provas incluem NF-e 55 separada, lote parcial, exclusão offline de 820001, falhas de contrato, indisponibilidade e recuperação no navegador.
+- [DECISÃO] Ensaio interno local, com mTLS entre backend e JVM. Revisão fiscal e autorização de fases seguintes permanecem pendentes. [Execução e comandos](docs/PHASE_02.md)
+
 ## 20/11/2026 · Fundação web local da Fase 01
 
 - [CÓDIGO] Entregue a rota inicial Django com a apresentação do perfil de revenda, a comparação futura e navegação por âncora. A página usa um template e uma folha CSS local.
