@@ -1,0 +1,237 @@
+{
+  "software": "simples-tradicional-03.1",
+  "software_sha256": "44e3b019e3d2748ce2dfd17e940389b36f9f4137ec35d2dd51ef632580ebc1c6",
+  "rules": "SN-I-03.1",
+  "processed_at": "2026-11-20T16:57:49.863747+00:00",
+  "engines": [],
+  "engine_note": "Motores oficiais não utilizados nesta apuração.",
+  "catalog_revision": "sn-03-02",
+  "catalog_sha256": "f96807afcc2d8899b74a13d62be7f52438672b1e0836ed9985cd452f9bb6f6d8",
+  "assumptions_sha256": "efc644189b0120422b38192c75adf023317a8ff234a7d890de8dd2f643c76c62",
+  "inputs": {
+    "edition": "sn-03-02",
+    "period": "2027-03-01",
+    "opening": "2023-01-01",
+    "activity": "retail",
+    "place": "local",
+    "profile": "ordinary",
+    "standing": "unknown",
+    "unit": "monthly",
+    "income": "100000.00",
+    "accept_history": true,
+    "revenue": "100000",
+    "accept_period": false,
+    "prior_year": null,
+    "year_to_date": null,
+    "mode": "estimated",
+    "history": {
+      "2026-02": null,
+      "2026-03": null,
+      "2026-04": null,
+      "2026-05": null,
+      "2026-06": null,
+      "2026-07": null,
+      "2026-08": null,
+      "2026-09": null,
+      "2026-10": null,
+      "2026-11": null,
+      "2026-12": null,
+      "2027-01": null
+    }
+  },
+  "input_origins": {
+    "period": "informado",
+    "opening": "informado",
+    "activity": "informado",
+    "place": "informado",
+    "profile": "informado",
+    "standing": "informado",
+    "unit": "informado",
+    "income": "informado",
+    "accept_history": "informado",
+    "revenue": "informado",
+    "accept_period": "informado",
+    "prior_year": "não disponível",
+    "year_to_date": "não disponível",
+    "mode": "informado"
+  },
+  "edition_origin": "Revisão fixada pelo servidor.",
+  "window": [
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10",
+    "2026-11",
+    "2026-12",
+    "2027-01"
+  ],
+  "reasons": [],
+  "conditions": [
+    "Confirmar opção tradicional, receita global, quadro societário, limites e ausência de impedimentos no período.",
+    "Receita acumulada de 2026 não informada. Confirme limites e excessos.",
+    "Receita acumulada de 2027 não informada. Confirme limites e excessos."
+  ],
+  "guide": null,
+  "net_payable": null,
+  "states": {
+    "technical": "Sucesso",
+    "completeness": "Completo para o DAS bruto do perfil",
+    "nature": "Estimativa",
+    "validation": "Pendente de validação fiscal",
+    "eligibility": "Elegibilidade não confirmada"
+  },
+  "sources": {
+    "prior_sublimit": {
+      "device": "Portaria CGSN 54/2025, art. 1º, sublimite de ICMS e ISS em 2026",
+      "url": "https://www8.receita.fazenda.gov.br/simplesnacional/Noticias/NoticiaCompleta.aspx?id=94c10cc2-7eb5-4ef0-bfb2-5479e72caff8"
+    },
+    "table": {
+      "device": "LC 214/2025, Anexo XVIII, Anexo I, tabela de 2027–28",
+      "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-anexo-pl.pdf"
+    },
+    "limits": {
+      "device": "LC 123/2006, arts. 3º, 13-A, 18 e 20",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm"
+    },
+    "regulation": {
+      "device": "Res. CGSN 140/2018, arts. 2º, 9º, 12, 16, 21–22, 24 e 45-A/B, redação da Res. 190/2026",
+      "url": "https://normasinternet2.receita.fazenda.gov.br/#/consulta/externa/152832"
+    }
+  },
+  "validity": [
+    "2027-01-01",
+    "2028-12-31"
+  ],
+  "assumptions_revision": "premissas-03.1",
+  "scope": {
+    "id": "sn-traditional-retail",
+    "regime": "Simples Nacional tradicional",
+    "activity": "revenda interna convencional",
+    "annex": "I",
+    "territory": "BR-SC-4205407",
+    "origin": "oficial"
+  },
+  "screening_parameters": {
+    "annual_limit": "4800000.00",
+    "annual_sublimit": "3600000.00",
+    "excess_margin": "20",
+    "prior_year_limits": {
+      "year": 2026,
+      "territory": "BR-SC",
+      "annual_limit": "4800000.00",
+      "annual_sublimit": "3600000.00",
+      "excess_margin": "20"
+    }
+  },
+  "history": {
+    "series": {
+      "2026-02": "100000.00",
+      "2026-03": "100000.00",
+      "2026-04": "100000.00",
+      "2026-05": "100000.00",
+      "2026-06": "100000.00",
+      "2026-07": "100000.00",
+      "2026-08": "100000.00",
+      "2026-09": "100000.00",
+      "2026-10": "100000.00",
+      "2026-11": "100000.00",
+      "2026-12": "100000.00",
+      "2027-01": "100000.00"
+    },
+    "origin": "estimado",
+    "total": "1200000.00",
+    "revenue": "100000",
+    "revenue_origin": "informado",
+    "average": "100000.00",
+    "accepted": [
+      "constant_history"
+    ]
+  },
+  "assumptions": [
+    "Média mensal repetida nos 12 meses da janela legal. Um total anual é distribuído em centavos, com os centavos restantes nos primeiros meses."
+  ],
+  "excesses": [],
+  "band": {
+    "number": 4,
+    "above": "720000.00",
+    "through": "1800000.00",
+    "nominal": "10.70",
+    "deduction": "22500.00",
+    "shares": {
+      "IRPJ": "5.50",
+      "CSLL": "3.50",
+      "CPP": "42.00",
+      "ICMS": "33.50",
+      "CBS": "15.33",
+      "IBS": "0.17"
+    }
+  },
+  "amounts": {
+    "numerator": "105900.0000",
+    "effective_percent": "8.82500",
+    "gross": "8825.00",
+    "monthly": "8825.00",
+    "rows": [
+      {
+        "tax": "IRPJ",
+        "share": "5.50",
+        "effective_percent": "0.485375",
+        "exact": "485.3750",
+        "displayed": "485.38"
+      },
+      {
+        "tax": "CSLL",
+        "share": "3.50",
+        "effective_percent": "0.308875",
+        "exact": "308.8750",
+        "displayed": "308.88"
+      },
+      {
+        "tax": "CPP",
+        "share": "42.00",
+        "effective_percent": "3.7065",
+        "exact": "3706.5000",
+        "displayed": "3706.50"
+      },
+      {
+        "tax": "ICMS",
+        "share": "33.50",
+        "effective_percent": "2.956375",
+        "exact": "2956.3750",
+        "displayed": "2956.38"
+      },
+      {
+        "tax": "CBS",
+        "share": "15.33",
+        "effective_percent": "1.3528725",
+        "exact": "1352.8725",
+        "displayed": "1352.87"
+      },
+      {
+        "tax": "IBS",
+        "share": "0.17",
+        "effective_percent": "0.0150025",
+        "exact": "15.0025",
+        "displayed": "15.00"
+      }
+    ],
+    "sum_displayed": "8825.01",
+    "residue": "0.01",
+    "annual": "105900.00"
+  },
+  "projection": "Doze repetições do DAS mensal estimado, condicionadas à manutenção de receita, histórico, faixa, atividade, repartição e demais condições.",
+  "formulas": [
+    "RBT12 = soma das doze receitas da janela.",
+    "Efetiva (%) = (RBT12 × nominal / 100 − dedução) × 100 / RBT12.",
+    "DAS bruto = receita fiscal da competência × efetiva / 100.",
+    "Parcela analítica = DAS antes de arredondar × repartição / 100.",
+    "Resíduo = soma das parcelas exibidas − DAS global exibido.",
+    "Projeção condicional = 12 × DAS mensal exibido."
+  ],
+  "rounding": "Decimal, 34 dígitos. Art. 45-A: primeiro dígito descartado ≥ 5 sobe um centavo; mínimo de R$ 0,01 para valor positivo. Aplicado na exibição do global e das parcelas; distribuição operacional depende do PGDAS."
+}

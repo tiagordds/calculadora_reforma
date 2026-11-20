@@ -6,13 +6,15 @@ from django.utils.cache import add_never_cache_headers
 from adapters.regular import BUDGET
 
 OPERATION_PATH = "/operacao/caneta/"
+TRADITIONAL_PATH = "/simples/tradicional/"
 
 
 def private_operation(get_response):
     def middleware(request):
-        if request.path != OPERATION_PATH:
+        if request.path not in (OPERATION_PATH, TRADITIONAL_PATH):
             return get_response(request)
-        request.calculation_deadline = monotonic() + BUDGET - 0.15
+        if request.path == OPERATION_PATH:
+            request.calculation_deadline = monotonic() + BUDGET - 0.15
         length = request.META.get("CONTENT_LENGTH") or "0"
         if not length.isascii() or not length.isdecimal() or len(length) > 18:
             response = HttpResponse("Tamanho de formulário inválido.", status=400)

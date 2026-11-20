@@ -6,6 +6,13 @@
 !config/**/*.py
 !simulation/
 !simulation/**/*.py
+!tax/
+!tax/*.py
+!parameters/
+!parameters/*.py
+!parameters/*.json
+!parameters/data/
+!parameters/data/*.json
 !adapters/
 !adapters/**/*.py
 !tests/

@@ -87,6 +87,33 @@ summary { cursor: pointer; color: var(--green); font-weight: 650; padding-block:
 .result pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 .errorlist { color: #85271b; padding-left: 1.2rem; }
 
+.traditional { max-width: 54rem; }
+.scenario fieldset { min-width: 0; border: 0; border-top: 1px solid var(--line); margin: 0 0 1.75rem; padding: 1rem 0 0; }
+.scenario legend { padding-right: 1rem; font: 1.65rem var(--serif); }
+.field-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: .15rem 1.3rem; }
+.field { min-width: 0; margin-block: .65rem; }
+.field label { display: block; margin-bottom: .25rem; font-weight: 600; }
+.field input, .field select { width: 100%; min-width: 0; font: inherit; color: var(--ink); padding: .65rem; background: white; border: 1px solid #7c9085; border-radius: .3rem; }
+.tick { display: flex; align-items: baseline; gap: .6rem; margin-block: .8rem; }
+.scenario details { padding: 1rem; background: #ebefe5; margin-top: 1.25rem; }
+.traditional table { border-collapse: collapse; width: 100%; margin-block: .8rem; font-variant-numeric: tabular-nums; }
+.traditional th, .traditional td { text-align: right; border-bottom: 1px solid var(--line); padding: .45rem .25rem; }
+.traditional th:first-child { text-align: left; }
+.traditional .result > p { margin-top: .65rem; }
+.traditional a { color: var(--green); }
+.traditional pre { max-height: 28rem; overflow: auto; }
+.column-label { display: none; }
+@media (max-width: 30rem) {
+    .traditional table { font-size: .94rem; }
+    .traditional thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    .traditional tbody, .traditional tr { display: block; }
+    .traditional tbody tr { padding: .6rem 0; border-bottom: 1px solid var(--line); }
+    .traditional th, .traditional td { border: 0; padding: .1rem 0; }
+    .traditional tbody th { display: block; text-align: left; }
+    .traditional td { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem; }
+    .column-label { display: inline; color: var(--body); }
+}
+
 @media (max-width: 47rem) {
     .intro, .options, .operation-data { grid-template-columns: 1fr; }
     .container { width: min(35rem, calc(100% - 2.5rem)); }

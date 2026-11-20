@@ -1,5 +1,7 @@
 # Dados de uma simulação e registro para reprodução
 
+[CÓDIGO][EXECUTADO] O registro empresarial da 03 inclui campos normalizados, origem, meses, hipóteses aceitas, parâmetros resolvidos, rubricas analíticas e exibidas, estados, horário UTC e identificadores de software. O comando `manage.py replay_traditional` usa esse registro para recompor o formulário e comparar o conteúdo, exceto o horário da nova execução. [JSON sintético capturado no navegador](evidencias/03/c01.json) · [Procedimento](PHASE_03.md)
+
 [CÓDIGO] O C03 guarda em memória do pedido a entrada técnica, a aceitação da hipótese, a fonte da base e das taxas, a data de processamento, os hashes, versões, resposta, memórias e arredondamento. `None` representa ausência de resultado e `Decimal('0.00')` representa zero conhecido. O detalhe expandível permite copiar o replay do cálculo bem-sucedido. As capturas de teste com dados sintéticos têm retenção separada. [Resultado real](evidencias/02/c03.json)
 
 [DECISÃO] Contratos internos propostos em 19/11/2026. A unidade que o gestor compara é uma empresa em uma competência sob um cenário definido. O item e o documento conservam bases, estados e arredondamentos próprios. Estas estruturas orientam chamadas entre módulos e testes, sem criar uma API pública ou determinar tabelas de banco. [Matriz de responsabilidades](TAX_RESPONSIBILITIES.md)

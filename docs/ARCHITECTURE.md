@@ -129,3 +129,7 @@ A 02 acrescenta formulário, serviço e adaptador regular. A 03 acrescenta o cat
 | 8. Comparar, apresentar e refinar | Planejador exige bases e escopos equivalentes. Web exibe mês, premissas, faltantes e memória. Usuário troca uma entrada e submete novo POST | Nova simulação recalculada. Para comparar a mudança de entrada, manter a edição anterior se ainda autorizada, senão explicar mudança e iniciar revisão separada |
 
 No ano, o planejador avança mês a mês, transporta saldos e insere a receita fiscal de cada trajetória na janela correta. Mudança em março pode afetar o RBT12 a partir de maio. Confere o semestre de opção, faixa, atos e cobertura em cada mês. Um mês fora do catálogo deixa a projeção integral pendente. A exceção didática de R$ 105.900,00 anuais é a extrapolação do tradicional com os 12 meses, histórico anterior, receita e tratamento constantes descritos na 00B. A tela nomeia essas condições. [Memória e fórmulas](CALCULATION_REFERENCE.md) · [Regras](TAX_RULES.md) · [Contrato de resultados](DATA_MODEL.md)
+
+## Implementação da apuração tradicional
+
+[CÓDIGO] Na Fase 03, a rota `/simples/tradicional/` recebe um formulário privado. O serviço `simulation.traditional` verifica o perfil, coordena premissas e triagem e entrega a memória ao template. O catálogo em `parameters/` resolve a edição local e `tax/traditional.py` executa as operações decimais sem I/O. A projeção simples repete o valor mensal. [Fluxo, catálogo e replay](PHASE_03.md)

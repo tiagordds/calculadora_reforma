@@ -1,5 +1,7 @@
 # Catálogo versionado de parâmetros tributários
 
+[CÓDIGO] A edição `sn-03-02` cobre a seleção das faixas vizinhas para triagem e a apuração da quarta faixa do Anexo I. A edição `sn-03-01` conserva a quarta faixa para replay. O código fixa os hashes dos arquivos e das premissas. [Dados oficiais](../parameters/data/sn-03-02.json) · [Hipóteses](../parameters/assumptions.json) · [Seleção e reprodução](PHASE_03.md)
+
 [DECISÃO] Uma consulta recebe fato, data, território, regime, operação/atividade, classificação e versão do cenário. Só há resolução automática quando existe um valor aplicável com origem e condições compatíveis. Lacuna, sobreposição contraditória, unidade incompatível e classificação insuficiente devem produzir estados distintos.
 
 | Campo conceitual | Conteúdo necessário para uso e replay |

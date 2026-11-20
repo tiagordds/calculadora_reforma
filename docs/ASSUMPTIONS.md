@@ -1,5 +1,7 @@
 # Premissas e calculadora rápida
 
+[DECISÃO] Na 03, a média mensal ou o valor anual alimentam a série estimada mediante aceite. O valor anual é distribuído pelos doze meses em centavos, preservando sua soma. Usar a média como receita do próprio março exige outro aceite. O refinamento utiliza a série real completa e reaproveita os demais campos. [Implementação e limites](PHASE_03.md)
+
 [DECISÃO] A primeira pergunta pode ser “Quanto você costuma vender por mês, já com os impostos no preço?”. Em seguida, pedir o que a empresa vende ou presta e o período. Solicitar o local de entrega/prestação quando o resultado depender de destino. A faixa estimada de comércio e a parcela do DAS podem ser apresentadas antes de perguntar sobre compras. [Memória](CALCULATION_REFERENCE.md)
 
 | Informação | Classificação para a entrada rápida | Origem, derivação e efeito |

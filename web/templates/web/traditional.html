@@ -1,0 +1,90 @@
+{% load static traditional %}<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Simples Nacional tradicional · Estimativa mensal</title>
+    <link rel="stylesheet" href="{% static 'web/site.css' %}">
+</head>
+<body>
+<header class="masthead"><div class="container masthead-inner"><span class="mark" aria-hidden="true"></span><a href="{% url 'home' %}">Planejamento tributário</a></div></header>
+<main class="container operation traditional">
+    <h1>Simples Nacional tradicional</h1>
+    <p class="lead">Estime o imposto sobre as vendas da sua loja em março de 2027 e veja quanto corresponde a cada tributo.</p>
+    {% if memory %}
+    <section class="result" aria-labelledby="result-heading">
+        {% if memory.amounts %}
+        <h2 id="result-heading" tabindex="-1" autofocus>DAS bruto mensal estimado</h2>
+        <div class="summary"><strong>{{ memory.amounts.monthly|reais }}</strong><p>Sobre {{ memory.history.revenue|reais }} de receita fiscal em março. Alíquota efetiva de {{ memory.amounts.effective_percent|percent }}.</p></div>
+        <dl class="facts">
+            <div><dt>Histórico de 12 meses (RBT12)</dt><dd>{{ memory.history.total|reais }} · {{ memory.history.origin }}</dd></div>
+            <div><dt>Comércio</dt><dd>Anexo I · faixa 4</dd></div>
+            <div><dt>Projeção anual simplificada</dt><dd>{{ memory.amounts.annual|reais }}</dd></div>
+        </dl>
+        <p>{{ memory.projection }} É uma extrapolação de março.</p>
+        <h3>Composição do DAS</h3>
+        <table><thead><tr><th>Tributo</th><th>Parte do DAS</th><th>Taxa sobre a receita</th><th>Valor</th></tr></thead>
+            <tbody>{% for row in memory.amounts.rows %}<tr><th scope="row">{{ row.tax }}</th>
+                <td><span class="column-label" aria-hidden="true">Parte do DAS</span>{{ row.share|percent }}</td>
+                <td><span class="column-label" aria-hidden="true">Taxa sobre a receita</span>{{ row.effective_percent|percent }}</td>
+                <td><span class="column-label" aria-hidden="true">Valor</span>{{ row.displayed|reais }}</td>
+            </tr>{% endfor %}</tbody></table>
+        <p>Parcelas exibidas somam {{ memory.amounts.sum_displayed|reais }}. Diferença em relação ao DAS global por arredondamento: <strong>{{ memory.amounts.residue|reais }}</strong>.</p>
+        <p>A guia consignada depende da conciliação com o PGDAS. O valor líquido a recolher depende também de extinções já realizadas. Ambos estão indeterminados.</p>
+        {% else %}
+        <h2 id="result-heading" tabindex="-1" autofocus>Apuração não calculada</h2>
+        {% for reason in memory.reasons %}<p>{{ reason }}</p>{% endfor %}
+        {% for finding in memory.excesses %}<p>{{ finding.year }} · {{ finding.basis|capfirst }} de {{ finding.amount|reais }}, com excesso de {{ finding.excess|reais }} sobre {% if finding.kind == "annual_limit" %}o limite geral{% else %}o sublimite{% endif %} de {{ finding.threshold|reais }}.</p>{% endfor %}
+        {% endif %}
+        <h3>Condições da estimativa</h3>
+        <p>{{ memory.states.eligibility }} · {{ memory.states.validation }}</p>
+        {% for item in memory.assumptions %}<p>{{ item }}</p>{% endfor %}
+        {% for item in memory.conditions %}<p>{{ item }}</p>{% endfor %}
+        <details><summary>Memória de cálculo e fundamentação legal</summary>
+            <p>{{ memory.engine_note }}</p>
+            <dl class="facts">
+                <div><dt>Estado técnico</dt><dd>{{ memory.states.technical }}</dd></div>
+                <div><dt>Completude</dt><dd>{{ memory.states.completeness }}</dd></div>
+                <div><dt>Natureza</dt><dd>{{ memory.states.nature }}</dd></div>
+                <div><dt>Validação</dt><dd>{{ memory.states.validation }}</dd></div>
+                <div><dt>Elegibilidade</dt><dd>{{ memory.states.eligibility }}</dd></div>
+            </dl>
+            {% if memory.amounts %}
+            <p>De fevereiro/2026 a janeiro/2027, as receitas somaram {{ memory.history.total|reais }}. A alíquota nominal é {{ memory.band.nominal|percent }} e a parcela a deduzir é {{ memory.band.deduction|reais }}.</p>
+            <ol>{% for step in memory.formulas %}<li>{{ step }}</li>{% endfor %}</ol>
+            <p>{{ memory.rounding }}</p>
+            {% endif %}
+            <ul>{% for source in memory.sources.values %}<li><a href="{{ source.url }}" rel="noreferrer">{{ source.device }}</a></li>{% endfor %}</ul>
+            <details><summary>Consultar e copiar dados de reprodução</summary><pre tabindex="0">{{ replay }}</pre></details>
+        </details>
+        <a href="#historico">Refinar com meu histórico real</a>
+    </section>
+    {% elif form.errors %}
+    <section class="result"><h2 id="result-heading" tabindex="-1" autofocus>Revise os dados do formulário</h2>
+    <ul>{% for field in form %}{% if field.errors %}<li>{{ field.label }} · {{ field.errors.as_text }}</li>{% endif %}{% endfor %}</ul>
+    {{ form.non_field_errors }}</section>
+    {% endif %}
+    <form method="post" action="{% url 'traditional' %}#result-heading" autocomplete="off" class="scenario">{% csrf_token %}{{ form.edition }}
+        <fieldset><legend>Perfil da loja</legend>
+            <p>Uma loja em Florianópolis/SC que revende somente caneta esferográfica comum nacional, adquirida de terceiros, com entrega local e NF-e modelo 55. Vendas sem benefício, substituição tributária, monofasia, antecipação, devoluções ou outros fatos tributáveis.</p>
+            <div class="field-grid">{% for field in profile_fields %}{% include "web/traditional_field.html" %}{% endfor %}</div>
+        </fieldset>
+        <fieldset><legend>Faturamento</legend>
+            <p>Use a receita fiscal pelo mês do faturamento da operação, mesmo que o cliente pague depois. Informe reais e centavos, por exemplo 100.000,00.</p>
+            <div class="field-grid">{% include "web/traditional_field.html" with field=form.unit %}{% include "web/traditional_field.html" with field=form.income %}</div>
+            <label class="tick"><input type="checkbox" name="accept_history" value="yes" {% if form.accept_history.value == 'yes' %}checked{% endif %}>Aceito usar a média para estimar cada mês de fevereiro/2026 a janeiro/2027.</label>
+            {% include "web/traditional_field.html" with field=form.revenue %}
+            <label class="tick"><input type="checkbox" name="accept_period" value="yes" {% if form.accept_period.value == 'yes' %}checked{% endif %}>Se a receita de março estiver em branco, autorizo estimá-la pela média.</label>
+        </fieldset>
+        <fieldset><legend>Limites anuais</legend>
+            <p>Se souber, informe a receita total do mercado interno em cada período. Em branco, a triagem fica condicionada à conferência desses valores.</p>
+            <div class="field-grid">{% include "web/traditional_field.html" with field=form.prior_year %}{% include "web/traditional_field.html" with field=form.year_to_date %}</div>
+        </fieldset>
+        <button class="action" name="mode" value="estimated">Estimar com a média</button>
+        <details id="historico" {% if open_real %}open{% endif %}><summary>Informar ou refinar os 12 meses reais</summary>
+            <p>Informe cada mês, inclusive os meses com receita zero. Fevereiro/2027 fica fora do histórico desta apuração. Os demais campos acima continuam valendo.</p>
+            <div class="field-grid">{% for field in history_fields %}{% include "web/traditional_field.html" %}{% endfor %}</div>
+            <button class="action" name="mode" value="real">Calcular com histórico real</button>
+        </details>
+    </form>
+</main></body></html>

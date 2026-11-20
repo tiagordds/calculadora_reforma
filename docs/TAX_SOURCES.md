@@ -1,5 +1,7 @@
 # Fontes tributárias e vigências
 
+[OFICIAL] Na conferência de 20/11/2026, a Portaria CGSN 54/2025 fundamentou o sublimite de ICMS e ISS do ano-base 2026. Para a apuração de 2027, a Res. 190 altera o art. 9º da Res. 140 e inclui IBS. A Res. 195/2026 trata da documentação do MEI. [Comunicado do sublimite 2026](https://www8.receita.fazenda.gov.br/simplesnacional/Noticias/NoticiaCompleta.aspx?id=94c10cc2-7eb5-4ef0-bfb2-5479e72caff8) · [Receita Federal sobre a Res. 195](https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/outubro/novas-medidas-simplificam-obrigacoes-da-reforma-tributaria-para-nanoempreendedores-e-meis) · [Conferência da Fase 03](PHASE_03.md)
+
 [DOCUMENTADO] Corte da pesquisa: **19/11/2026**, para fatos de março/2027. Os identificadores abaixo permitem recuperar a edição consultada. “Aberta” significa que não foi identificado termo final para o dispositivo citado, sujeito a alteração. Uma data de publicação, uma vigência jurídica, o início dos efeitos e a data em que o software recebe uma tabela podem ser diferentes. Revisar os quatro marcos antes de habilitar outra competência.
 
 | ID, autoridade e referência oficial | Publicação, início e fim aplicáveis | Dispositivo e objeto no recorte | Situação e limite |

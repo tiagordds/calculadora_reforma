@@ -1,0 +1,6 @@
+{
+  "revision": "premissas-03.1",
+  "constant_history": "Média mensal repetida nos 12 meses da janela legal. Um total anual é distribuído em centavos, com os centavos restantes nos primeiros meses.",
+  "average_period": "Receita de março estimada pela média informada ou derivada, arredondada ao centavo.",
+  "annual_projection": "Doze repetições do DAS mensal estimado, condicionadas à manutenção de receita, histórico, faixa, atividade, repartição e demais condições."
+}

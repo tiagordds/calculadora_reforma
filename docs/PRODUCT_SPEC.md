@@ -1,5 +1,7 @@
 # Especificação do produto
 
+[CÓDIGO][EXECUTADO] A entrega local da Fase 03 permite estimar o DAS tradicional para o perfil da papelaria, ver os seis tributos e substituir a média pelos meses reais no mesmo formulário. A comparação econômica continua prevista para uma fase própria. [Jornada e evidências](PHASE_03.md)
+
 ## Para quem e para quê
 
 Um empresário ou gestor de PME deve conseguir estimar o que pagaria e entender por que os cenários divergem. O contador ou consultor deve conseguir revisar os dados, substituir estimativas e reproduzir cada resultado. Personas e diferenciais comerciais são hipóteses a investigar por entrevistas e pesquisa de mercado. O produto é independente de consultoria, sistema de gestão ou cliente específico.
