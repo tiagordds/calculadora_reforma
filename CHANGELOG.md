@@ -1,5 +1,13 @@
 # Histórico de alterações
 
+## 20/11/2026 · Fundação web local da Fase 01
+
+- [CÓDIGO] Entregue a rota inicial Django com a apresentação do perfil de revenda, a comparação futura e navegação por âncora. A página usa um template e uma folha CSS local.
+- [EXECUTADO] Reprodução em checkout e ambiente virtual novos no Windows, oito testes aprovados e verificação no Chrome com teclado e JavaScript desativado em 1366 e 320 px.
+- [DOCUMENTADO] Configuração por ambiente, dependências fixadas e comandos nos dois sistemas. A execução nativa em Linux permanece pendente.
+
+[Iniciar a aplicação](README.md#executar-localmente) · [Registro de aceite](docs/PHASE_01_PLAN.md#encerramento--20112026)
+
 ## 19/11/2026 · Arquitetura web, experiência e planejamento 00C
 
 - Delimitado o primeiro MVP interno à revenda de referência. Pesquisa de cinco ofertas públicas orientou uma entrada por preço final, com refinamento e memória por competência.

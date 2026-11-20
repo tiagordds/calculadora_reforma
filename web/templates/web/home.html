@@ -1,0 +1,51 @@
+{% load static %}<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Conheça o primeiro perfil da calculadora e as duas formas de apuração que serão comparadas para uma loja do Simples Nacional.">
+    <title>Simulação tributária</title>
+    <link rel="stylesheet" href="{% static 'web/site.css' %}">
+</head>
+<body>
+    <header class="masthead">
+        <div class="container masthead-inner">
+            <span class="mark" aria-hidden="true"></span>
+            Planejamento tributário
+        </div>
+    </header>
+    <main class="container">
+        <div class="intro">
+            <div>
+                <h1>Simulação tributária</h1>
+                <p class="lead">Entenda como a reforma tributária poderá afetar os tributos de uma loja do Simples Nacional.</p>
+                <a class="action" href="#calculadora">Conhecer a calculadora <span aria-hidden="true">↓</span></a>
+            </div>
+            <aside class="profile" aria-labelledby="profile-heading">
+                <h2 id="profile-heading">Primeiro perfil</h2>
+                <p>Uma papelaria que compra canetas de fornecedores nacionais e as revende no próprio município.</p>
+                <dl>
+                    <div><dt>Regime</dt><dd>Simples Nacional</dd></div>
+                    <div><dt>Local</dt><dd>Florianópolis, SC</dd></div>
+                    <div><dt>Período</dt><dd>Março de 2027</dd></div>
+                </dl>
+            </aside>
+        </div>
+        <section class="comparison" id="calculadora" tabindex="-1" aria-labelledby="comparison-heading">
+            <h2 id="comparison-heading">O que a calculadora vai comparar?</h2>
+            <p>Para as mesmas vendas, com o mesmo preço e volume, a calculadora mostrará como os tributos da loja mudam entre duas formas de apuração.</p>
+            <div class="options">
+                <div>
+                    <h3>Simples Nacional tradicional</h3>
+                    <p>Neste cenário, a loja recolhe os tributos sobre as vendas em uma guia unificada do Simples Nacional.</p>
+                </div>
+                <div>
+                    <h3>Apuração regular de IBS e CBS</h3>
+                    <p>Se a loja puder exercer essa opção, apurará separadamente os dois tributos sobre o consumo, IBS e CBS. Os demais continuarão no Simples.</p>
+                </div>
+            </div>
+            <p class="availability">Os cálculos estarão disponíveis em etapas posteriores.</p>
+        </section>
+    </main>
+</body>
+</html>
