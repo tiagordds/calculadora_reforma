@@ -12,3 +12,17 @@
 | [DECISÃO] Manter clones, ferramentas, logs e arquivos recuperáveis em área local ignorada pelo Git. Preservar no projeto a sonda experimental, inventário e capturas sintéticas. | Reproduz o ensaio e evita incorporar repositórios terceiros ao histórico principal. A retenção em um único host é uma pendência conhecida. | A plataforma precisar garantir replay de histórico fora da estação atual. |
 
 A evidência e os limites de cada escolha estão nos [motores oficiais](OFFICIAL_ENGINES.md), no [caderno de infraestrutura](INFRASTRUCTURE.md) e no [registro de riscos](RISKS_AND_OPEN_QUESTIONS.md).
+
+## 19/11/2026 · Fase 00B
+
+| Decisão | Aplicação e condição de revisão |
+|---|---|
+| [DECISÃO] Comparar inicialmente ao mesmo preço final e volume | O usuário consegue observar quanto o comprador paga. Oferecer receita antes de tributos fixa como segundo cenário. Margem e caixa requerem custos, crédito e datas. |
+| [DECISÃO] Começar por revenda interna convencional, com histórico de empresa madura | Um caso de referência demonstra Anexo I, repartição de 2027 e contraponto por item. Serviços sujeitos ao Fator R ficam como próximo perfil de validação. |
+| [DECISÃO] Apurar pela empresa, usando motores na granularidade documental | Estimativa mensal pode começar sem POST. Item representativo exige homogeneidade explícita. Manter conta empresarial por tributo, regime e competência. |
+| [DECISÃO] Parametrizar CBS regular, exclusões e créditos separadamente | IBS transitório tem origem legal. A alíquota da CBS e dados ausentes não recebem valores exemplificativos por padrão. |
+| [DECISÃO] Excluir NFS-e 820001 da carga empresarial e operações SN dependentes da divergência sobre IS | A tabela e o leiaute esclarecem os campos da NFS-e. Falta prova da obrigação empresarial integral. Requalificação exige referência independente. |
+| [DECISÃO] Preservar cinco dimensões do resultado e manifesto de revisão | Publicação, habilitação de caso e compatibilidade técnica têm critérios e evidências próprios. |
+| [DECISÃO] Encerrar 00B no escopo metodológico | Há subsídios para planejar a arquitetura. A autorização da 00C cabe ao titular. |
+
+[Memória](CALCULATION_REFERENCE.md) · [Estados](RESULT_STATUS.md) · [Questões para o planejamento](ROADMAP.md)

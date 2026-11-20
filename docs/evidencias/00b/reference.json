@@ -1,0 +1,223 @@
+{
+  "utc": "2026-11-19T23:56:50.416280+00:00",
+  "monthly": {
+    "rate": "0.08825",
+    "retained_rate": "0.07457125",
+    "monthly_das": "8825.00000",
+    "allocation": {
+      "IRPJ": "485.3750000",
+      "CSLL": "308.8750000",
+      "CBS": "1352.8725000",
+      "CPP": "3706.50000",
+      "ICMS": "2956.3750000",
+      "IBS": "15.0025000"
+    }
+  },
+  "hypothetical_sensitivity": {
+    "price": "100000",
+    "hypothetical_cbs_rate": "0.10",
+    "assumed_exclusions": "2700",
+    "sales_base": "88374.20526793823796548592189",
+    "revenue": "91074.20526793823796548592189",
+    "retained_das": "6791.517329586739327883742053",
+    "cases": [
+      {
+        "eligible_base": "0",
+        "estimate": "15717.31"
+      },
+      {
+        "eligible_base": "15000",
+        "estimate": "14202.31"
+      },
+      {
+        "eligible_base": "30000",
+        "estimate": "12687.31"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "engine": "regular",
+      "jar_sha256": "3f7baa20442301e2ba6733fc274263a8756a7e21b3ed4e4020b0f1ecf51f9d61",
+      "db_sha256": "4160a29e4f1a6a2c4f2d5d5527b64af2a84fb4ea2915693b70104865db533293",
+      "commit": "150cccbe414d4a5edea703e4f7a424af5aa222c7",
+      "version": {
+        "versaoApp": "1.6.1",
+        "descricaoVersaoApp": "1.6.1",
+        "versaoDb": "V0059",
+        "descricaoVersaoDb": "Habilitação de 820 para NFSe.",
+        "dataVersaoDb": "2026-09-30",
+        "ambiente": "offline"
+      },
+      "method": "POST",
+      "path": "/api/calculadora/observabilidade/regime-geral",
+      "input": {
+        "id": "6194602ea71cbf9431c236de4409d920",
+        "versao": "1.0.0",
+        "dhFatoGerador": "2027-03-15T10:00:00-03:00",
+        "municipio": 4205407,
+        "uf": "SC",
+        "itens": [
+          {
+            "numero": 1,
+            "ncm": "96081000",
+            "cst": "000",
+            "cClassTrib": "000001",
+            "baseCalculo": "100.00",
+            "quantidade": 1,
+            "unidade": "UN",
+            "aliquotasNominais": {
+              "cbs": "10.00",
+              "ibsEstadual": "0.05",
+              "ibsMunicipal": "0.05"
+            }
+          }
+        ]
+      },
+      "http": 200,
+      "body": {
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "CALCULO_SIMULADO",
+            "tribCalc": {
+              "IBSCBS": {
+                "CST": "000",
+                "cClassTrib": "000001",
+                "gIBSCBS": {
+                  "vBC": "100.00",
+                  "gIBSUF": {
+                    "pIBSUF": "0.05",
+                    "vIBSUF": "0.05",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em LC 214/2025, tributada conforme Tributação integral. A base de cálculo utilizada é de R$ 100.00000000, com alíquota de 0.050000%."
+                  },
+                  "gIBSMun": {
+                    "pIBSMun": "0.05",
+                    "vIBSMun": "0.05",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em LC 214/2025, tributada conforme Tributação integral. A base de cálculo utilizada é de R$ 100.00000000, com alíquota de 0.050000%."
+                  },
+                  "vIBS": "0.10",
+                  "gCBS": {
+                    "pCBS": "10.00",
+                    "vCBS": "10.00",
+                    "memoriaCalculo": "Operação de consumo com enquadramento legal em LC 214/2025, tributada conforme Tributação integral. A base de cálculo utilizada é de R$ 100.00000000, com alíquota de 10.000000%."
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "total": {
+          "tribCalc": {
+            "IBSCBSTot": {
+              "vBCIBSCBS": "100.00",
+              "gIBS": {
+                "gIBSUF": {
+                  "vDif": "0.00",
+                  "vDevTrib": "0.00",
+                  "vIBSUF": "0.05"
+                },
+                "gIBSMun": {
+                  "vDif": "0.00",
+                  "vDevTrib": "0.00",
+                  "vIBSMun": "0.05"
+                },
+                "vIBS": "0.10",
+                "vCredPres": "0.00",
+                "vCredPresCondSus": "0.00"
+              },
+              "gCBS": {
+                "vDif": "0.00",
+                "vDevTrib": "0.00",
+                "vCBS": "10.00",
+                "vCredPres": "0.00",
+                "vCredPresCondSus": "0.00"
+              },
+              "gMono": {
+                "vIBSMono": "0.00",
+                "vCBSMono": "0.00",
+                "vIBSMonoReten": "0.00",
+                "vCBSMonoReten": "0.00",
+                "vIBSMonoRet": "0.00",
+                "vCBSMonoRet": "0.00"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "engine": "simples",
+      "jar_sha256": "5e9820211877a1e7b719166d551e1b85c5ff2c3e6b36c28b5877aefc51c79a6d",
+      "db_sha256": "4160a29e4f1a6a2c4f2d5d5527b64af2a84fb4ea2915693b70104865db533293",
+      "commit": "c5b0f01c8351c3f0d0795cc617b29d233e9f98df",
+      "version": {
+        "versaoApp": "0.0.6",
+        "versaoDb": "V0059",
+        "descricaoVersaoDb": "Habilitação de 820 para NFSe.",
+        "dataVersaoDb": "2026-09-30",
+        "ambiente": "offline"
+      },
+      "method": "POST",
+      "path": "/api/calculadora/observabilidade/simples-nacional",
+      "input": {
+        "id": "507f1f77bcf86cd799439011",
+        "versao": "2.0.0",
+        "data": "2027-03-15",
+        "tpDoc": "55",
+        "CRT": "1",
+        "itens": [
+          {
+            "numero": 1,
+            "cAtivSN": "01",
+            "cClassTrib": "000001",
+            "baseCalculo": "100.00",
+            "valorImpostoSeletivo": "0.00",
+            "pIBSSN": "0.0150",
+            "pCBSSN": "1.3529"
+          }
+        ]
+      },
+      "http": 200,
+      "body": {
+        "oper": {
+          "data": "2027-03-15",
+          "tpDoc": "55",
+          "CRT": "1"
+        },
+        "objetos": [
+          {
+            "nObj": 1,
+            "estadoItem": "CALCULADO",
+            "tribCalc": {
+              "vRBSNitem": "100.00",
+              "tpRBSN": 1,
+              "tpRBSNDescricao": "Receita bruta - interna",
+              "vBC": "100.00",
+              "pIBSSN": "0.015",
+              "vIBSSN": "0.02",
+              "vIBSPendSusp": "0.00",
+              "pCBSSN": "1.3529",
+              "vCBSSN": "1.35",
+              "vCBSPendSusp": "0.00",
+              "IS": {
+                "valor": "0.00"
+              },
+              "totalItem": "1.37"
+            }
+          }
+        ],
+        "total": {
+          "vRBSNtot": "100.00",
+          "vBC": "100.00",
+          "vIBSSNtot": "0.02",
+          "vIBSSNtotPendSusp": "0.00",
+          "vCBSSNtot": "1.35",
+          "vCBSSNtotPendSusp": "0.00",
+          "totalIs": "0.00",
+          "totalTributos": "1.37"
+        }
+      }
+    }
+  ]
+}

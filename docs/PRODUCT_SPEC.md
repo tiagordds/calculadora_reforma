@@ -35,3 +35,7 @@ Aplicação web responsiva, cálculos no servidor. Priorizar monólito modular e
 Área profissional e API externa são evoluções posteriores: autenticação, empresas isoladas por usuário, cenários salvos, histórico, importação/exportação, relatórios e integração com ERPs. Freemium é hipótese futura. Docker/Compose e Pytest são preferências para as etapas de implementação. Banco da plataforma, bibliotecas de gráficos, filas, CI e outros serviços dependem de necessidade demonstrada.
 
 Controles previstos incluem validação no servidor, CSRF, XSS, injeção SQL, limites de tamanho e frequência, isolamento, tratamento de segredos, HTTPS, atualização e recuperação. Aplicar minimização de dados, finalidade e retenção compatíveis com LGPD. A disponibilização pública e a contratação de infraestrutura são decisões posteriores.
+
+## Recorte de referência após a 00B
+
+[DECISÃO] A primeira comparação especificada é uma revenda interna convencional do Simples em março/2027, mantendo o preço final e o volume vendidos. A estimativa pode começar por atividade e receita média, com mês e destino adequados. Quando faltarem taxa regular, autorização da opção ou créditos, a saída apresenta fórmula, hipótese ou subtotal identificado. Documentos por item refinam a apuração empresarial. O usuário deve conseguir distinguir custo próprio, potencial crédito do cliente e efeito no caixa. [Exemplo completo](CALCULATION_REFERENCE.md) · [Premissas](ASSUMPTIONS.md) · [Critérios de apresentação](RESULT_STATUS.md)

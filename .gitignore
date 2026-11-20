@@ -3,3 +3,6 @@
 /scratch/00a/*
 !/scratch/00a/probe.py
 !/scratch/00a/replay.py
+!/scratch/00b/
+/scratch/00b/*
+!/scratch/00b/reference.py

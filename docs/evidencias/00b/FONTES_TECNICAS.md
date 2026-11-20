@@ -1,0 +1,40 @@
+# Caderno de evidências · 19/11/2026
+
+[EXECUTADO] Ensaio dirigido à revenda de canetas em Florianópolis, um item por regime. Python 3, JDK 21, loopback, perfil offline, cópias temporárias do banco V0059 preservado e dos mesmos JARs da 00A. O ensaio usa o binário arquivado em sua localização original, sem modificá-lo. Data/hora UTC, entradas, método, paths, versões informadas, hashes e retornos integrais estão na [captura](reference.json). A [sonda de pesquisa](../../../scratch/00b/reference.py) pode ser executada da raiz em Windows ou Linux com Java 21 no PATH e os artefatos descritos no [inventário](../00a/inventario.json).
+
+```text
+python scratch/00b/reference.py --java "C:/Users/Tiago/Desktop/calculadora_reforma/scratch/jdk/jdk-21.0.13+9/bin/java.exe" --output docs/evidencias/00b/reference.json
+```
+
+Em outra máquina, usar `python scratch/00b/reference.py` com o Java no PATH. A saída padrão fica em scratch/00b/reference.json. A sonda usa argparse, decimal e biblioteca padrão, além da sonda HTTP da 00A. Duas JVMs iniciadas sequencialmente e encerradas. Retorno 0, DAS decimal 8825, taxa remanescente 0,07457125, HTTP 200 nos dois POSTs. No item regular, R$ 10,00 CBS de cenário e R$ 0,10 de IBS. No Simples, R$ 1,35 e R$ 0,02. O experimento verifica a granularidade do retorno, enquanto a memória mensal é uma derivação separada.
+
+## Arquivos oficiais lidos
+
+| Arquivo e revisão | SHA-256 dos bytes recuperados | Localizador e verificações |
+|---|---|---|
+| [Tabela IT 2025.002 v1.71, 30/10/26](https://dfe-portal.svrs.rs.gov.br/DFE/DownloadArquivoEstatico/?sistema=DFE&tipoArquivo=12&nomeArquivo=Tabela%20IT%202025.002%20v.1.71%20-%20cClassTrib.xlsx) | D104CE4DF4D2FD8EA6329CE794D8D8CE03855F3ADC1692B99F5446D87C4C71F8 | Aba cClass 2026-09-01. 000001: CST 000, padrão, tpRBSN 1, NF-e habilitada. 820001: CST 820, sem alíquota, tpRBSN 9, NF-e desabilitada, NFS-e habilitada. Ambas com início 01/01/2026, sem fim e data de atualização da linha 01/10/2026. A linha 820001 remete ao art. 234 e art. 330 dos regulamentos. |
+| [NT NF-e 2026.005 v1.00](https://dfe-portal.svrs.rs.gov.br/NFE/DownloadArquivoEstatico/?sistema=NFE&tipoArquivo=3&nomeArquivo=NT_2026.005_v1.00_RTC_SimplesNacional.pdf) | 5219882256663336301C0DAA36E9D4BCECE49B15F100025B39C9CF913055B85E | PDF de 12 páginas. P. 3 distingue produção de novos campos (cronograma 16/11/2026) e evento de tributação com implantação futura. Pp. 11–12 definem o evento, P26/P27, percentuais e montantes. O PDF termina na seção 4.2. |
+| [Anexo VI NFS-e NT 009 v1.01, leiaute v1.04.01](https://www.gov.br/nfse/pt-br/biblioteca/documentacao-tecnica/rtc/anexovi-leiautesrn_rtc_ibscbs-v1-04-01-nt009.xlsx) | 103A150DD6F56EC8EDCAA3A453B59A1B0E096D7CD5025D7BD06A387F141DDF39 | Aba RN DPS_NFS-e. 105/106 determinam composição da receita segundo o tipo. Para o tipo 9, partir de serviço menos desconto incondicional e ajustes indicados. 203/204 e 207/208 reservam imposto do grupo SN ao tipo 1 e preveem zero nos demais. |
+| [Anexo VIII NFS-e, correlação v1.02.00 de 26/10/26](https://www.gov.br/nfse/pt-br/biblioteca/documentacao-tecnica/rtc/anexo_viii-tabela-correlacao-v01-02-00-20261026.xlsx) | 12CC80BC92687856B47E961B98CDBAA3F8CAE568C099B3EF71994E73482AC7D0 | Aba tabela geral, grupo 01.04. Atividade SN 09, possíveis NBS para desenvolvimento, inclusive 1.1502.20.00. Linhas contêm alternativas para classificações, que requerem descrição e condições do serviço. |
+
+[EXECUTADO] Consultas locais de leitura em 19/11. Abrir a planilha no localizador acima ou usar `openpyxl.load_workbook(arquivo, read_only=True, data_only=True)` e selecionar linhas pelo campo cClassTrib ou pelo número da regra na primeira coluna da aba de regras. Para hash, `Get-FileHash arquivo -Algorithm SHA256` ou `sha256sum arquivo`. Os arquivos foram lidos das publicações oficiais, separadamente da versão de dados embutida na API.
+
+## Investigação incremental da divergência
+
+| Comando ou fonte | Entrada e resultado | Limite |
+|---|---|---|
+| SQLite, consulta somente leitura nas cópias preservadas | `SELECT TRTR_IN_POSSUI_AJUSTE FROM TRATAMENTO_TRIBUTARIO WHERE TRTR_ID=32` → 1 em compat58-pro.db, 0 em calculadora-pro.db. Consulta por CLTR_CD='820001' na V59 → início 2026-01-01, fim nulo, tpRBSN 9, atualização da linha 2026-04-15 | A data interna não é a revisão da planilha de outubro |
+| [Migração V0059](https://github.com/ReceitaFederal/calculadora-rtc-regime-regular/blob/150cccbe414d4a5edea703e4f7a424af5aa222c7/flyway/sql/manutencao/V0059__habilitacao_820.sql) | Atualiza tratamento 32 sem predicado temporal, registra versão 30/09 | Não altera a lei, nem prova aceite da NFS-e em produção |
+| [Testes e suítes 00A](../../INFRASTRUCTURE.md) | ParametrizacaoSimplesNacionalTest.classificacoesSemTratamentoImplementado_conformeACargaVigente e SimplesNacionalControllerTest.naoImplementadoTambemEmNfse falham com V59. O replay da mesma chamada registra ambos os retornos | Testes de software do fornecedor, reusados nesta fase |
+| `git ls-remote https://github.com/ReceitaFederal/calculadora-rtc-simples-nacional.git HEAD refs/tags/0.0.6` | Mesmo commit c5b0f01c8351c3f0d0795cc617b29d233e9f98df nos dois localizadores | Posição no momento da consulta |
+| Clone separado regular, `git log -3 --format="%h %as %s"` | HEAD f1eebd7, release 1.7.2 no commit 32df7196356e81f2df08e6023fc2b6dbc48036d3, ambos 19/11. Anterior 150cccb. [V0068](https://github.com/ReceitaFederal/calculadora-rtc-regime-regular/blob/32df7196356e81f2df08e6023fc2b6dbc48036d3/flyway/sql/manutencao/V0068__corrige_fator_r_atividade_09.sql), [V0071](https://github.com/ReceitaFederal/calculadora-rtc-regime-regular/blob/32df7196356e81f2df08e6023fc2b6dbc48036d3/flyway/sql/manutencao/V0071__calculo_simples_nacional_nfe_nfse.sql) e [V0073](https://github.com/ReceitaFederal/calculadora-rtc-regime-regular/blob/32df7196356e81f2df08e6023fc2b6dbc48036d3/flyway/sql/manutencao/V0073__nova_tabela_cclasstrib_30_10_2026.sql) lidas | Inspeção do código. A V71 especifica a regra NFS-e por vocabulário com data própria e a V73 atualiza a tabela oficial. A nova combinação não foi executada ou homologada |
+
+[DECISÃO] O texto fiscal independente sustenta a semântica dos campos e a existência de outro meio de tributação. Para inferir o valor devido por uma empresa real seriam necessárias elegibilidade e apuração pelo regime correto. [Conclusão e exclusão do caso](../../KNOWN_LIMITATIONS.md)
+
+### Conferência de encerramento
+
+[EXECUTADO] Na campanha final, a sonda conferiu hashes contra o inventário da 00A, estados de item, campos calculados e três sensibilidades de março com Decimal. Para a apresentação exploratória de valores não consignados em guia, o ensaio usa formatação decimal de duas casas (empate para o par). O art. 45-A da Res. 140 rege o arredondamento dos valores no DAS. Nenhum empate no último dígito muda os três totais de sensibilidade exibidos. A repetição com as verificações passou. [Captura final](reference.json)
+
+[EXECUTADO] Pesquisa pública de atos CGSN de 2026 no sistema Normas da RFB em 19/11/2026, seguida de leitura do texto integral das Resoluções 140, 186, 190, 191, 194 e 195 no portal. A consulta por número 190 devolveu o ID 152832 e publicação de 10/08/2026. A consulta do órgão também devolveu a Res. 195, sobre MEI. Conferidos os arts. 21–26, 40-C–E, 45-A/B e 58 da redação aplicável, além das janelas excepcionais e da documentação dos serviços. [Localizadores e alcance](../../TAX_SOURCES.md)
+
+[EXECUTADO] Revisão local de encerramento: leitura dos nove entregáveis, verificação dos destinos dos links relativos e da largura das tabelas Markdown, unicidade dos casos C01–C21, valores mensais/anuais, fronteira do Fator R, janela móvel, três cenários de crédito, hashes e estados da captura. Os relatórios e as evidências históricas da 00A foram comparados a `99fc807` com `git diff --exit-code`. Resultado sem alterações nesses arquivos. Continuam pendentes o espelho da guia, a conta oficial do híbrido e a revisão profissional. Os 21 casos constituem um catálogo de validação, com situação individual registrada. [Cenários](../../TEST_SCENARIOS.md)
