@@ -1,0 +1,17 @@
+{
+  "revision": "premissas-04.1",
+  "convention": "Mesmo conjunto físico de vendas, preço final, volume, produto, local e competência. Obrigações antes das demais extinções.",
+  "shared_history": "Igualdade aceita apenas para as doze receitas fiscais iniciais. Os acumulados anuais de cada trajetória são independentes.",
+  "simple_account": "Sem débitos prioritários, ajustes de débito, outras aquisições, transferências ou pedidos de ressarcimento. Os movimentos informados abrangem a conta do período.",
+  "zero_movements": "Hipótese expressa de saldo anterior, ajustes, estornos e demais extinções iguais a zero para os dois tributos.",
+  "example": {
+    "revenue": "100000", "income": "100000", "opening": "2023-01", "purchases": "40000",
+    "purchase_base": "30000", "cbs_potential": "3000", "ibs_potential": "30",
+    "cbs_rate": "10", "exclusions": "2700", "option_date": "2026-10-15",
+    "cases": {
+      "zero": {"eligible_base": "0", "cbs_credit": "0", "ibs_credit": "0"},
+      "middle": {"eligible_base": "15000", "cbs_credit": "1500", "ibs_credit": "15"},
+      "high": {"eligible_base": "30000", "cbs_credit": "3000", "ibs_credit": "30"}
+    }
+  }
+}

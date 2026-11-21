@@ -32,8 +32,8 @@
             </aside>
         </div>
         <section class="comparison" id="calculadora" tabindex="-1" aria-labelledby="comparison-heading">
-            <h2 id="comparison-heading">O que a calculadora vai comparar?</h2>
-            <p>Para as mesmas vendas, com o mesmo preço e volume, a calculadora mostrará como os tributos da loja mudam entre duas formas de apuração.</p>
+            <h2 id="comparison-heading">Como os tributos da loja mudam?</h2>
+            <p>Compare duas formas de apuração para as mesmas vendas, mantendo o preço final e o volume.</p>
             <div class="options">
                 <div>
                     <h3>Simples Nacional tradicional</h3>
@@ -48,6 +48,8 @@
             <a class="action" href="{% url 'pen' %}">Calcular a revenda de uma caneta</a>
             <p class="availability">Para estimar a guia mensal da loja a partir do faturamento, use a apuração empresarial.</p>
             <a class="action" href="{% url 'traditional' %}">Estimar o Simples Nacional tradicional</a>
+            <p class="availability">Para avaliar a opção regular de IBS e CBS, compare as obrigações do mês antes e depois dos créditos.</p>
+            <a class="action" href="{% url 'comparison' %}">Comparar Simples tradicional e híbrido</a>
         </section>
     </main>
 </body>

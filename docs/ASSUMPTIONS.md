@@ -1,5 +1,7 @@
 # Premissas e calculadora rápida
 
+[HIPÓTESE] Na 04 o usuário pode aceitar a igualdade dos doze meses iniciais ou informar histórico próprio. A composição do preço exige total e origem de X. Uma taxa de CBS de cenário exige aceite individual. O material sintético parte de R$ 30.000 de base identificada nas compras e varia a parte que satisfaz os requisitos em março. O potencial informado, o valor elegível e o utilizado podem diferir. [Valores e condições dos exemplos](../parameters/comparison_assumptions.json) · [Resultados e limites](PHASE_04.md)
+
 [DECISÃO] Na 03, a média mensal ou o valor anual alimentam a série estimada mediante aceite. O valor anual é distribuído pelos doze meses em centavos, preservando sua soma. Usar a média como receita do próprio março exige outro aceite. O refinamento utiliza a série real completa e reaproveita os demais campos. [Implementação e limites](PHASE_03.md)
 
 [DECISÃO] A primeira pergunta pode ser “Quanto você costuma vender por mês, já com os impostos no preço?”. Em seguida, pedir o que a empresa vende ou presta e o período. Solicitar o local de entrega/prestação quando o resultado depender de destino. A faixa estimada de comércio e a parcela do DAS podem ser apresentadas antes de perguntar sobre compras. [Memória](CALCULATION_REFERENCE.md)

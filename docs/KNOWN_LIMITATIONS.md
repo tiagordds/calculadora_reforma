@@ -1,5 +1,7 @@
 # Limitações de cobertura em 19/11/2026
 
+[DOCUMENTADO] Atualização de 20/11/2026. O comparador cobre somente o perfil homogêneo de março/2027. A CBS nominal definitiva, a implantação aplicável do art. 48, a guia independente, a situação fiscal da empresa e os documentos dos créditos requerem confirmação. A conta admite um grupo homogêneo de aquisições com um mês de apropriação e abre separadamente os movimentos dos dois tributos. Para casos com débitos prioritários, transferências, eventos mistos ou conciliação pendente, o líquido ou a guia afetada ficam em aberto. A trajetória anual híbrida e a análise de margem estão fora da cobertura. [Fase 04](PHASE_04.md)
+
 [DECISÃO] A 00C delimitou o alvo interno à revenda de canetas da memória, março/2027, faixa 4 do Anexo I e entrega local em Florianópolis. O ponto de referência tem ensaio aritmético e documental. O atendimento de outra mercadoria, faixa, mês ou território depende de qualificação específica. A lista de recortes públicos ainda está vazia. [Cobertura e triagem](PRODUCT_SPEC.md) · [Bloqueios por etapa](RISKS_AND_OPEN_QUESTIONS.md)
 
 ## NFS-e 820001 · exclusão expressa do MVP

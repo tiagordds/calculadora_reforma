@@ -2,11 +2,11 @@
 
 Projeto independente para ajudar empresas brasileiras a estimar sua carga tributária e comparar cenários com premissas, vigências e memória de cálculo visíveis. O ponto de entrada previsto é uma simulação pelo navegador, sem cadastro, com processamento no servidor.
 
-A página inicial oferece duas experiências para uma papelaria de Florianópolis em março de 2027. Em **Estimar o Simples Nacional tradicional**, informe a receita do mês e estime o histórico pela média ou preencha os 12 meses reais. O resultado inclui o DAS bruto, sua divisão por tributo e a memória copiável. Essa apuração roda em Python com os motores desligados. Em **Calcular a revenda de uma caneta**, o gestor confirma a hipótese de CBS e o backend consulta o motor regular para calcular um item. [Calculadora e capturas da Fase 03](docs/PHASE_03.md) · [Operação da Fase 02](docs/PHASE_02.md)
+A página inicial oferece três experiências para uma papelaria de Florianópolis em março de 2027. Em **Comparar Simples tradicional e híbrido**, informe o preço das mesmas vendas para ver quanto a loja deve no mês em cada modalidade. Você pode explorar três exemplos sintéticos ou informar históricos, exclusões, opção e créditos próprios. A tela mostra o que falta para calcular o líquido. A **calculadora tradicional** mantém a estimativa mensal e sua extrapolação anual condicionada. A **operação da caneta** consulta o motor oficial regular para um item. [Comparador, testes e replay](docs/PHASE_04.md) · [Calculadora tradicional](docs/PHASE_03.md) · [Operação por item](docs/PHASE_02.md)
 
 ## Executar localmente
 
-Use a raiz desta cópia, que contém `manage.py` e a implementação local da Fase 03. Para reproduzir a **Fase 02** em uma pasta separada, execute `git clone https://github.com/tiagordds/calculadora_reforma.git`, entre no clone e execute `git switch --detach dcedd7576e6f3a96cab4278bedb2bf61dd43de7b`. O cálculo real de item exige recuperar também o JAR e a base qualificados conforme o relatório da 02. A entrega da 03 está na árvore de trabalho e aguarda versionamento autorizado.
+Use a raiz desta cópia, que contém `manage.py` e a implementação local da Fase 04. A Fase 03 está versionada em `c5154719dd39ad3b52b3193f11689d34fdb5aace`. Para reproduzir a **Fase 02** em uma pasta separada, execute `git clone https://github.com/tiagordds/calculadora_reforma.git`, entre no clone e execute `git switch --detach dcedd7576e6f3a96cab4278bedb2bf61dd43de7b`. O cálculo real de item exige também o JAR e a base qualificados conforme o relatório da 02.
 
 O ambiente de referência usa CPython 3.14.10, Django 5.2.19 LTS e, para testes, pytest 9.2.0 e pytest-django 4.14.0. O arquivo `requirements-dev.txt` inclui as dependências de execução. Para apenas abrir a aplicação, instale `requirements.txt` e pule o comando de testes.
 
@@ -24,7 +24,7 @@ $env:DJANGO_SECRET_KEY = & $phasePython -c "import secrets; print(secrets.token_
 & $phasePython manage.py check
 & $phasePython -m pytest -q
 $env:DJANGO_DEBUG = '0'
-& $phasePython manage.py runserver 127.0.0.1:8002 --noreload --insecure
+& $phasePython manage.py runserver 127.0.0.1:8005 --noreload --insecure
 ```
 
 ### Linux · instruções documentadas
@@ -41,10 +41,10 @@ export DJANGO_SECRET_KEY="$(python -c 'import secrets; print(secrets.token_urlsa
 python manage.py check
 python -m pytest -q
 export DJANGO_DEBUG=0
-python manage.py runserver 127.0.0.1:8002 --noreload --insecure
+python manage.py runserver 127.0.0.1:8005 --noreload --insecure
 ```
 
-Abra a [página inicial local](http://127.0.0.1:8002/), a [calculadora empresarial](http://127.0.0.1:8002/simples/tradicional/) ou a [operação da caneta](http://127.0.0.1:8002/operacao/caneta/). Para encerrar o servidor iniciado no terminal, pressione Ctrl+C. Nas próximas sessões, reutilize o ambiente virtual e gere a chave antes de iniciar o processo. Na estação da campanha, a porta 8002 estava ocupada por um processo da Fase 02. A nova árvore foi servida em [127.0.0.1:8004](http://127.0.0.1:8004/simples/tradicional/).
+Abra o [comparador mensal](http://127.0.0.1:8005/simples/comparar/), a [calculadora tradicional](http://127.0.0.1:8005/simples/tradicional/) ou a [operação da caneta](http://127.0.0.1:8005/operacao/caneta/). Para encerrar o servidor iniciado no terminal, pressione Ctrl+C. Nas próximas sessões, reutilize o ambiente virtual e gere a chave antes de iniciar o processo.
 
 `DJANGO_SECRET_KEY` é obrigatória. O exemplo usa debug desligado e `--insecure` para servir o CSS com o servidor de desenvolvimento. `DJANGO_ALLOWED_HOSTS` tem padrão `localhost,127.0.0.1`. O arquivo `.env.example` ilustra o ambiente do processo. A aplicação dispensa migrações. A página inicial, o formulário e a suíte padrão funcionam com o motor desligado.
 

@@ -24,9 +24,13 @@ def band_for(total, bands):
     return next((b for b in bands if Decimal(b["above"]) < total <= Decimal(b["through"])), None)
 
 
+def rate_numerator(total, band):
+    return total * Decimal(band["nominal"]) / 100 - Decimal(band["deduction"])
+
+
 def assess(revenue, total, band):
     with localcontext(POLICY):
-        numerator = total * Decimal(band["nominal"]) / 100 - Decimal(band["deduction"])
+        numerator = rate_numerator(total, band)
         effective = numerator / total
         # Multiply before dividing to preserve exact half-cent ties in monetary values.
         gross = revenue * numerator / total

@@ -1,5 +1,7 @@
 # Dados de uma simulação e registro para reprodução
 
+[CÓDIGO] A memória da 04 registra o preço e o volume comum, entradas normalizadas, fontes e aceites, duas séries fiscais, bases econômicas comparadas, contas separadas de IBS e CBS, cliente e opção. Campos monetários preservam decimais como texto no JSON. O valor nulo representa ausência de determinação. O comando local revalida a entrada e confronta toda a saída, exceto o instante do processamento. [Exemplo sintético](evidencias/04/middle.json) · [Comandos de reprodução](PHASE_04.md)
+
 [CÓDIGO][EXECUTADO] O registro empresarial da 03 inclui campos normalizados, origem, meses, hipóteses aceitas, parâmetros resolvidos, rubricas analíticas e exibidas, estados, horário UTC e identificadores de software. O comando `manage.py replay_traditional` usa esse registro para recompor o formulário e comparar o conteúdo, exceto o horário da nova execução. [JSON sintético capturado no navegador](evidencias/03/c01.json) · [Procedimento](PHASE_03.md)
 
 [CÓDIGO] O C03 guarda em memória do pedido a entrada técnica, a aceitação da hipótese, a fonte da base e das taxas, a data de processamento, os hashes, versões, resposta, memórias e arredondamento. `None` representa ausência de resultado e `Decimal('0.00')` representa zero conhecido. O detalhe expandível permite copiar o replay do cálculo bem-sucedido. As capturas de teste com dados sintéticos têm retenção separada. [Resultado real](evidencias/02/c03.json)

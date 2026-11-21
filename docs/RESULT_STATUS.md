@@ -1,5 +1,7 @@
 # Estados dos resultados e qualificação
 
+[CÓDIGO] Na 04, a base e a taxa podem permitir o débito bruto mesmo com crédito desconhecido. Uma conta com crédito ou saldo inicial ausente deixa a obrigação após créditos em aberto. O comparador expõe diferenças numéricas apenas no estágio completo para ambas as trajetórias. A elegibilidade e a validação fiscal continuam visíveis inclusive em uma sensibilidade sintética integral. [Memória e limites](PHASE_04.md)
+
 [EXECUTADO] C03 apresenta sucesso técnico, completo no recorte, cenário hipotético, pendência de validação fiscal e elegibilidade não confirmada. No C15, três itens conhecidos compõem um subtotal e o quarto conserva o erro. No C20, o POST com a JVM desligada devolve indisponibilidade e nenhum valor de resultado. [Provas da 02](PHASE_02.md)
 
 [DECISÃO] Atribuir **cinco dimensões independentes** a cada componente, item, documento, competência e cenário. Registrar escopo esperado e processado, itens faltantes, valor conhecido, motivo, origem e ação de recuperação. O estado do total é calculado a partir dos filhos e das obrigações externas esperadas. [Casos executados](evidencias/00a/replay.json)

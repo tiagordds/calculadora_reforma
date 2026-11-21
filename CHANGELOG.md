@@ -1,5 +1,9 @@
 # Histórico de alterações
 
+## 20/11/2026 · Comparador mensal da Fase 04
+
+[CÓDIGO][EXECUTADO] A loja pode comparar as obrigações de março sob o mesmo preço e volume, informar históricos fiscais próprios e examinar as contas separadas de IBS e CBS. As três sensibilidades reproduzem a referência da 00B. O cálculo agregado funciona sem JVM, conserva os dados durante o POST e permite replay local. [Relatório da fase](docs/PHASE_04.md)
+
 ## 20/11/2026 · Estimativa empresarial da Fase 03
 
 [CÓDIGO][EXECUTADO] Nova calculadora do Simples tradicional no navegador, com histórico estimado ou real, catálogo local fixado por revisão, triagem anual e memória reproduzível. C01 retornou R$ 8.825,00 de DAS bruto. A soma das rubricas exibidas excede o total global em R$ 0,01. A entrega preserva a apuração da caneta da Fase 02. [Relatório, comandos e evidências](docs/PHASE_03.md)

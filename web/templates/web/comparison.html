@@ -1,0 +1,71 @@
+{% load static comparison %}<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Comparar o Simples Nacional · Março de 2027</title>
+<link rel="stylesheet" href="{% static 'web/site.css' %}"></head>
+<body><header class="masthead"><div class="container masthead-inner"><span class="mark" aria-hidden="true"></span><a href="{% url 'home' %}">Planejamento tributário</a></div></header>
+<main class="container operation compare-page">
+<h1>Comparar o Simples Nacional</h1>
+<p class="lead">Quanto a loja deve pelas mesmas vendas em março de 2027? Compare o recolhimento tradicional com a opção de apurar IBS e CBS separadamente.</p>
+{% if memory %}
+<section class="result" aria-labelledby="result-heading">
+<h2 id="result-heading" tabindex="-1" autofocus>Obrigações de março de 2027</h2>
+<p>Preço final comum de <strong>{{ memory.price|money }}</strong>, para as mesmas quantidades e o mesmo conjunto de vendas.</p>
+{% if memory.inputs.quantity != None %}<p>Volume comum informado: {{ memory.inputs.quantity }} canetas.</p>{% endif %}
+{% if form.example_origin.value %}<p>O ponto de partida informado é um exemplo sintético da 00B. Os valores abaixo refletem os campos atuais.</p>{% endif %}
+{% for reason in memory.reasons %}<p>{{ reason }}</p>{% endfor %}
+<div class="options">
+{% include 'web/comparison_path.html' with title="Tradicional" path=memory.traditional %}
+{% include 'web/comparison_path.html' with title="Híbrido" path=memory.hybrid hybrid=True %}
+</div>
+{% if memory.hybrid.regular %}
+<h3>Contas regulares do híbrido</h3>
+<p>CBS sobre a base regular: {{ memory.hybrid.cbs_percent|rate }} · {{ memory.hybrid.cbs_origin }}. IBS estadual {{ memory.hybrid.state_percent|rate }} e municipal {{ memory.hybrid.city_percent|rate }}.</p>
+<div class="options">{% for tax, a in memory.hybrid.accounts.items %}
+<div><h3>{{ tax|upper }}</h3><dl class="facts">
+<div><dt>Débito bruto</dt><dd>{{ a.debit|money }}</dd></div>
+<div><dt>Crédito potencial nas compras</dt><dd>{{ a.acquisition.potential|money }}</dd></div>
+<div><dt>Crédito apurado do grupo elegível</dt><dd>{{ a.acquisition.assessed|money }}</dd></div>
+<div><dt>Crédito apropriado</dt><dd>{{ a.acquisition.appropriated|money }}</dd></div>
+<div><dt>Crédito disponível</dt><dd>{{ a.available|money }}</dd></div>
+<div><dt>Crédito utilizado</dt><dd>{{ a.used|money }}</dd></div>
+<div><dt>Saldo credor a transportar</dt><dd>{{ a.closing|money }}</dd></div>
+<div><dt>Obrigação após créditos</dt><dd>{{ a.net|money }}</dd></div>
+<div><dt>Já extinto por outros meios</dt><dd>{{ a.extinguished|money }}</dd></div>
+<div><dt>A recolher nesta conta declarada</dt><dd>{{ a.remaining|money }}</dd></div></dl>
+{% if a.reconciliation_required %}<p>As extinções superam a obrigação após créditos. O saldo a recuperar e a guia dependem de conciliação.</p>{% endif %}
+<p>{{ a.acquisition.reason }}</p></div>{% endfor %}</div>
+{% endif %}
+<h3>Diferença sobre as mesmas vendas</h3>
+{% if memory.gross_difference %}<p>Antes dos créditos, híbrido menos tradicional: <strong>{{ memory.gross_difference.amount|money }}</strong> ({{ memory.gross_difference.percent|rate }} do tradicional). Sobre o preço final comum, a carga bruta é de {{ memory.gross_difference.traditional_burden|rate }} no tradicional e {{ memory.gross_difference.hybrid_burden|rate }} no híbrido.</p>{% endif %}
+{% if memory.difference %}
+<p>Após créditos, híbrido menos tradicional: <strong>{{ memory.difference.amount|money }}</strong> ({{ memory.difference.percent|rate }} do tradicional).</p>
+<p>Carga sobre o preço final comum: tradicional {{ memory.difference.traditional_burden|rate }} e híbrido após créditos {{ memory.difference.hybrid_burden|rate }}.</p>
+{% else %}<p>Comparação após créditos em aberto. Refine os dados indicados em cada modalidade.</p>{% endif %}
+<p>Guia efetiva em aberto até a conciliação. A projeção anual do híbrido exige apuração de cada mês e dos semestres de opção.</p>
+<h3>Possibilidade de opção</h3><p>{{ memory.option.status }}{% if memory.option.start %}. Semestre inicial de {{ memory.option.start|date:"d/m/Y" }} a {{ memory.option.first_term_end|date:"d/m/Y" }}{% endif %}.</p>
+{% if memory.option %}<p>Data de decisão: {{ memory.inputs.decision_date|date:"d/m/Y" }}. {{ memory.option.new_option_status }} {% if memory.option.new_option_start %}Início dos efeitos da janela: {{ memory.option.new_option_start|date:"d/m/Y" }}.{% endif %} {{ memory.option.return_status }} {{ memory.option.continuation }}</p>{% endif %}
+{% if memory.option.cancellation_window %}<p>Janela de cancelamento do pedido: {{ memory.option.cancellation_window.0|date:"d/m/Y" }} a {{ memory.option.cancellation_window.1|date:"d/m/Y" }}. Cancelamento disponível na data avaliada: {{ memory.option.can_cancel_on_decision|yesno:"sim,não,em aberto" }}.</p>{% endif %}
+{% if memory.option.return_start %}<p>Efeito de eventual renúncia tempestiva: {{ memory.option.return_start|date:"d/m/Y" }}.</p>{% endif %}
+{% if memory.customer %}<details><summary>Crédito do cliente</summary><p>O crédito do comprador fica fora da carga própria da loja. O aproveitamento depende de seus documentos, destinação e conta tributária.</p>
+{% for seller, taxes in memory.customer.items %}<h3>{% if seller == 'traditional' %}Venda no tradicional{% else %}Venda no híbrido{% endif %}</h3>{% for tax, pair in taxes.items %}<p>{{ tax|upper }} · potencial {{ pair.potential|money }} · utilizável {{ pair.usable|money }}</p>{% endfor %}{% endfor %}</details>{% endif %}
+<details><summary>Premissas, estados e memória de cálculo</summary>
+{% for line in memory.conditions %}<p>{{ line }}</p>{% endfor %}
+<ul>{% for state in memory.states.values %}<li>{{ state }}</li>{% endfor %}</ul>
+{% for line in memory.formulas %}<p>{{ line }}</p>{% endfor %}<p>{{ memory.rounding }} {{ memory.engine_note }}</p>
+<ul>{% for source in memory.sources.values %}<li><a href="{{ source.url }}" rel="noreferrer">{{ source.device }}</a></li>{% endfor %}</ul>
+<details><summary>Memória JSON para copiar e reproduzir localmente</summary><pre>{{ replay }}</pre></details></details>
+<a href="#dados">Refinar os dados desta comparação</a>
+</section>{% endif %}
+{% if has_errors and not memory %}<h2 id="result-heading" tabindex="-1" autofocus>Revise os dados do formulário</h2><p>{{ example_error }}</p>{{ form.errors }}{% endif %}
+{% if not form.is_bound %}<details class="examples"><summary>Experimentar o caso sintético da 00B</summary>
+<p>Vendas de R$ 100 mil, compras de R$ 40 mil, históricos iguais, CBS hipotética de 10% e exclusões de R$ 2.700. Ao escolher, você aceita as premissas do exemplo e pode alterar os campos.</p>
+<form method="post" action="#result-heading">{% csrf_token %}{% for key, label in examples.items %}<button class="action" name="example" value="{{ key }}">{{ label }}</button> {% endfor %}</form></details>{% endif %}
+<form method="post" action="#result-heading" id="dados" class="scenario" novalidate>{% csrf_token %}
+{% for field in form.hidden_fields %}{{ field }}{% endfor %}
+<p>Perfil coberto: revenda interna de caneta comum em Florianópolis, por loja madura, com vendas homogêneas por NF-e, sem tratamento especial, outras receitas ou valores pendentes do regime de caixa.</p>
+{% for title, fields, opened in groups %}<details {% if opened %}open{% endif %}><summary>{{ title }}</summary>
+{% if title == "Composição do preço e CBS" %}<p>Informe apenas exclusões identificadas na operação, além dos próprios IBS e CBS. O ICMS do DAS não é descontado automaticamente.</p>{% endif %}
+{% if title == "Compras e créditos próprios" %}<p>Informe um grupo homogêneo de compras de março, com a mesma competência do evento para IBS e CBS. Use o destaque elegível do fornecedor regular ou o valor legalmente transferível do fornecedor do Simples. Se houver eventos distintos sem conciliação, deixe a conta em aberto.</p>{% endif %}
+<div class="field-grid">{% for field in fields %}{% include 'web/traditional_field.html' %}{% endfor %}</div></details>{% endfor %}
+<button class="action" type="submit">Comparar as modalidades</button></form></main></body></html>

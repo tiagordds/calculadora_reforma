@@ -1,0 +1,17 @@
+{% load comparison %}<div><h3>{{ title }}</h3><dl class="facts">
+<div><dt>Receita fiscal do Simples</dt><dd>{{ path.revenue|money }}</dd></div>
+<div><dt>Histórico fiscal (RBT12)</dt><dd>{{ path.history.total|money }}</dd></div>
+<div><dt>Faixa do Anexo I</dt><dd>{{ path.band.number|default:"Em aberto" }}</dd></div>
+<div><dt>Alíquota efetiva global</dt><dd>{{ path.global_percent|rate }}</dd></div>
+{% if hybrid %}<div><dt>Base regular</dt><dd>{{ path.regular.base|money }}</dd></div>
+<div><dt>Efetiva do DAS remanescente</dt><dd>{{ path.effective_percent|rate }}</dd></div>{% endif %}
+<div><dt>DAS {% if hybrid %}remanescente{% else %}integral{% endif %}</dt><dd>{{ path.das.displayed|money }}</dd></div>
+{% if hybrid %}<div><dt>Obrigação bruta no perímetro</dt><dd>{{ path.gross|money }}</dd></div>
+<div><dt>Obrigação após créditos</dt><dd>{{ path.net|money }}</dd></div>{% endif %}</dl>
+{% for reason in path.reasons %}<p>{{ reason }}</p>{% endfor %}
+<p>{{ path.states.eligibility }}</p>
+{% if path.membership %}<p>{{ path.membership }}</p>{% endif %}
+<details><summary>Tributos, condições e estados</summary>
+{% for row in path.das.rows %}<p>{{ row.tax }} · {{ row.displayed|money }} ({{ row.effective_percent|rate }} da receita)</p>{% endfor %}
+{% for condition in path.conditions %}<p>{{ condition }}</p>{% endfor %}
+{% for state in path.states.values %}<p>{{ state }}</p>{% endfor %}</details></div>

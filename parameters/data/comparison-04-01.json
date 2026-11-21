@@ -1,0 +1,21 @@
+{
+  "revision": "comparison-04-01",
+  "simples_revision": "sn-03-02",
+  "start": "2027-01-01",
+  "end": "2028-12-31",
+  "consulted": "2026-11-20",
+  "profile": {"city": "4205407", "ncm": "96081000", "cst": "000", "classification": "000001", "document": "55", "annex": "I", "band": 4},
+  "unit": "percent",
+  "ibs_state": "0.05",
+  "ibs_city": "0.05",
+  "cbs_applicable": null,
+  "cbs_transition_reduction_pp": "0.1",
+  "first_window": ["2026-09-01", "2026-10-30"],
+  "first_cancel": ["2026-11-03", "2026-12-20"],
+  "sources": {
+    "regular": {"device": "LC 214/2025 compilada, arts. 12, 14, 27, 41–53, 344, 347 e 349", "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html"},
+    "option": {"device": "Res. CGSN 186/2026 com a redação da Res. 194/2026, primeiro semestre de 2027", "url": "https://www.in.gov.br/web/dou/-/resolucao-cgsn-n-194-de-25-de-setembro-de-2026-735097948"},
+    "simples": {"device": "Res. CGSN 140, redação da 190, arts. 2º, 21–22-A, 40-C–E, 45-A/B", "url": "https://normasinternet2.receita.fazenda.gov.br/#/consulta/externa/152832"},
+    "reference": {"device": "AVS 1/2026, cálculo de referência em tramitação", "url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/176221"}
+  }
+}

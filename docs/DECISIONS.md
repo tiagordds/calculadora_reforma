@@ -1,5 +1,7 @@
 # Decisões
 
+[DECISÃO] Em 20/11/2026, habilitar a comparação local ao mesmo preço e volume, com o histórico fiscal e o acumulado anual próprios de cada trajetória. O aceite da hipótese de igualdade alcança os doze meses iniciais. O DAS remanescente usa a receita do híbrido. Abertura das contas por tributo e por estágio permite comparar obrigações antes das demais extinções. As guias dependem de conciliação. [Critérios, fundamentos e limites](PHASE_04.md)
+
 [DECISÃO] Em 20/11/2026, habilitar em desenvolvimento local a revenda tradicional na quarta faixa de março/2027. Fixar a edição oficial e as premissas em arquivos separados, pedir aceite independente para estimar março pela média e bloquear a carga integral quando houver excesso conhecido. A memória preserva valores antes e depois do arredondamento e a incerteza da guia. [Fase 03](PHASE_03.md)
 
 [DECISÃO] Em 20/11/2026, habilitar C03 somente para ensaio técnico com confirmação da hipótese de CBS. Usar a entrada original sem `tpDoc` no formulário e ensaiar o inteiro 55 separadamente. Fixar o par por hash e exigir mTLS, versão offline e canário por instância. Usar uma JVM reutilizável e dois trabalhos simultâneos no único processo web. O titular reservou a Fase 03 para autorização independente. [Execução e fundamentos](PHASE_02.md)

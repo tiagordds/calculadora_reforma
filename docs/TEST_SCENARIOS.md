@@ -1,5 +1,7 @@
 # Casos de referência e validação
 
+[EXECUTADO] Na 04, C04–C07, C14 e C17–C19 foram confrontados com a memória sintética e controles de fronteira. A campanha reexecutou C01, C03 e a regressão de C20. C02 permanece referência documental de granularidade. A reconciliação com um novo item do motor Simples ficou fora desta fatia. [Suíte do comparador](../tests/test_comparison.py) · [Resultados por ambiente](PHASE_04.md)
+
 [EXECUTADO] A Fase 03 cobriu C01, C08–C14, C17 e C21 nos alcances atribuídos abaixo. Em C08, C09 e C11 o produto verifica a exclusão do perfil. O trecho de C14 sobre a opção regular continua na 04. A campanha confrontou a aritmética com a memória da 00B, o refinamento com C12 e a interface com ambas as larguras de tela. [Testes e alcance por ambiente](PHASE_03.md)
 
 [EXECUTADO] A campanha da 02 cobriu C03 por comparação integral com a 00B, C15 por replay e lote real, C16 por exclusão offline usando V0058 e V0059, e C20 por falhas induzidas e indisponibilidade real. A suíte padrão roda sem Java. A seleção `-m engine_integration` exige serviço pronto. [Contagens, ambiente e comandos](PHASE_02.md)

@@ -1,5 +1,7 @@
 # Arquitetura da primeira versão web
 
+[CÓDIGO] Na 04, o formulário comum envia um POST a `/simples/comparar/`. O coordenador resolve uma edição do Simples e seu complemento regular fixados no servidor. Histórico, faixa e triagem são compartilhados com a 03. Os módulos de vendas regulares, contas, opção e comparação econômica operam sem Django. O adaptador da 02 atende o documento C03 na rota própria. [Implementação e dependências](PHASE_04.md)
+
 [CÓDIGO] Na 02, `web.forms` valida a confirmação, `simulation.service` fixa o exemplo e coordena a chamada, `adapters.regular` controla admissão e prazo, `adapters.transport` usa Requests e `adapters.result` reconcilia itens e totais em Decimal. A JVM permanece ativa entre pedidos. A fronteira de transporte usa um processo Python descartável para permitir cancelamento de leitura bloqueada nos dois sistemas. [Ensaio e limites](PHASE_02.md)
 
 [DECISÃO] Em 19/11/2026, a 00C adota um monólito modular Python/Django. Uma requisição chega ao formulário Django e retorna HTML já calculado. O núcleo Python recebe dados explícitos e pode ser exercitado offline. Só o cálculo por operação cruza a fronteira HTTP para um motor oficial. Na 01 basta a página inicial. [Recorte de produto](PRODUCT_SPEC.md) · [Plano da fundação](PHASE_01_PLAN.md)

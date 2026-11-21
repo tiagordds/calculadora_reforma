@@ -9,7 +9,7 @@ from simulation.history import InputError, build_history
 from tax.traditional import POLICY, assess, annual_excesses, band_for, history_window, shift_month
 
 PERIOD = date(2027, 3, 1)
-SOFTWARE = "simples-tradicional-03.1"
+SOFTWARE = "simples-tradicional-04.1"
 RULES = "SN-I-03.1"
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -67,7 +67,9 @@ def initial_memory(data, revision):
 
 def screen_annual(data, history, parameters, memory):
     period = data["period"]
-    known = {period.year: history["revenue"], period.year - 1: Decimal(0)}
+    known = {period.year: Decimal(0), period.year - 1: Decimal(0)}
+    if history["revenue"] is not None:
+        known[period.year] += history["revenue"]
     for month, value in history["series"].items():
         known[int(month[:4])] += value
     findings = []
@@ -81,7 +83,8 @@ def screen_annual(data, history, parameters, memory):
         if declared is None:
             memory["conditions"].append(f"Receita acumulada de {year} não informada. Confirme limites e excessos.")
         amount = known[year] if declared is None else declared
-        before = declared - history["revenue"] if year == period.year and declared is not None else None
+        before = (declared - history["revenue"] if year == period.year and declared is not None
+                  and history["revenue"] is not None else None)
         limits = parameters if year == period.year else parameters["prior_year_limits"]
         for finding in annual_excesses(amount, year, data["opening"], period, limits, before):
             finding["basis"] = "acumulado declarado" if declared is not None else "mínimo derivado das receitas consideradas"
@@ -101,6 +104,16 @@ def screen_annual(data, history, parameters, memory):
                     and data["year_to_date"] - history["revenue"] > finding["threshold"] * (
                         1 + Decimal(parameters["excess_margin"]) / 100)):
                 memory["states"]["eligibility"] = "Não elegível (excesso superior a 20% anterior ao período, conforme declaração)"
+
+
+def screen_band(history, params, memory):
+    band = band_for(history["total"], params["bands"])
+    memory["band"] = band
+    if band is None or band["number"] != 4:
+        memory["reasons"].append("O histórico precisa superar R$ 720.000,00 e ficar em até R$ 1.800.000,00 para a quarta faixa do Anexo I.")
+        if not memory["states"]["eligibility"].startswith("Não elegível"):
+            memory["states"]["eligibility"] = "Fora da cobertura do sistema"
+    return band
 
 
 def simulate(data, revision=ACTIVE):
@@ -128,12 +141,7 @@ def simulate(data, revision=ACTIVE):
             memory["assumptions"] = [assumptions[key] for key in history["accepted"]]
             memory["conditions"].append("Confirmar opção tradicional, receita global, quadro societário, limites e ausência de impedimentos no período.")
             screen_annual(data, history, params, memory)
-            band = band_for(history["total"], params["bands"])
-            memory["band"] = band
-            if band is None or band["number"] != 4:
-                memory["reasons"].append("O histórico precisa superar R$ 720.000,00 e ficar em até R$ 1.800.000,00 para a quarta faixa do Anexo I.")
-                if not states["eligibility"].startswith("Não elegível"):
-                    states["eligibility"] = "Fora da cobertura do sistema"
+            band = screen_band(history, params, memory)
             if not memory["reasons"]:
                 memory["amounts"] = assess(history["revenue"], history["total"], band)
                 memory["projection"] = assumptions["annual_projection"]

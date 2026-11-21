@@ -7,7 +7,7 @@ class InputError(ValueError):
     pass
 
 
-def build_history(data, period):
+def build_series(data, period):
     months = history_window(period)
     income = data["income"]
     accepted = []
@@ -32,6 +32,12 @@ def build_history(data, period):
         else:
             series = dict.fromkeys(months, income)
         origin = "estimado"
+    return dict(series=series, origin=origin, total=sum(series.values()), average=average, accepted=accepted)
+
+
+def build_history(data, period):
+    history = build_series(data, period)
+    average = history["average"]
     revenue = data["revenue"]
     revenue_origin = "informado"
     if revenue is None:
@@ -39,6 +45,5 @@ def build_history(data, period):
             raise InputError("Informe a receita de março ou autorize usar a média informada para esse mês.")
         revenue = average
         revenue_origin = "estimado"
-        accepted.append("average_period")
-    return dict(series=series, origin=origin, total=sum(series.values()), revenue=revenue,
-                revenue_origin=revenue_origin, average=average, accepted=accepted)
+        history["accepted"].append("average_period")
+    return dict(history, revenue=revenue, revenue_origin=revenue_origin)

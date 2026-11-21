@@ -1,0 +1,628 @@
+{
+  "reasons": [],
+  "conditions": [
+    "As duas trajetórias são alternativas condicionais. Verifique o enquadramento, os limites e o recibo no Portal.",
+    "Igualdade aceita apenas para as doze receitas fiscais iniciais. Os acumulados anuais de cada trajetória são independentes.",
+    "Hipótese expressa de saldo anterior, ajustes, estornos e demais extinções iguais a zero para os dois tributos.",
+    "Sem débitos prioritários, ajustes de débito, outras aquisições, transferências ou pedidos de ressarcimento. Os movimentos informados abrangem a conta do período."
+  ],
+  "states": {
+    "technical": "Sucesso",
+    "completeness": "Completo no perímetro do cenário",
+    "nature": "Cenário hipotético",
+    "validation": "Pendente de validação fiscal",
+    "eligibility": "Alternativas condicionais. Disponibilidade de cada modalidade indicada separadamente."
+  },
+  "software": "comparador-04.1",
+  "software_sha256": "21003da304ddbbbaf235fbdb29ccdf95ff86a3f04da91a3ac60c108a2eaa2d0a",
+  "revision": "comparison-04-01",
+  "catalog_sha256": "74fc3690e2265ac74757ee2889ed88728decb4b79c4813ff5ddf69ebab32364a",
+  "simples_revision": "sn-03-02",
+  "simples_sha256": "f96807afcc2d8899b74a13d62be7f52438672b1e0836ed9985cd452f9bb6f6d8",
+  "premises_sha256": "2476cce42a8a2a1c71b64c4c364c834be0c8216aac5b94e0318633f23c4a7fe9",
+  "simples_premises_sha256": "efc644189b0120422b38192c75adf023317a8ff234a7d890de8dd2f643c76c62",
+  "processed_at": "2026-11-20T18:23:33.983537+00:00",
+  "inputs": {
+    "edition": "comparison-04-01",
+    "period": "2027-03-01",
+    "opening": "2023-01-01",
+    "activity": "retail",
+    "place": "local",
+    "profile": "ordinary",
+    "standing": "member",
+    "unit": "monthly",
+    "income": "100000",
+    "accept_history": true,
+    "revenue": "100000",
+    "prior_year": null,
+    "year_to_date": null,
+    "mode": "estimated",
+    "quantity": null,
+    "history_basis": "shared",
+    "hybrid_income": null,
+    "hybrid_prior_year": null,
+    "hybrid_year_to_date": null,
+    "cbs_rate": "10",
+    "accept_cbs": true,
+    "exclusions": "2700",
+    "exclusion_origin": "assumed",
+    "purchases": "40000",
+    "purchase_base": "30000",
+    "eligible_base": "0",
+    "supplier": "regular",
+    "credit_rule": "extinction",
+    "credit_evidence": true,
+    "credit_origin": "assumed",
+    "event_month": "2027-03-01",
+    "account_scope": true,
+    "zero_movements": true,
+    "option_status": "assumed",
+    "option_date": "2026-10-15",
+    "cancel_date": null,
+    "decision_date": "2027-03-01",
+    "refund": "no",
+    "buyer": "consumer",
+    "buyer_document": false,
+    "example_origin": "zero",
+    "cbs_potential": "3000",
+    "cbs_credit": "0",
+    "cbs_transfer": null,
+    "cbs_opening": null,
+    "cbs_adjustment": null,
+    "cbs_reversal": null,
+    "cbs_extinguished": null,
+    "buyer_traditional_cbs": null,
+    "buyer_hybrid_cbs": null,
+    "ibs_potential": "30",
+    "ibs_credit": "0",
+    "ibs_transfer": null,
+    "ibs_opening": null,
+    "ibs_adjustment": null,
+    "ibs_reversal": null,
+    "ibs_extinguished": null,
+    "buyer_traditional_ibs": null,
+    "buyer_hybrid_ibs": null,
+    "history": {
+      "2026-02": null,
+      "2026-03": null,
+      "2026-04": null,
+      "2026-05": null,
+      "2026-06": null,
+      "2026-07": null,
+      "2026-08": null,
+      "2026-09": null,
+      "2026-10": null,
+      "2026-11": null,
+      "2026-12": null,
+      "2027-01": null
+    },
+    "hybrid_history": {
+      "2026-02": null,
+      "2026-03": null,
+      "2026-04": null,
+      "2026-05": null,
+      "2026-06": null,
+      "2026-07": null,
+      "2026-08": null,
+      "2026-09": null,
+      "2026-10": null,
+      "2026-11": null,
+      "2026-12": null,
+      "2027-01": null
+    }
+  },
+  "price": "100000",
+  "engines": [],
+  "traditional": {
+    "reasons": [],
+    "conditions": [
+      "Média mensal repetida nos 12 meses da janela legal. Um total anual é distribuído em centavos, com os centavos restantes nos primeiros meses.",
+      "Receita acumulada de 2026 não informada. Confirme limites e excessos.",
+      "Receita acumulada de 2027 não informada. Confirme limites e excessos."
+    ],
+    "states": {
+      "technical": "Sucesso",
+      "completeness": "Completo para o DAS do perfil",
+      "nature": "Cenário hipotético",
+      "validation": "Pendente de validação fiscal",
+      "eligibility": "Elegibilidade não confirmada"
+    },
+    "revenue": "100000",
+    "das": {
+      "rows": [
+        {
+          "tax": "IRPJ",
+          "share": "5.50",
+          "effective_percent": "0.485375",
+          "exact": "485.3750",
+          "displayed": "485.38"
+        },
+        {
+          "tax": "CSLL",
+          "share": "3.50",
+          "effective_percent": "0.308875",
+          "exact": "308.8750",
+          "displayed": "308.88"
+        },
+        {
+          "tax": "CPP",
+          "share": "42.00",
+          "effective_percent": "3.7065",
+          "exact": "3706.5000",
+          "displayed": "3706.50"
+        },
+        {
+          "tax": "ICMS",
+          "share": "33.50",
+          "effective_percent": "2.956375",
+          "exact": "2956.3750",
+          "displayed": "2956.38"
+        },
+        {
+          "tax": "CBS",
+          "share": "15.33",
+          "effective_percent": "1.3528725",
+          "exact": "1352.8725",
+          "displayed": "1352.87"
+        },
+        {
+          "tax": "IBS",
+          "share": "0.17",
+          "effective_percent": "0.0150025",
+          "exact": "15.0025",
+          "displayed": "15.00"
+        }
+      ],
+      "exact": "8825.00",
+      "displayed": "8825.00",
+      "effective_percent": "8.8250000",
+      "global_percent": "8.82500",
+      "residue": "0.01",
+      "states": {
+        "technical": "Sucesso",
+        "completeness": "Completo para o DAS do perfil",
+        "nature": "Cenário hipotético",
+        "validation": "Pendente de validação fiscal",
+        "eligibility": "Elegibilidade não confirmada"
+      }
+    },
+    "guide": null,
+    "extinguished": null,
+    "history": {
+      "series": {
+        "2026-02": "100000",
+        "2026-03": "100000",
+        "2026-04": "100000",
+        "2026-05": "100000",
+        "2026-06": "100000",
+        "2026-07": "100000",
+        "2026-08": "100000",
+        "2026-09": "100000",
+        "2026-10": "100000",
+        "2026-11": "100000",
+        "2026-12": "100000",
+        "2027-01": "100000"
+      },
+      "origin": "estimado",
+      "total": "1200000",
+      "average": "100000",
+      "accepted": [
+        "constant_history"
+      ],
+      "revenue": "100000",
+      "revenue_origin": "informado"
+    },
+    "band": {
+      "number": 4,
+      "above": "720000.00",
+      "through": "1800000.00",
+      "nominal": "10.70",
+      "deduction": "22500.00",
+      "shares": {
+        "IRPJ": "5.50",
+        "CSLL": "3.50",
+        "CPP": "42.00",
+        "ICMS": "33.50",
+        "CBS": "15.33",
+        "IBS": "0.17"
+      }
+    },
+    "excesses": [],
+    "global_percent": "8.825",
+    "effective_percent": "8.825",
+    "membership": "Permanência no Simples declarada. Confirme limites, sócios e impedimentos.",
+    "basis": {
+      "final_price": "100000",
+      "period": "2027-03-01",
+      "quantity": null,
+      "basket": "mesmas vendas da loja",
+      "scope": "IRPJ, CSLL, CPP, ICMS, IBS e CBS antes das demais extinções"
+    }
+  },
+  "hybrid": {
+    "reasons": [],
+    "conditions": [
+      "Média mensal repetida nos 12 meses da janela legal. Um total anual é distribuído em centavos, com os centavos restantes nos primeiros meses.",
+      "Receita acumulada de 2026 não informada. Confirme limites e excessos.",
+      "Receita acumulada de 2027 não informada. Confirme limites e excessos."
+    ],
+    "states": {
+      "technical": "Sucesso",
+      "completeness": "Completo no perímetro do cenário",
+      "nature": "Cenário hipotético",
+      "validation": "Pendente de validação fiscal",
+      "eligibility": "Hipótese de opção tempestiva para o semestre, sem confirmação de vigência"
+    },
+    "revenue": "91074.20526793823796548592188919164",
+    "das": {
+      "rows": [
+        {
+          "tax": "IRPJ",
+          "share": "5.50",
+          "effective_percent": "0.485375",
+          "exact": "442.0514238192552225249772933696639",
+          "displayed": "442.05"
+        },
+        {
+          "tax": "CSLL",
+          "share": "3.50",
+          "effective_percent": "0.308875",
+          "exact": "281.3054515213442325158946412352407",
+          "displayed": "281.31"
+        },
+        {
+          "tax": "CPP",
+          "share": "42.00",
+          "effective_percent": "3.7065",
+          "exact": "3375.665418256130790190735694822888",
+          "displayed": "3375.67"
+        },
+        {
+          "tax": "ICMS",
+          "share": "33.50",
+          "effective_percent": "2.956375",
+          "exact": "2692.495035990009082652134423251589",
+          "displayed": "2692.50"
+        }
+      ],
+      "exact": "6791.517329586739327883742052679382",
+      "displayed": "6791.52",
+      "effective_percent": "7.457125",
+      "global_percent": "8.82500",
+      "residue": "0.01",
+      "states": {
+        "technical": "Sucesso",
+        "completeness": "Completo para o DAS do perfil",
+        "nature": "Cenário hipotético",
+        "validation": "Pendente de validação fiscal",
+        "eligibility": "Hipótese de opção tempestiva para o semestre, sem confirmação de vigência"
+      }
+    },
+    "guide": null,
+    "extinguished": null,
+    "history": {
+      "series": {
+        "2026-02": "100000",
+        "2026-03": "100000",
+        "2026-04": "100000",
+        "2026-05": "100000",
+        "2026-06": "100000",
+        "2026-07": "100000",
+        "2026-08": "100000",
+        "2026-09": "100000",
+        "2026-10": "100000",
+        "2026-11": "100000",
+        "2026-12": "100000",
+        "2027-01": "100000"
+      },
+      "origin": "estimado",
+      "total": "1200000",
+      "average": "100000",
+      "accepted": [
+        "constant_history"
+      ],
+      "revenue": "91074.20526793823796548592188919164",
+      "revenue_origin": "derivado"
+    },
+    "band": {
+      "number": 4,
+      "above": "720000.00",
+      "through": "1800000.00",
+      "nominal": "10.70",
+      "deduction": "22500.00",
+      "shares": {
+        "IRPJ": "5.50",
+        "CSLL": "3.50",
+        "CPP": "42.00",
+        "ICMS": "33.50",
+        "CBS": "15.33",
+        "IBS": "0.17"
+      }
+    },
+    "excesses": [],
+    "global_percent": "8.825",
+    "effective_percent": "7.457125",
+    "regular": {
+      "base": "88374.20526793823796548592188919164",
+      "revenue": "91074.20526793823796548592188919164",
+      "cbs": "8837.420526793823796548592188919164",
+      "ibs": "88.37420526793823796548592188919164",
+      "state": "44.18710263396911898274296094459582",
+      "city": "44.18710263396911898274296094459582",
+      "debit": "8925.794732061762034514078110808356",
+      "ibs_rounding_residue": "0.01",
+      "states": {
+        "technical": "Sucesso",
+        "completeness": "Completo para os débitos da venda",
+        "nature": "Cenário hipotético",
+        "validation": "Pendente de validação fiscal",
+        "eligibility": "Hipótese de opção tempestiva para o semestre, sem confirmação de vigência"
+      }
+    },
+    "cbs_percent": "10",
+    "cbs_origin": "Nominal hipotética aceita, já considerada a transição",
+    "state_percent": "0.05",
+    "city_percent": "0.05",
+    "exclusions": "2700",
+    "exclusion_origin": "assumed",
+    "accounts": {
+      "cbs": {
+        "debit": "8837.420526793823796548592188919164",
+        "opening": "0",
+        "adjustment": "0",
+        "reversal": "0",
+        "appropriated": "0",
+        "available": "0",
+        "used": "0",
+        "net": "8837.420526793823796548592188919164",
+        "closing": "0",
+        "extinguished": "0",
+        "remaining": "8837.420526793823796548592188919164",
+        "reconciliation_required": false,
+        "acquisition": {
+          "potential": "3000",
+          "assessed": "0",
+          "appropriated": "0",
+          "reason": "Apropriação do grupo no período declarado.",
+          "event_month": "2027-03-01",
+          "acquisition_period": "2027-03-01",
+          "origin": "assumed",
+          "supplier": "regular",
+          "rule": "extinction"
+        },
+        "states": {
+          "technical": "Sucesso",
+          "completeness": "Completo para a obrigação após créditos",
+          "nature": "Cenário hipotético",
+          "validation": "Pendente de validação fiscal",
+          "eligibility": "Hipótese de opção tempestiva para o semestre, sem confirmação de vigência"
+        }
+      },
+      "ibs": {
+        "debit": "88.37420526793823796548592188919164",
+        "opening": "0",
+        "adjustment": "0",
+        "reversal": "0",
+        "appropriated": "0",
+        "available": "0",
+        "used": "0",
+        "net": "88.37420526793823796548592188919164",
+        "closing": "0",
+        "extinguished": "0",
+        "remaining": "88.37420526793823796548592188919164",
+        "reconciliation_required": false,
+        "acquisition": {
+          "potential": "30",
+          "assessed": "0",
+          "appropriated": "0",
+          "reason": "Apropriação do grupo no período declarado.",
+          "event_month": "2027-03-01",
+          "acquisition_period": "2027-03-01",
+          "origin": "assumed",
+          "supplier": "regular",
+          "rule": "extinction"
+        },
+        "states": {
+          "technical": "Sucesso",
+          "completeness": "Completo para a obrigação após créditos",
+          "nature": "Cenário hipotético",
+          "validation": "Pendente de validação fiscal",
+          "eligibility": "Hipótese de opção tempestiva para o semestre, sem confirmação de vigência"
+        }
+      }
+    },
+    "gross": "15717.31206164850136239782016348774",
+    "net": "15717.31206164850136239782016348774",
+    "gross_display_residue": "0.00",
+    "net_display_residue": "0.00",
+    "membership": "Permanência no Simples declarada. Confirme limites, sócios e impedimentos.",
+    "basis": {
+      "final_price": "100000",
+      "period": "2027-03-01",
+      "quantity": null,
+      "basket": "mesmas vendas da loja",
+      "scope": "IRPJ, CSLL, CPP, ICMS, IBS e CBS antes das demais extinções"
+    }
+  },
+  "engine_note": "Apuração empresarial agregada em Python. Sem operações individuais informadas.",
+  "difference": {
+    "amount": "6892.31206164850136239782016348774",
+    "percent": "78.09985338978471798751071006784975",
+    "traditional_burden": "8.825",
+    "hybrid_burden": "15.71731206164850136239782016348774"
+  },
+  "gross_difference": {
+    "amount": "6892.31206164850136239782016348774",
+    "percent": "78.09985338978471798751071006784975",
+    "traditional_burden": "8.825",
+    "hybrid_burden": "15.71731206164850136239782016348774"
+  },
+  "guide": null,
+  "input_origins": {
+    "edition": "edição fixada no servidor",
+    "period": "competência verificada no servidor",
+    "opening": "declarado no formulário",
+    "activity": "declarado no formulário",
+    "place": "declarado no formulário",
+    "profile": "declarado no formulário",
+    "standing": "declarado no formulário",
+    "unit": "declarado no formulário",
+    "income": "declarado no formulário",
+    "accept_history": "declarado no formulário",
+    "revenue": "declarado no formulário",
+    "prior_year": "ausente",
+    "year_to_date": "ausente",
+    "mode": "declarado no formulário",
+    "quantity": "ausente",
+    "history_basis": "declarado no formulário",
+    "hybrid_income": "ausente",
+    "hybrid_prior_year": "ausente",
+    "hybrid_year_to_date": "ausente",
+    "cbs_rate": "taxa de cenário sujeita a aceite",
+    "accept_cbs": "declarado no formulário",
+    "exclusions": "assumed",
+    "exclusion_origin": "declarado no formulário",
+    "purchases": "declarado no formulário",
+    "purchase_base": "declarado no formulário",
+    "eligible_base": "declarado no formulário",
+    "supplier": "declarado no formulário",
+    "credit_rule": "declarado no formulário",
+    "credit_evidence": "declarado no formulário",
+    "credit_origin": "declarado no formulário",
+    "event_month": "declarado no formulário",
+    "account_scope": "declarado no formulário",
+    "zero_movements": "declarado no formulário",
+    "option_status": "declarado no formulário",
+    "option_date": "declarado no formulário",
+    "cancel_date": "ausente",
+    "decision_date": "declarado no formulário",
+    "refund": "declarado no formulário",
+    "buyer": "declarado no formulário",
+    "buyer_document": "declarado no formulário",
+    "example_origin": "declarado no formulário",
+    "cbs_potential": "declarado no formulário",
+    "cbs_credit": "assumed",
+    "cbs_transfer": "ausente",
+    "cbs_opening": "ausente",
+    "cbs_adjustment": "ausente",
+    "cbs_reversal": "ausente",
+    "cbs_extinguished": "ausente",
+    "buyer_traditional_cbs": "ausente",
+    "buyer_hybrid_cbs": "ausente",
+    "ibs_potential": "declarado no formulário",
+    "ibs_credit": "assumed",
+    "ibs_transfer": "ausente",
+    "ibs_opening": "ausente",
+    "ibs_adjustment": "ausente",
+    "ibs_reversal": "ausente",
+    "ibs_extinguished": "ausente",
+    "buyer_traditional_ibs": "ausente",
+    "buyer_hybrid_ibs": "ausente",
+    "history": "meses fiscais informados ou média expressamente aceita",
+    "hybrid_history": "shared"
+  },
+  "formulas": [
+    "B = (P − X) / (1 + c + i), taxas em fração",
+    "D = B × (c + i)",
+    "H = P − D",
+    "DAS híbrido = H × efetiva × (1 − repartição CBS − repartição IBS)",
+    "Disponível = saldo inicial + apropriado + ajustes credores − estornos",
+    "Uso = mínimo entre disponível e débito ainda compensável do mesmo tributo",
+    "Líquido = débito − uso. Saldo final = disponível − uso",
+    "Diferença = híbrido − tradicional. Variação = diferença / tradicional",
+    "Carga sobre vendas = obrigação no perímetro / preço final comum"
+  ],
+  "rounding": "Decimal de 34 dígitos, HALF_UP. DAS exibido conforme art. 45-A. Somar antes de arredondar; a guia depende de conciliação.",
+  "sources": {
+    "prior_sublimit": {
+      "device": "Portaria CGSN 54/2025, art. 1º, sublimite de ICMS e ISS em 2026",
+      "url": "https://www8.receita.fazenda.gov.br/simplesnacional/Noticias/NoticiaCompleta.aspx?id=94c10cc2-7eb5-4ef0-bfb2-5479e72caff8"
+    },
+    "table": {
+      "device": "LC 214/2025, Anexo XVIII, Anexo I, tabela de 2027–28",
+      "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-anexo-pl.pdf"
+    },
+    "limits": {
+      "device": "LC 123/2006, arts. 3º, 13-A, 18 e 20",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm"
+    },
+    "regulation": {
+      "device": "Res. CGSN 140/2018, arts. 2º, 9º, 12, 16, 21–22, 24 e 45-A/B, redação da Res. 190/2026",
+      "url": "https://normasinternet2.receita.fazenda.gov.br/#/consulta/externa/152832"
+    },
+    "regular": {
+      "device": "LC 214/2025 compilada, arts. 12, 14, 27, 41–53, 344, 347 e 349",
+      "url": "https://www2.camara.leg.br/legin/fed/leicom/2025/leicomplementar-214-16-janeiro-2025-796905-normaatualizada-pl.html"
+    },
+    "option": {
+      "device": "Res. CGSN 186/2026 com a redação da Res. 194/2026, primeiro semestre de 2027",
+      "url": "https://www.in.gov.br/web/dou/-/resolucao-cgsn-n-194-de-25-de-setembro-de-2026-735097948"
+    },
+    "simples": {
+      "device": "Res. CGSN 140, redação da 190, arts. 2º, 21–22-A, 40-C–E, 45-A/B",
+      "url": "https://normasinternet2.receita.fazenda.gov.br/#/consulta/externa/152832"
+    },
+    "reference": {
+      "device": "AVS 1/2026, cálculo de referência em tramitação",
+      "url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/176221"
+    }
+  },
+  "profile": {
+    "city": "4205407",
+    "ncm": "96081000",
+    "cst": "000",
+    "classification": "000001",
+    "document": "55",
+    "annex": "I",
+    "band": 4
+  },
+  "validity": [
+    "2027-01-01",
+    "2028-12-31"
+  ],
+  "consulted": "2026-11-20",
+  "convention": "Mesmo conjunto físico de vendas, preço final, volume, produto, local e competência. Obrigações antes das demais extinções.",
+  "option": {
+    "status": "Hipótese de opção tempestiva para o semestre, sem confirmação de vigência",
+    "active": null,
+    "start": "2027-01-01",
+    "first_term_end": "2027-06-30",
+    "cancellation_window": [
+      "2026-11-03",
+      "2026-12-20"
+    ],
+    "new_option_start": "2027-07-01",
+    "new_cancellation_window": [
+      "2027-03-01",
+      "2027-05-31"
+    ],
+    "new_option_status": "Janela aberta, sujeita ao enquadramento e à situação da empresa no Portal.",
+    "can_cancel_on_decision": false,
+    "return_start": null,
+    "return_status": "Renúncia sujeita à janela semestral e à situação no Portal.",
+    "continuation": "A escolha persiste nos semestres seguintes até renúncia válida."
+  },
+  "customer": {
+    "traditional": {
+      "cbs": {
+        "potential": "0",
+        "usable": "0"
+      },
+      "ibs": {
+        "potential": "0",
+        "usable": "0"
+      }
+    },
+    "hybrid": {
+      "cbs": {
+        "potential": "0",
+        "usable": "0"
+      },
+      "ibs": {
+        "potential": "0",
+        "usable": "0"
+      }
+    }
+  },
+  "display_residue": "0.00"
+}

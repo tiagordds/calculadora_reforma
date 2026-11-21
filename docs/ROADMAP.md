@@ -1,6 +1,6 @@
 # Roadmap
 
-**Posição em 20/11/2026.** A calculadora tradicional apura o C01 no navegador, refina os 12 meses reais e preserva o resíduo analítico. A operação C03 continua disponível separadamente. A Fase 04 depende de autorização específica. [Fundação](PHASE_01_PLAN.md) · [Operação da 02](PHASE_02.md) · [Aceite e evidências da 03](PHASE_03.md)
+**Posição em 20/11/2026.** O comparador local cobre a revenda qualificada em março de 2027, com obrigações antes das demais extinções, duas contas de crédito e replay. C01 e C03 continuam acessíveis na página inicial. A Fase 05 depende de autorização específica. [Operação da 02](PHASE_02.md) · [Apuração da 03](PHASE_03.md) · [Aceite e limites da 04](PHASE_04.md)
 
 ## Abertura da Fase 00C · 19/11/2026
 
@@ -16,7 +16,7 @@ Plano: delimitar cobertura e pesquisar interfaces e versões, desenhar jornada e
 | 01 · Fundação web | Django mínimo, página inicial funcional no navegador, ambiente reproduzível, testes e documentação. | Concluída para desenvolvimento local no Windows. Reprodução em Linux pendente |
 | 02 · Primeira operação | Formulário, validação, adaptador interno, cálculo oficial, erros e resultado rastreável de um caso suportado. | Concluída no recorte técnico C03, Windows e Compose Linux. Validação fiscal pendente |
 | 03 · Simples rápido | Estimativa mensal e extrapolação anual para a revenda qualificada, com premissas, RBT12, faixa e memória. | Concluída tecnicamente no recorte de março/2027. Revisão fiscal pendente |
-| 04 · Tradicional e híbrido | Comparar opção de IBS/CBS regular com recolhimento tradicional em bases consistentes, incluindo demais parcelas, créditos e elegibilidade. | Planejada |
+| 04 · Tradicional e híbrido | Comparar opção de IBS/CBS regular com recolhimento tradicional em bases consistentes, incluindo demais parcelas, créditos e elegibilidade. | Concluída tecnicamente no recorte local e condicional de março/2027. Homologação fiscal pendente |
 | 05 · Consolidação do MVP | Refinar cenário sem recadastro, demonstrar sensibilidade, validar cálculos e avaliar interface, segurança e desempenho. | Planejada |
 | 06 · Primeira publicação | Escolher hospedagem, configurar domínio/HTTPS, rede privada, limites, monitoramento, atualização, privacidade e recuperação. Depende de validação profissional e autorização de publicação. | Planejada |
 | Expansão do Simples · Serviços | Após consolidar a revenda e antes de ampliar para LP, qualificar primeiro serviço, local, folha paga e fronteira III/V. Cobertura por anexo e depois mistos. Independente de a 06 já ter publicado. | Planejada, autorização própria |
