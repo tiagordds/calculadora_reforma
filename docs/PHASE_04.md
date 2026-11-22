@@ -1,5 +1,7 @@
 # Fase 04 · Comparador mensal do Simples Nacional
 
+[EXECUTADO] Registro posterior de 21/11/2026. O commit da entrega é `c9a330a33201e7a3d4074aa46084ac2679b237b3`, conferido no remoto na abertura da [Fase 05](PHASE_05.md). O estado Git descrito ao fim deste relatório corresponde ao instante anterior ao versionamento.
+
 ## Abertura em 20/11/2026
 
 [EXECUTADO] `git status --short --branch` e `git log -6 --oneline --decorate` encontraram árvore limpa, com `main` e `origin/main` em `c515471`.

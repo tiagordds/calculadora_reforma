@@ -6,7 +6,9 @@ A página inicial oferece três experiências para uma papelaria de Florianópol
 
 ## Executar localmente
 
-Use a raiz desta cópia, que contém `manage.py` e a implementação local da Fase 04. A Fase 03 está versionada em `c5154719dd39ad3b52b3193f11689d34fdb5aace`. Para reproduzir a **Fase 02** em uma pasta separada, execute `git clone https://github.com/tiagordds/calculadora_reforma.git`, entre no clone e execute `git switch --detach dcedd7576e6f3a96cab4278bedb2bf61dd43de7b`. O cálculo real de item exige também o JAR e a base qualificados conforme o relatório da 02.
+Use a raiz desta cópia, que contém `manage.py`. A Fase 05 consolidou o **MVP interno para ensaio sintético** em Windows e Compose. O relatório inclui a matriz de prontidão, as condições de revisão profissional e os comandos para repetir as jornadas. [Consolidação da Fase 05](docs/PHASE_05.md)
+
+Para reproduzir as memórias arquivadas, use uma cópia separada na revisão correspondente. A Fase 04 está versionada em `c9a330a33201e7a3d4074aa46084ac2679b237b3` e a Fase 03 em `c5154719dd39ad3b52b3193f11689d34fdb5aace`. Para a **Fase 02**, execute `git clone https://github.com/tiagordds/calculadora_reforma.git`, entre no clone e execute `git switch --detach dcedd7576e6f3a96cab4278bedb2bf61dd43de7b`. O cálculo real de item exige também o JAR e a base qualificados conforme o relatório da 02.
 
 O ambiente de referência usa CPython 3.14.10, Django 5.2.19 LTS e, para testes, pytest 9.2.0 e pytest-django 4.14.0. O arquivo `requirements-dev.txt` inclui as dependências de execução. Para apenas abrir a aplicação, instale `requirements.txt` e pule o comando de testes.
 

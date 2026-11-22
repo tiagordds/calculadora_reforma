@@ -1,5 +1,9 @@
 # Histórico de alterações
 
+## 21/11/2026 · Consolidação do MVP interno
+
+[CÓDIGO][EXECUTADO] Corrigidos o atalho de exemplo com campo duplicado, o vínculo de erros, a leitura do DAS bruto, a identificação da CBS hipotética e o refluxo da página inicial ampliada. As três jornadas passaram por regressão, navegador, carga controlada e recuperação em Windows e Compose. A matriz C01–C21 e o dossiê orientam o confronto fiscal posterior. O JAR preservado contém uma revisão do Tomcat abrangida por avisos de segurança. A prontidão se limita a ensaio local sintético. [Resultados, bloqueios e reprodução](docs/PHASE_05.md)
+
 ## 20/11/2026 · Comparador mensal da Fase 04
 
 [CÓDIGO][EXECUTADO] A loja pode comparar as obrigações de março sob o mesmo preço e volume, informar históricos fiscais próprios e examinar as contas separadas de IBS e CBS. As três sensibilidades reproduzem a referência da 00B. O cálculo agregado funciona sem JVM, conserva os dados durante o POST e permite replay local. [Relatório da fase](docs/PHASE_04.md)

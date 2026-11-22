@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-21",
+  "base_commit": "c9a330a33201e7a3d4074aa46084ac2679b237b3",
+  "memories": {
+    "c01": {
+      "canonical_sha256": "0879a67cb862ab5cea409de5560b5ada7b847d9ddadcc03542c1be4b6fd6e4fd",
+      "software": "simples-tradicional-04.1",
+      "software_sha256": "c95b63e94d88f64478bb766ad1d5e62ffd24f0762a9b7f543c964b28641008f7"
+    },
+    "zero": {
+      "canonical_sha256": "a360015337ef17c93a2047294ad61e0e3d9bbbb8465c34209803e7bda9a237b3",
+      "software": "comparador-04.1",
+      "software_sha256": "d7a25203c9a556cf1bf53cba58b6c9836aed823160474c594cd9861d35d3613f"
+    },
+    "middle": {
+      "canonical_sha256": "cb88f1c1b9ea4768f387d6bfba989f26b95c07adb6f3af2d566f50d4cca28246",
+      "software": "comparador-04.1",
+      "software_sha256": "d7a25203c9a556cf1bf53cba58b6c9836aed823160474c594cd9861d35d3613f"
+    },
+    "high": {
+      "canonical_sha256": "e7e315738a4698dc1feb9e788db4903134442f165bd06d7d6b7220301c5c841a",
+      "software": "comparador-04.1",
+      "software_sha256": "d7a25203c9a556cf1bf53cba58b6c9836aed823160474c594cd9861d35d3613f"
+    },
+    "c03": {
+      "canonical_sha256": "c5aca5f12b6191f8eb53d731d246be3137cd10cd22a071a9badee2257cfe7b66",
+      "jar_sha256": "3f7baa20442301e2ba6733fc274263a8756a7e21b3ed4e4020b0f1ecf51f9d61",
+      "db_sha256": "4160a29e4f1a6a2c4f2d5d5527b64af2a84fb4ea2915693b70104865db533293"
+    }
+  },
+  "sha256_lf": {
+    "tests/contract/test_results.py": "e0ce8ecddb33f25bc2941c3e5eafdf4d13745db9dd5b1d9789147935b17ccecb",
+    "tests/test_comparison.py": "ab17f313a4a53791bd41cfa37f8ec530bdcc97d39f8b48d7c26d59981a28ede0",
+    "tests/test_home.py": "ec5f7819360d2ca6e07a5d2e09b2234e594cad65a803bc40eb655cd13a897078",
+    "web/comparison_form.py": "f0fadbeb8684d2cdbf09762d900e71b9b463b87fb383d0b8ce4607c1839a3b25",
+    "web/comparison_view.py": "c18c0f2b4dfe78373a8890952a031fdbd454d32278968672d7638475891b5ebf",
+    "web/static/web/site.css": "7171c46bf62511e22e041cedbb075efaffcc81091a843fce8cea8362d6e6da3f",
+    "web/templates/web/comparison.html": "06190464229be99695ec1fa63409f1f4d3128eff285bdb68949c088eefd3c03a",
+    "web/templates/web/home.html": "da2d7e6d0987508797c47017630e0a426bfc66d1147ed2837dd3f7abc2be0a5f",
+    "web/templates/web/pen.html": "a1fd77a6c23e78cb0c0bf289d50302c37b1e96d52a1d9eaf9ccb1ddd2868006f",
+    "web/templatetags/comparison.py": "0691156453a45d45a2012f6d2a72caf040ce171a0be698a3dde930080403f2fc",
+    "tests/browser/check_accessibility.py": "4fc9ab14550f4f248b0a48508d51d52b4180d7dfca9ad4d40170f7828b27709b",
+    "tests/performance/measure_local.py": "c8d6d93a903ce71486400acb09cfded3a93c15ee76344baf6b913a8621f65e7e"
+  }
+}

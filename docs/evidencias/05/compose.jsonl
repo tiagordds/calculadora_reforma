@@ -1,0 +1,18 @@
+{"case": "home", "concurrency": 1, "http": {"200": 100}, "duration_s": 0.117, "success_per_s": 852.47, "p50_ms": 1.15, "p95_ms": 1.27}
+{"case": "home", "concurrency": 2, "http": {"200": 100}, "duration_s": 0.063, "success_per_s": 1597.6, "p50_ms": 1.15, "p95_ms": 1.64}
+{"case": "home", "concurrency": 4, "http": {"200": 100}, "duration_s": 0.07, "success_per_s": 1433.65, "p50_ms": 2.23, "p95_ms": 4.74}
+{"case": "traditional", "concurrency": 1, "http": {"200": 100}, "duration_s": 0.794, "success_per_s": 125.87, "p50_ms": 7.55, "p95_ms": 8.37}
+{"case": "traditional", "concurrency": 2, "http": {"200": 100}, "duration_s": 0.766, "success_per_s": 130.61, "p50_ms": 13.77, "p95_ms": 21.15}
+{"case": "traditional", "concurrency": 4, "http": {"200": 100}, "duration_s": 0.759, "success_per_s": 131.81, "p50_ms": 28.29, "p95_ms": 38.12}
+{"case": "complete", "concurrency": 1, "http": {"200": 100}, "duration_s": 2.165, "success_per_s": 46.19, "p50_ms": 20.83, "p95_ms": 26.38}
+{"case": "complete", "concurrency": 2, "http": {"200": 100}, "duration_s": 2.085, "success_per_s": 47.97, "p50_ms": 40.24, "p95_ms": 45.78}
+{"case": "complete", "concurrency": 4, "http": {"200": 100}, "duration_s": 2.166, "success_per_s": 46.17, "p50_ms": 80.37, "p95_ms": 118.79}
+{"case": "partial", "concurrency": 1, "http": {"200": 100}, "duration_s": 2.013, "success_per_s": 49.68, "p50_ms": 19.04, "p95_ms": 23.1}
+{"case": "partial", "concurrency": 2, "http": {"200": 100}, "duration_s": 2.033, "success_per_s": 49.18, "p50_ms": 37.45, "p95_ms": 56.74}
+{"case": "partial", "concurrency": 4, "http": {"200": 100}, "duration_s": 2.013, "success_per_s": 49.68, "p50_ms": 75.13, "p95_ms": 110.68}
+{"case": "refinement", "concurrency": 1, "http": {"200": 100}, "duration_s": 0.813, "success_per_s": 123.0, "p50_ms": 7.58, "p95_ms": 8.93}
+{"case": "refinement", "concurrency": 2, "http": {"200": 100}, "duration_s": 0.813, "success_per_s": 123.08, "p50_ms": 15.94, "p95_ms": 18.84}
+{"case": "refinement", "concurrency": 4, "http": {"200": 100}, "duration_s": 0.751, "success_per_s": 133.13, "p50_ms": 27.63, "p95_ms": 40.67}
+{"case": "operation", "concurrency": 1, "http": {"200": 100}, "duration_s": 71.445, "success_per_s": 1.4, "p50_ms": 705.7, "p95_ms": 766.47}
+{"case": "operation", "concurrency": 2, "http": {"200": 100}, "duration_s": 37.462, "success_per_s": 2.67, "p50_ms": 735.4, "p95_ms": 800.1}
+{"case": "operation", "concurrency": 4, "http": {"200": 50, "429": 50}, "duration_s": 18.617, "success_per_s": 2.69, "p50_ms": 735.01, "p95_ms": 817.26}

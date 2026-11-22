@@ -29,7 +29,7 @@
             <div><dt>CBS hipotética</dt><dd>R$ {{ outcome.result.totals.cbs|floatformat:"2" }}</dd></div>
             <div><dt>IBS estadual</dt><dd>R$ {{ outcome.result.totals.state_ibs|floatformat:"2" }}</dd></div>
             <div><dt>IBS municipal</dt><dd>R$ {{ outcome.result.totals.city_ibs|floatformat:"2" }}</dd></div>
-            <div><dt>Total de IBS</dt><dd>R$ {{ outcome.result.totals.ibs|floatformat:"2" }}</dd></div>
+            <div><dt>{% if outcome.completeness == "Parcial" %}Subtotal de IBS dos itens calculados{% else %}Total de IBS{% endif %}</dt><dd>R$ {{ outcome.result.totals.ibs|floatformat:"2" }}</dd></div>
         </dl>
         {% endif %}
         {% for item in outcome.result.items %}{% for error in item.errors %}

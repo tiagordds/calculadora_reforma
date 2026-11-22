@@ -1,5 +1,7 @@
 # Riscos e questões em aberto
 
+[DECISÃO] Posição de 21/11/2026. Bloqueadores de liberação incluem homologação fiscal por recorte, requalificação de segurança do Tomcat embutido, direitos sobre a distribuição completa e autorização. A campanha de capacidade e recuperação da 05 cobre somente uma estação. A avaliação com gestor/contador e a restauração independente continuam pendentes. [Severidade, consequência, ação e responsável](PHASE_05.md#matriz-de-prontidão)
+
 **Posição em 19/11/2026.** A 00A produziu evidência suficiente para delimitar a investigação tributária seguinte. A aptidão para apuração oficial, para recomendar um regime ou para lançamento público continua pendente. Os riscos abaixo indicam o alcance de cada pendência.
 
 | Questão | Evidência e consequência | Como resolver / decisão pendente |

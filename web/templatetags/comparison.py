@@ -11,7 +11,11 @@ register = template.Library()
 def money(value):
     if value is None or value == "":
         return "Em aberto"
-    return reais(Decimal(value).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
+    amount = Decimal(value)
+    rounded = amount.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+    if amount and not rounded:
+        return "Entre zero e R$ 0,01" if amount > 0 else "Entre −R$ 0,01 e zero"
+    return reais(rounded)
 
 
 @register.filter

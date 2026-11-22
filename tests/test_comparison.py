@@ -1,4 +1,6 @@
 import json
+from concurrent.futures import ThreadPoolExecutor
+from html import unescape
 from datetime import date
 from decimal import Decimal as D, localcontext
 from pathlib import Path
@@ -16,6 +18,7 @@ from tax.option import election, window
 from tax.traditional import CENT, POLICY, history_window
 from web.comparison_form import ComparisonForm
 from web.comparison_view import example_post
+from web.templatetags.comparison import money
 
 URL = "/simples/comparar/"
 REFERENCE = json.loads((Path(__file__).resolve().parents[1] / "docs/evidencias/00b/reference.json").read_bytes())
@@ -242,6 +245,56 @@ def test_volume_is_shared_without_document_extrapolation():
     m = compare(scenario(quantity="10000"))
     assert m["traditional"]["basis"]["quantity"] == m["hybrid"]["basis"]["quantity"] == 10000
     assert m["hybrid"]["net"].quantize(CENT) == D("14202.31") and m["engines"] == []
+
+
+def test_example_rejects_duplicate_token():
+    client = Client(enforce_csrf_checks=True)
+    token = client.get(URL).cookies["csrftoken"].value
+    response = client.post(URL, f"example=high&csrfmiddlewaretoken={token}&csrfmiddlewaretoken={token}",
+                           content_type="application/x-www-form-urlencoded")
+    assert response.status_code == 400 and response.context["memory"] is None
+
+
+def test_error_summary_links_to_single_field_message(client):
+    fields = example_post("middle")
+    fields["cbs_rate"] = "101"
+    response = submit(client, fields)
+    html = response.content.decode()
+    assert response.status_code == 400
+    assert html.count('id="id_cbs_rate_error"') == 1
+    assert 'aria-describedby="id_cbs_rate_error"' in html
+    assert 'href="#id_cbs_rate"' in html
+
+
+def test_subcent_obligation_distinguished_from_zero(client):
+    fields = example_post("zero")
+    fields["revenue"] = "0.01"
+    fields["exclusions"] = "0"
+    response = submit(client, fields)
+    assert response.status_code == 200
+    html = response.content.decode()
+    assert "Entre zero e R$ 0,01" in html and "R$ 0,00" in html
+    assert "esse resíduo do híbrido é R$ 0,01" in html
+    assert money(D("-0.001")) == "Entre −R$ 0,01 e zero"
+    assert money(None) == "Em aberto"
+
+
+def test_parallel_comparison_sessions():
+    def run(case):
+        client = Client(enforce_csrf_checks=True)
+        token = client.get(URL).cookies["csrftoken"].value
+        response = client.post(URL, f"example={case}&csrfmiddlewaretoken={token}",
+                               content_type="application/x-www-form-urlencoded")
+        assert response.status_code == 200
+        replay = response.content.decode().split("<pre>", 1)[1].split("</pre>", 1)[0]
+        memory = json.loads(unescape(replay))
+        assert memory["inputs"]["example_origin"] == case
+        assert set(client.cookies) == {"csrftoken"}
+        return D(memory["hybrid"]["net"]).quantize(CENT)
+
+    with ThreadPoolExecutor(max_workers=4) as workers:
+        amounts = list(workers.map(run, ["zero", "middle", "high"] * 4))
+    assert amounts == list(map(D, ["15717.31", "14202.31", "12687.31"])) * 4
 
 
 def test_c20_simples_catalog_fails_independently(monkeypatch, tmp_path):

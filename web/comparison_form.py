@@ -46,7 +46,7 @@ class ComparisonForm(TraditionalForm):
     hybrid_income = AmountField(label="Média mensal fiscal do híbrido (R$)")
     hybrid_prior_year = AmountField(label="Receita fiscal em 2026 no híbrido (R$)")
     hybrid_year_to_date = AmountField(label="Receita fiscal de janeiro a março de 2027 no híbrido (R$)")
-    cbs_rate = RateField(label="CBS hipotética já aplicável às vendas (%)", required=False, max_length=10)
+    cbs_rate = RateField(label="CBS escolhida para simular as vendas (%)", required=False, max_length=10)
     accept_cbs = flag("Aceito esta taxa como hipótese da simulação.")
     exclusions = AmountField(label="Outras exclusões legais incluídas no preço (R$)")
     exclusion_origin = choice("Origem das exclusões", [("unknown", "Não conheço a composição"),
@@ -91,6 +91,7 @@ class ComparisonForm(TraditionalForm):
         self.fields["period"].initial = "2027-03"
         self.fields["revenue"].required = True
         self.fields["mode"].initial = "estimated"
+        self.fields["mode"].label = "Origem do histórico tradicional"
         self.fields["decision_date"].required = True
         self.fields["accept_history"] = flag("Aceito estimar os doze meses do tradicional pela média.")
         for month in self.months:

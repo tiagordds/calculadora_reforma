@@ -3,11 +3,12 @@ from decimal import Decimal
 import json
 
 import pytest
+from django.template.loader import render_to_string
 
 from adapters.manifest import EngineError
 from adapters.result import interpret
 from simulation.example import pen_operation
-from simulation.service import simulate_pen
+from simulation.service import Outcome, simulate_pen
 
 
 def observed(body):
@@ -32,6 +33,10 @@ def test_mixed_preserves_zero_absence_and_subtotal(regular_cases):
     assert result.items[-1].amounts is None
     assert result.items[-1].errors[0]["pointer"] == "#/itens/3/ncm"
     assert result.totals.cbs == Decimal("56.76")
+    outcome = Outcome("Sucesso", result.completeness, result=result)
+    html = render_to_string("web/pen.html", {"outcome": outcome})
+    assert "Subtotal de IBS dos itens calculados" in html
+    assert "<dt>Total de IBS</dt>" not in html
 
 
 def test_no_total_for_rejected_item(regular_cases):

@@ -1,5 +1,7 @@
 # Decisões
 
+[DECISÃO] Em 21/11/2026, aceitar as três jornadas apenas para ensaio técnico local com dados sintéticos no recorte de março/2027. Preservar o JAR e as bases fixadas, manter C16 excluído e condicionar a promoção da combinação a revisão de segurança e nova qualificação. Observação humana, parecer tributário e autorização de publicação têm aceites próprios. [Evidências da Fase 05](PHASE_05.md)
+
 [DECISÃO] Em 20/11/2026, habilitar a comparação local ao mesmo preço e volume, com o histórico fiscal e o acumulado anual próprios de cada trajetória. O aceite da hipótese de igualdade alcança os doze meses iniciais. O DAS remanescente usa a receita do híbrido. Abertura das contas por tributo e por estágio permite comparar obrigações antes das demais extinções. As guias dependem de conciliação. [Critérios, fundamentos e limites](PHASE_04.md)
 
 [DECISÃO] Em 20/11/2026, habilitar em desenvolvimento local a revenda tradicional na quarta faixa de março/2027. Fixar a edição oficial e as premissas em arquivos separados, pedir aceite independente para estimar março pela média e bloquear a carga integral quando houver excesso conhecido. A memória preserva valores antes e depois do arredondamento e a incerteza da guia. [Fase 03](PHASE_03.md)

@@ -42,6 +42,12 @@
 <p>Após créditos, híbrido menos tradicional: <strong>{{ memory.difference.amount|money }}</strong> ({{ memory.difference.percent|rate }} do tradicional).</p>
 <p>Carga sobre o preço final comum: tradicional {{ memory.difference.traditional_burden|rate }} e híbrido após créditos {{ memory.difference.hybrid_burden|rate }}.</p>
 {% else %}<p>Comparação após créditos em aberto. Refine os dados indicados em cada modalidade.</p>{% endif %}
+{% if memory.hybrid.gross_display_residue or memory.hybrid.net_display_residue or memory.display_residue %}
+<p>As obrigações e diferenças usam os valores antes do arredondamento. As parcelas do DAS seguem a regra de centavos.
+{% if memory.hybrid.gross_display_residue %}Na obrigação bruta do híbrido, a soma das parcelas exibidas menos a obrigação arredondada é {{ memory.hybrid.gross_display_residue|money }}.{% endif %}
+{% if memory.hybrid.net_display_residue %}Após créditos, esse resíduo do híbrido é {{ memory.hybrid.net_display_residue|money }}.{% endif %}
+{% if memory.display_residue %}Somar ao DAS tradicional exibido a diferença arredondada gera um resíduo de {{ memory.display_residue|money }} em relação ao híbrido arredondado.{% endif %}</p>
+{% endif %}
 <p>Guia efetiva em aberto até a conciliação. A projeção anual do híbrido exige apuração de cada mês e dos semestres de opção.</p>
 <h3>Possibilidade de opção</h3><p>{{ memory.option.status }}{% if memory.option.start %}. Semestre inicial de {{ memory.option.start|date:"d/m/Y" }} a {{ memory.option.first_term_end|date:"d/m/Y" }}{% endif %}.</p>
 {% if memory.option %}<p>Data de decisão: {{ memory.inputs.decision_date|date:"d/m/Y" }}. {{ memory.option.new_option_status }} {% if memory.option.new_option_start %}Início dos efeitos da janela: {{ memory.option.new_option_start|date:"d/m/Y" }}.{% endif %} {{ memory.option.return_status }} {{ memory.option.continuation }}</p>{% endif %}
@@ -57,11 +63,15 @@
 <details><summary>Memória JSON para copiar e reproduzir localmente</summary><pre>{{ replay }}</pre></details></details>
 <a href="#dados">Refinar os dados desta comparação</a>
 </section>{% endif %}
-{% if has_errors and not memory %}<h2 id="result-heading" tabindex="-1" autofocus>Revise os dados do formulário</h2><p>{{ example_error }}</p>{{ form.errors }}{% endif %}
+{% if has_errors and not memory %}<h2 id="result-heading" tabindex="-1" autofocus>Revise os dados do formulário</h2>
+{% if example_error %}<p>{{ example_error }} <a href="{% url 'comparison' %}">Reabrir os exemplos</a></p>
+{% else %}{{ form.non_field_errors }}
+<ul>{% for field in form %}{% if field.errors %}<li>{% if field.is_hidden %}Reabra o formulário para restaurar os dados de identificação.{% else %}<a href="#{{ field.id_for_label }}">{{ field.label }}</a>{% endif %}</li>{% endif %}{% endfor %}</ul>
+{% endif %}{% endif %}
 {% if not form.is_bound %}<details class="examples"><summary>Experimentar o caso sintético da 00B</summary>
 <p>Vendas de R$ 100 mil, compras de R$ 40 mil, históricos iguais, CBS hipotética de 10% e exclusões de R$ 2.700. Ao escolher, você aceita as premissas do exemplo e pode alterar os campos.</p>
 <form method="post" action="#result-heading">{% csrf_token %}{% for key, label in examples.items %}<button class="action" name="example" value="{{ key }}">{{ label }}</button> {% endfor %}</form></details>{% endif %}
-<form method="post" action="#result-heading" id="dados" class="scenario" novalidate>{% csrf_token %}
+<form method="post" action="#result-heading" id="dados" class="scenario" autocomplete="off" novalidate>{% csrf_token %}
 {% for field in form.hidden_fields %}{{ field }}{% endfor %}
 <p>Perfil coberto: revenda interna de caneta comum em Florianópolis, por loja madura, com vendas homogêneas por NF-e, sem tratamento especial, outras receitas ou valores pendentes do regime de caixa.</p>
 {% for title, fields, opened in groups %}<details {% if opened %}open{% endif %}><summary>{{ title }}</summary>

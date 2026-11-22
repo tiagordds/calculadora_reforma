@@ -60,7 +60,7 @@ def comparison(request):
     post = request.POST if request.method == "POST" else None
     status, memory, error = 200, None, ""
     if post is not None and "example" in post:
-        if (set(post) <= {"example", "csrfmiddlewaretoken"} and len(post.getlist("example")) == 1
+        if (set(post) <= {"example", "csrfmiddlewaretoken"} and all(len(v) == 1 for _, v in post.lists())
                 and post["example"] in EXAMPLES):
             try:
                 post = example_post(post["example"])

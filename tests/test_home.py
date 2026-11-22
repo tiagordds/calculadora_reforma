@@ -31,6 +31,7 @@ def test_home(client):
         "revende",
         "Março de 2027",
         "Simples Nacional tradicional",
+        "estimar o DAS bruto de março",
         "Apuração regular de IBS e CBS",
         'href="/operacao/caneta/">Calcular a revenda de uma caneta',
     ):

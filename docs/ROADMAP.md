@@ -1,6 +1,6 @@
 # Roadmap
 
-**Posição em 20/11/2026.** O comparador local cobre a revenda qualificada em março de 2027, com obrigações antes das demais extinções, duas contas de crédito e replay. C01 e C03 continuam acessíveis na página inicial. A Fase 05 depende de autorização específica. [Operação da 02](PHASE_02.md) · [Apuração da 03](PHASE_03.md) · [Aceite e limites da 04](PHASE_04.md)
+**Posição em 22/11/2026.** A Fase 05 está revisada para aprovação de versionamento. As três jornadas da revenda de março de 2027 passaram na suíte offline com as memórias sintéticas da entrega. A publicação depende de revisão fiscal por recorte, segurança do motor, direitos de distribuição, recuperação e autorização específica. A expansão para o primeiro serviço do Simples já pode ser proposta para autorização própria. [Revisão da 05 e matriz de prontidão](PHASE_05.md)
 
 ## Abertura da Fase 00C · 19/11/2026
 
@@ -17,7 +17,7 @@ Plano: delimitar cobertura e pesquisar interfaces e versões, desenhar jornada e
 | 02 · Primeira operação | Formulário, validação, adaptador interno, cálculo oficial, erros e resultado rastreável de um caso suportado. | Concluída no recorte técnico C03, Windows e Compose Linux. Validação fiscal pendente |
 | 03 · Simples rápido | Estimativa mensal e extrapolação anual para a revenda qualificada, com premissas, RBT12, faixa e memória. | Concluída tecnicamente no recorte de março/2027. Revisão fiscal pendente |
 | 04 · Tradicional e híbrido | Comparar opção de IBS/CBS regular com recolhimento tradicional em bases consistentes, incluindo demais parcelas, créditos e elegibilidade. | Concluída tecnicamente no recorte local e condicional de março/2027. Homologação fiscal pendente |
-| 05 · Consolidação do MVP | Refinar cenário sem recadastro, demonstrar sensibilidade, validar cálculos e avaliar interface, segurança e desempenho. | Planejada |
+| 05 · Consolidação do MVP | Refinar cenário sem recadastro, demonstrar sensibilidade, conferir cálculos e avaliar interface, segurança e desempenho. | Concluída no recorte técnico interno sintético. Observação humana, homologação e promoção do motor pendentes |
 | 06 · Primeira publicação | Escolher hospedagem, configurar domínio/HTTPS, rede privada, limites, monitoramento, atualização, privacidade e recuperação. Depende de validação profissional e autorização de publicação. | Planejada |
 | Expansão do Simples · Serviços | Após consolidar a revenda e antes de ampliar para LP, qualificar primeiro serviço, local, folha paga e fronteira III/V. Cobertura por anexo e depois mistos. Independente de a 06 já ter publicado. | Planejada, autorização própria |
 | 07 · Lucro Presumido | Acrescentar apuração e comparação verificadas para os perfis cobertos. | Planejada |
