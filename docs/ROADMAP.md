@@ -1,6 +1,6 @@
 # Roadmap
 
-**Posição em 22/11/2026.** A Fase 05 está revisada para aprovação de versionamento. As três jornadas da revenda de março de 2027 passaram na suíte offline com as memórias sintéticas da entrega. A publicação depende de revisão fiscal por recorte, segurança do motor, direitos de distribuição, recuperação e autorização específica. A expansão para o primeiro serviço do Simples já pode ser proposta para autorização própria. [Revisão da 05 e matriz de prontidão](PHASE_05.md)
+**Posição em 24/11/2026.** A Fase 05 está versionada em `9b8b9cf`. A primeira expansão do Simples acrescenta o C08 de serviços para ensaio interno, com fronteira III/V, ISS e DAS de março/2027 reproduzidos. A Fase 06 aguarda autorização e condições de publicação. [Primeiro serviço](SIMPLES_SERVICES_01.md) · [Matriz de prontidão da 05](PHASE_05.md)
 
 ## Abertura da Fase 00C · 19/11/2026
 
@@ -19,7 +19,7 @@ Plano: delimitar cobertura e pesquisar interfaces e versões, desenhar jornada e
 | 04 · Tradicional e híbrido | Comparar opção de IBS/CBS regular com recolhimento tradicional em bases consistentes, incluindo demais parcelas, créditos e elegibilidade. | Concluída tecnicamente no recorte local e condicional de março/2027. Homologação fiscal pendente |
 | 05 · Consolidação do MVP | Refinar cenário sem recadastro, demonstrar sensibilidade, conferir cálculos e avaliar interface, segurança e desempenho. | Concluída no recorte técnico interno sintético. Observação humana, homologação e promoção do motor pendentes |
 | 06 · Primeira publicação | Escolher hospedagem, configurar domínio/HTTPS, rede privada, limites, monitoramento, atualização, privacidade e recuperação. Depende de validação profissional e autorização de publicação. | Planejada |
-| Expansão do Simples · Serviços | Após consolidar a revenda e antes de ampliar para LP, qualificar primeiro serviço, local, folha paga e fronteira III/V. Cobertura por anexo e depois mistos. Independente de a 06 já ter publicado. | Planejada, autorização própria |
+| Expansão do Simples · Serviços | Programação sob encomenda, folha paga, faixa e fronteira III/V na apuração tradicional de março/2027. | C08 concluído tecnicamente para ensaio local. Homologação pendente. Ampliações e C09 dependem de autorização. |
 | 07 · Lucro Presumido | Acrescentar apuração e comparação verificadas para os perfis cobertos. | Planejada |
 | 08 · Lucro Real | Acrescentar apuração e comparação verificadas com os insumos contábeis necessários. | Planejada |
 | 09 · Planejamento avançado | Projetar até 2033 conforme vigências, simular sensibilidade, pontos de mudança, preços e impactos financeiros. | Planejada |

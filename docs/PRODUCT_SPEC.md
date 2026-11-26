@@ -1,5 +1,7 @@
 # Especificação do produto
 
+[DECISÃO] A partir de 24/11/2026, além do recorte original de revenda descrito abaixo, a página inicial oferece a apuração tradicional de software sob encomenda no estabelecimento em Florianópolis. A pergunta do gestor é quanto a folha dos doze meses muda o enquadramento e o DAS de março de 2027. [Primeiro perfil de serviços e limites](SIMPLES_SERVICES_01.md)
+
 [CÓDIGO] A entrega local da 04 permite comparar março para a mesma revenda. O gestor pode começar por preço e histórico e depois identificar a base regular, os créditos e a situação da opção. O resultado diferencia obrigação, saldo credor e guia pendente. [Comparador e campanha de aceite](PHASE_04.md)
 
 [CÓDIGO][EXECUTADO] A entrega local da Fase 03 permite estimar o DAS tradicional para o perfil da papelaria, ver os seis tributos e substituir a média pelos meses reais no mesmo formulário. A comparação econômica continua prevista para uma fase própria. [Jornada e evidências](PHASE_03.md)

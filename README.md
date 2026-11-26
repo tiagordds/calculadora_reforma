@@ -6,6 +6,8 @@ A página inicial oferece três experiências para uma papelaria de Florianópol
 
 ## Executar localmente
 
+A quarta jornada é a de [serviços do Simples tradicional](http://127.0.0.1:8005/simples/servicos/). Para desenvolvimento de software sob encomenda em Florianópolis, o formulário aceita o histórico de receita e folha, apresenta o Fator R, o anexo e o DAS bruto com ISS. O exemplo de 28% pode ser editado para reproduzir a mudança de anexo por um centavo. [Recorte, fontes e reprodução do C08](docs/SIMPLES_SERVICES_01.md)
+
 Use a raiz desta cópia, que contém `manage.py`. A Fase 05 consolidou o **MVP interno para ensaio sintético** em Windows e Compose. O relatório inclui a matriz de prontidão, as condições de revisão profissional e os comandos para repetir as jornadas. [Consolidação da Fase 05](docs/PHASE_05.md)
 
 Para reproduzir as memórias arquivadas, use uma cópia separada na revisão correspondente. A Fase 04 está versionada em `c9a330a33201e7a3d4074aa46084ac2679b237b3` e a Fase 03 em `c5154719dd39ad3b52b3193f11689d34fdb5aace`. Para a **Fase 02**, execute `git clone https://github.com/tiagordds/calculadora_reforma.git`, entre no clone e execute `git switch --detach dcedd7576e6f3a96cab4278bedb2bf61dd43de7b`. O cálculo real de item exige também o JAR e a base qualificados conforme o relatório da 02.

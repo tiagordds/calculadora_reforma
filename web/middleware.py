@@ -8,11 +8,12 @@ from adapters.regular import BUDGET
 OPERATION_PATH = "/operacao/caneta/"
 TRADITIONAL_PATH = "/simples/tradicional/"
 COMPARISON_PATH = "/simples/comparar/"
+SERVICES_PATH = "/simples/servicos/"
 
 
 def private_operation(get_response):
     def middleware(request):
-        if request.path not in (OPERATION_PATH, TRADITIONAL_PATH, COMPARISON_PATH):
+        if request.path not in (OPERATION_PATH, TRADITIONAL_PATH, COMPARISON_PATH, SERVICES_PATH):
             return get_response(request)
         if request.path == OPERATION_PATH:
             request.calculation_deadline = monotonic() + BUDGET - 0.15

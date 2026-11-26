@@ -1,5 +1,7 @@
 # Casos de referência e validação
 
+[EXECUTADO] Em 24/11/2026, o C08 passou na jornada de serviços para os três pontos de fronteira e nas verificações de ausência, zero, janelas, faixas, ISS, arredondamento, entradas inválidas e replay. A triagem de exclusão na revenda continua na suíte. O C09 segue fora da cobertura. [Evidências por ambiente](SIMPLES_SERVICES_01.md)
+
 [EXECUTADO] Na 04, C04–C07, C14 e C17–C19 foram confrontados com a memória sintética e controles de fronteira. A campanha reexecutou C01, C03 e a regressão de C20. C02 permanece referência documental de granularidade. A reconciliação com um novo item do motor Simples ficou fora desta fatia. [Suíte do comparador](../tests/test_comparison.py) · [Resultados por ambiente](PHASE_04.md)
 
 [EXECUTADO] A Fase 03 cobriu C01, C08–C14, C17 e C21 nos alcances atribuídos abaixo. Em C08, C09 e C11 o produto verifica a exclusão do perfil. O trecho de C14 sobre a opção regular continua na 04. A campanha confrontou a aritmética com a memória da 00B, o refinamento com C12 e a interface com ambas as larguras de tela. [Testes e alcance por ambiente](PHASE_03.md)

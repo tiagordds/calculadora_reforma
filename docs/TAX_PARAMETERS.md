@@ -1,5 +1,7 @@
 # Catálogo versionado de parâmetros tributários
 
+[CÓDIGO] A edição `sn-services-01` fixa o limiar e os casos especiais do Fator R, os quadros III/V de 2027–28 e o teto/redistribuição do ISS para março/2027. O carregamento confere SHA-256 com quebras de linha normalizadas. [Parâmetros de serviços](../parameters/data/sn-services-01.json) · [Evidências e vigências do C08](SIMPLES_SERVICES_01.md)
+
 [CÓDIGO] A edição comparativa `comparison-04-01` usa a repartição de `sn-03-02` e acrescenta o IBS por ente, a situação da CBS nominal aplicável, a redução transitória em pontos percentuais e as datas excepcionais. As hipóteses do caso 00B têm arquivo e digest próprios. A memória registra os quatro hashes de catálogos e premissas e a identidade do software. [Edição](../parameters/data/comparison-04-01.json) · [Premissas](../parameters/comparison_assumptions.json) · [Replay](PHASE_04.md)
 
 [CÓDIGO] A edição `sn-03-02` cobre a seleção das faixas vizinhas para triagem e a apuração da quarta faixa do Anexo I. A edição `sn-03-01` conserva a quarta faixa para replay. O código fixa os hashes dos arquivos e das premissas. [Dados oficiais](../parameters/data/sn-03-02.json) · [Hipóteses](../parameters/assumptions.json) · [Seleção e reprodução](PHASE_03.md)

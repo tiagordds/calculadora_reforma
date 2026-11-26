@@ -1,0 +1,220 @@
+{
+  "revision": "sn-services-01",
+  "consulted": "2026-11-24",
+  "start": "2027-01-01",
+  "end": "2028-12-31",
+  "qualified_period": "2027-03-01",
+  "threshold": "0.28",
+  "zero_payroll_factor": "0.01",
+  "positive_payroll_zero_revenue_factor": "0.28",
+  "zero_rate_basis": "1.00",
+  "annual_sublimit": "3600000",
+  "iss_cap_percent": "5",
+  "capped_remainder_percent": {
+    "IRPJ": "6.02",
+    "CSLL": "5.26",
+    "CBS": "23.20",
+    "CPP": "65.26",
+    "IBS": "0.26"
+  },
+  "sources": {
+    "activity": [
+      "LC 123/2006, art. 18, §§ 5º-D, IV, 5º-M e 24–26",
+      "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm"
+    ],
+    "history": [
+      "Res. CGSN 140/2018, arts. 21–22, 25–26 e 45-A, com alterações da Res. 190/2026",
+      "https://normasinternet2.receita.fazenda.gov.br/#/consulta/externa/152832"
+    ],
+    "exceptions": [
+      "Res. CGSN 140/2018, art. 21, parágrafo único e art. 26, §§ 2º, 3º e 7º",
+      "https://normasinternet2.receita.fazenda.gov.br/#/consulta/externa/92278"
+    ],
+    "transition": [
+      "LC 214/2025, anexos XX e XXII, redação da LC 227/2026, quadros 2027–28",
+      "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm"
+    ],
+    "tables": [
+      "Res. CGSN 196/2026, arts. 2º–8º e anexos III e V da Res. 140, DOU de 24/11/2026, seção 1, pp. 38–42",
+      "https://www.in.gov.br/web/dou/-/resolucao-cgsn-n-196-de-16-de-novembro-de-2026-745832719"
+    ],
+    "iss": [
+      "LC 116/2003, arts. 3º, 4º e 6º e item 1.04",
+      "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp116.htm"
+    ],
+    "document": [
+      "NFS-e, Anexo VIII v1.02.00 de 26/10/2026, tabela geral, linhas 27–28, correlação candidata",
+      "https://www.gov.br/nfse/pt-br/biblioteca/documentacao-tecnica/rtc/anexo_viii-tabela-correlacao-v01-02-00-20261026.xlsx"
+    ]
+  },
+  "annexes": {
+    "III": [
+      {
+        "number": 1,
+        "above": "0",
+        "through": "180000",
+        "nominal": "6",
+        "deduction": "0",
+        "shares": {
+          "IRPJ": "4",
+          "CSLL": "3.5",
+          "CBS": "15.43",
+          "CPP": "43.4",
+          "ISS": "33.5",
+          "IBS": "0.17"
+        }
+      },
+      {
+        "number": 2,
+        "above": "180000",
+        "through": "360000",
+        "nominal": "11.20",
+        "deduction": "9360",
+        "shares": {
+          "IRPJ": "4",
+          "CSLL": "3.5",
+          "CBS": "16.91",
+          "CPP": "43.4",
+          "ISS": "32",
+          "IBS": "0.19"
+        }
+      },
+      {
+        "number": 3,
+        "above": "360000",
+        "through": "720000",
+        "nominal": "13.50",
+        "deduction": "17640",
+        "shares": {
+          "IRPJ": "4",
+          "CSLL": "3.5",
+          "CBS": "16.41",
+          "CPP": "43.4",
+          "ISS": "32.5",
+          "IBS": "0.19"
+        }
+      },
+      {
+        "number": 4,
+        "above": "720000",
+        "through": "1800000",
+        "nominal": "16",
+        "deduction": "35640",
+        "shares": {
+          "IRPJ": "4",
+          "CSLL": "3.5",
+          "CBS": "16.41",
+          "CPP": "43.4",
+          "ISS": "32.5",
+          "IBS": "0.19"
+        }
+      },
+      {
+        "number": 5,
+        "above": "1800000",
+        "through": "3600000",
+        "nominal": "21",
+        "deduction": "125640",
+        "shares": {
+          "IRPJ": "4",
+          "CSLL": "3.5",
+          "CBS": "15.43",
+          "CPP": "43.4",
+          "ISS": "33.5",
+          "IBS": "0.17"
+        }
+      },
+      {
+        "number": 6,
+        "above": "3600000",
+        "through": "4800000",
+        "nominal": "32.90",
+        "deduction": "648000"
+      }
+    ],
+    "V": [
+      {
+        "number": 1,
+        "above": "0",
+        "through": "180000",
+        "nominal": "15.5",
+        "deduction": "0",
+        "shares": {
+          "IRPJ": "25",
+          "CSLL": "15",
+          "CBS": "16.96",
+          "CPP": "28.85",
+          "ISS": "14",
+          "IBS": "0.19"
+        }
+      },
+      {
+        "number": 2,
+        "above": "180000",
+        "through": "360000",
+        "nominal": "18",
+        "deduction": "4500",
+        "shares": {
+          "IRPJ": "23",
+          "CSLL": "15",
+          "CBS": "16.96",
+          "CPP": "27.85",
+          "ISS": "17",
+          "IBS": "0.19"
+        }
+      },
+      {
+        "number": 3,
+        "above": "360000",
+        "through": "720000",
+        "nominal": "19.5",
+        "deduction": "9900",
+        "shares": {
+          "IRPJ": "24",
+          "CSLL": "15",
+          "CBS": "17.95",
+          "CPP": "23.85",
+          "ISS": "19",
+          "IBS": "0.20"
+        }
+      },
+      {
+        "number": 4,
+        "above": "720000",
+        "through": "1800000",
+        "nominal": "20.5",
+        "deduction": "17100",
+        "shares": {
+          "IRPJ": "21",
+          "CSLL": "15",
+          "CBS": "18.94",
+          "CPP": "23.85",
+          "ISS": "21",
+          "IBS": "0.21"
+        }
+      },
+      {
+        "number": 5,
+        "above": "1800000",
+        "through": "3600000",
+        "nominal": "23",
+        "deduction": "62100",
+        "shares": {
+          "IRPJ": "23",
+          "CSLL": "12.5",
+          "CBS": "16.96",
+          "CPP": "23.85",
+          "ISS": "23.5",
+          "IBS": "0.19"
+        }
+      },
+      {
+        "number": 6,
+        "above": "3600000",
+        "through": "4800000",
+        "nominal": "30.4",
+        "deduction": "540000"
+      }
+    ]
+  }
+}

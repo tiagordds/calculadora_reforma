@@ -1,5 +1,9 @@
 # Histórico de alterações
 
+## 24/11/2026 · Primeiro serviço do Simples Nacional
+
+[CÓDIGO][EXECUTADO] Jornada local para desenvolvimento de software sob encomenda, com FS12, RBT12r, Fator R, Anexos III/V, DAS e repartição de março/2027. O C08 inclui dois replays da fronteira, regressão da revenda e teste móvel sem JavaScript. [Relatório de serviços](docs/SIMPLES_SERVICES_01.md)
+
 ## 21/11/2026 · Consolidação do MVP interno
 
 [CÓDIGO][EXECUTADO] Corrigidos o atalho de exemplo com campo duplicado, o vínculo de erros, a leitura do DAS bruto, a identificação da CBS hipotética e o refluxo da página inicial ampliada. As três jornadas passaram por regressão, navegador, carga controlada e recuperação em Windows e Compose. A matriz C01–C21 e o dossiê orientam o confronto fiscal posterior. O JAR preservado contém uma revisão do Tomcat abrangida por avisos de segurança. A prontidão se limita a ensaio local sintético. [Resultados, bloqueios e reprodução](docs/PHASE_05.md)

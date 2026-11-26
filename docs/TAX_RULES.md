@@ -1,5 +1,7 @@
 # Apuração empresarial e comparação
 
+[OFICIAL][CÓDIGO] No primeiro serviço, a redação da Res. 196/2026 dos anexos e do art. 21, III, da Res. 140 fundamenta a partilha com ISS, IBS e CBS. O art. 144-C trata da inclusão dos recebíveis de transição no PA dezembro/2026. O exemplo exige faturamento fiscal já conciliado. [Regras para FS12, zeros, ISS e alíquota efetiva do C08](SIMPLES_SERVICES_01.md)
+
 [DECISÃO] Unidade de saída: empresa, competência e cenário, com abertura por estabelecimento, segregação e tributo. O documento fiscal descreve um fato. A declaração mensal agrega fatos, histórico e eventos de extinção. O planejamento anual encadeia doze apurações e carrega os saldos do mês anterior. [Matriz](TAX_RESPONSIBILITIES.md) · [Fontes e dispositivos](TAX_SOURCES.md)
 
 ## Simples tradicional em 2027

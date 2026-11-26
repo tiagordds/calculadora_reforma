@@ -1,0 +1,253 @@
+{
+  "software": "services-01.1",
+  "software_sha256": "7374498f8b551ae9486f44b79cee1e00a32a9af3511d0829902fd77d20057c43",
+  "revision": "sn-services-01",
+  "catalog_sha256": "c2a4a48becc5ba21d4b1f57a4b2c9adb12c8a7a869da762199bee3c34a68e948",
+  "inputs": {
+    "edition": "sn-services-01",
+    "period": "2027-03-01",
+    "opening": "2023-01-01",
+    "origin": "synthetic",
+    "activity": "software",
+    "regime": "traditional",
+    "treatment": "ordinary",
+    "limits": "within",
+    "revenue": "100000",
+    "history": {
+      "2026-02": {
+        "turnover": "100000",
+        "wages": "20000",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      },
+      "2026-03": {
+        "turnover": "100000",
+        "wages": "20000",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      },
+      "2026-04": {
+        "turnover": "100000",
+        "wages": "20000",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      },
+      "2026-05": {
+        "turnover": "100000",
+        "wages": "20000",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      },
+      "2026-06": {
+        "turnover": "100000",
+        "wages": "20000",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      },
+      "2026-07": {
+        "turnover": "100000",
+        "wages": "20000",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      },
+      "2026-08": {
+        "turnover": "100000",
+        "wages": "20000",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      },
+      "2026-09": {
+        "turnover": "100000",
+        "wages": "20000",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      },
+      "2026-10": {
+        "turnover": "100000",
+        "wages": "20000",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      },
+      "2026-11": {
+        "turnover": "100000",
+        "wages": "20000",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      },
+      "2026-12": {
+        "turnover": "100000",
+        "wages": "20000",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      },
+      "2027-01": {
+        "turnover": "100000",
+        "wages": "19999.99",
+        "pro_labore": "5000",
+        "cpp": "2000",
+        "fgts": "1000"
+      }
+    }
+  },
+  "state": "Estimativa condicionada às premissas informadas",
+  "reasons": [],
+  "engines": [],
+  "scope": "Desenvolvimento sob encomenda no estabelecimento em Florianópolis/SC, mercado interno, PA 03/2027.",
+  "origin": "Hipótese sintética",
+  "validation": "Estimativa para ensaio interno. Homologação fiscal pendente.",
+  "sources": {
+    "activity": [
+      "LC 123/2006, art. 18, §§ 5º-D, IV, 5º-M e 24–26",
+      "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm"
+    ],
+    "history": [
+      "Res. CGSN 140/2018, arts. 21–22, 25–26 e 45-A, com alterações da Res. 190/2026",
+      "https://normasinternet2.receita.fazenda.gov.br/#/consulta/externa/152832"
+    ],
+    "exceptions": [
+      "Res. CGSN 140/2018, art. 21, parágrafo único e art. 26, §§ 2º, 3º e 7º",
+      "https://normasinternet2.receita.fazenda.gov.br/#/consulta/externa/92278"
+    ],
+    "transition": [
+      "LC 214/2025, anexos XX e XXII, redação da LC 227/2026, quadros 2027–28",
+      "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm"
+    ],
+    "tables": [
+      "Res. CGSN 196/2026, arts. 2º–8º e anexos III e V da Res. 140, DOU de 24/11/2026, seção 1, pp. 38–42",
+      "https://www.in.gov.br/web/dou/-/resolucao-cgsn-n-196-de-16-de-novembro-de-2026-745832719"
+    ],
+    "iss": [
+      "LC 116/2003, arts. 3º, 4º e 6º e item 1.04",
+      "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp116.htm"
+    ],
+    "document": [
+      "NFS-e, Anexo VIII v1.02.00 de 26/10/2026, tabela geral, linhas 27–28, correlação candidata",
+      "https://www.gov.br/nfse/pt-br/biblioteca/documentacao-tecnica/rtc/anexo_viii-tabela-correlacao-v01-02-00-20261026.xlsx"
+    ]
+  },
+  "validity": [
+    "2027-01-01",
+    "2028-12-31"
+  ],
+  "rounding": "34 dígitos nas divisões. Arredondamento ao centavo, metade para cima e mínimo positivo de R$ 0,01 por valor demonstrado.",
+  "history": {
+    "months": [
+      "2026-02",
+      "2026-03",
+      "2026-04",
+      "2026-05",
+      "2026-06",
+      "2026-07",
+      "2026-08",
+      "2026-09",
+      "2026-10",
+      "2026-11",
+      "2026-12",
+      "2027-01"
+    ],
+    "totals": {
+      "turnover": "1200000",
+      "wages": "239999.99",
+      "pro_labore": "60000",
+      "cpp": "24000",
+      "fgts": "12000"
+    },
+    "missing": {
+      "turnover": [],
+      "wages": [],
+      "pro_labore": [],
+      "cpp": [],
+      "fgts": []
+    },
+    "fs12": "335999.99",
+    "rbt12r": "1200000"
+  },
+  "factor": {
+    "ratio": "0.2799999916666666666666666666666667",
+    "percent": "27.99999916666666666666666666666667",
+    "threshold": "0.28",
+    "payroll_threshold": "336000.00",
+    "rule": "FS12 dividida pela RBT12r (art. 26, § 7º, III).",
+    "annex": "V"
+  },
+  "rate_basis": "1200000",
+  "band": {
+    "number": 4,
+    "above": "720000",
+    "through": "1800000",
+    "nominal": "20.5",
+    "deduction": "17100",
+    "shares": {
+      "IRPJ": "21",
+      "CSLL": "15",
+      "CBS": "18.94",
+      "CPP": "23.85",
+      "ISS": "21",
+      "IBS": "0.21"
+    }
+  },
+  "amounts": {
+    "numerator": "228900.0",
+    "effective_percent": "19.07500",
+    "gross": "19075.0",
+    "monthly": "19075.00",
+    "rows": [
+      {
+        "tax": "IRPJ",
+        "share": "21",
+        "effective_percent": "4.00575",
+        "exact": "4005.75",
+        "displayed": "4005.75"
+      },
+      {
+        "tax": "CSLL",
+        "share": "15",
+        "effective_percent": "2.86125",
+        "exact": "2861.25",
+        "displayed": "2861.25"
+      },
+      {
+        "tax": "CBS",
+        "share": "18.94",
+        "effective_percent": "3.612805",
+        "exact": "3612.805",
+        "displayed": "3612.81"
+      },
+      {
+        "tax": "CPP",
+        "share": "23.85",
+        "effective_percent": "4.5493875",
+        "exact": "4549.3875",
+        "displayed": "4549.39"
+      },
+      {
+        "tax": "ISS",
+        "share": "21",
+        "effective_percent": "4.00575",
+        "exact": "4005.75",
+        "displayed": "4005.75"
+      },
+      {
+        "tax": "IBS",
+        "share": "0.21",
+        "effective_percent": "0.0400575",
+        "exact": "40.0575",
+        "displayed": "40.06"
+      }
+    ],
+    "sum_displayed": "19075.01",
+    "residue": "0.01",
+    "iss_capped": false
+  }
+}

@@ -1,5 +1,7 @@
 # Memória de referência · Florianópolis, março de 2027
 
+[EXECUTADO] Em 24/11/2026, o segundo perfil investigado na 00B ganhou apuração empresarial própria. Com R$ 100.000 de receita no PA e RBT12r de R$ 1,2 milhão, a passagem de FS12 de R$ 335.999,99 para R$ 336.000,00 muda o DAS bruto de R$ 19.075,00 para R$ 13.030,00. [Contas e memórias dos dois lados do C08](SIMPLES_SERVICES_01.md)
+
 **Resultado do caso sintético.** A revenda comum do Anexo I gera obrigação mensal estimada de **R$ 8.825,00** no regime único, antes da conciliação da guia. No híbrido, **7,457125%** incide sobre a receita do Simples daquele cenário. Ainda faltam a taxa aplicável definitiva da CBS regular e os documentos que fecham bases e créditos. A comparação principal conserva o preço pago pelo cliente. [Fontes S140, L214 e C27](TAX_SOURCES.md)
 
 ## Entradas e elegibilidade
