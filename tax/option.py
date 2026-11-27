@@ -12,7 +12,9 @@ def window(requested, rules):
         march = requested.month == 3
         start = date(requested.year + int(not march), 7 if march else 1, 1)
         cancel_end = date(requested.year, 5, 31) if march else date(requested.year, 11, 30)
-        return start, (requested, cancel_end)
+        months = rules.get("ordinary_cancel_months")
+        cancel_start = date(requested.year, months[str(requested.month)], 1) if months else requested
+        return start, (cancel_start, cancel_end)
     return None, None
 
 

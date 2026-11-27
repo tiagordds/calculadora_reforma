@@ -1,5 +1,7 @@
 # Catálogo versionado de parâmetros tributários
 
+[OFICIAL][CÓDIGO] Em 25/11/2026, a edição comparativa ativa passou a `comparison-04-02`. A Res. 196 fixa o início das janelas ordinárias de cancelamento em 1º de maio ou 1º de novembro conforme o semestre. A edição `comparison-04-01` atende aos replays históricos. O C08 combina somente os parâmetros regulares comuns com o catálogo `sn-services-01`. [Conferência por dispositivo](SIMPLES_SERVICES_HYBRID_01.md) · [Edição](../parameters/data/comparison-04-02.json)
+
 [CÓDIGO] A edição `sn-services-01` fixa o limiar e os casos especiais do Fator R, os quadros III/V de 2027–28 e o teto/redistribuição do ISS para março/2027. O carregamento confere SHA-256 com quebras de linha normalizadas. [Parâmetros de serviços](../parameters/data/sn-services-01.json) · [Evidências e vigências do C08](SIMPLES_SERVICES_01.md)
 
 [CÓDIGO] A edição comparativa `comparison-04-01` usa a repartição de `sn-03-02` e acrescenta o IBS por ente, a situação da CBS nominal aplicável, a redução transitória em pontos percentuais e as datas excepcionais. As hipóteses do caso 00B têm arquivo e digest próprios. A memória registra os quatro hashes de catálogos e premissas e a identidade do software. [Edição](../parameters/data/comparison-04-01.json) · [Premissas](../parameters/comparison_assumptions.json) · [Replay](PHASE_04.md)

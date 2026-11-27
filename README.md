@@ -73,6 +73,8 @@ A primeira suíte usa referências gravadas. A segunda exige a JVM e grava apena
 
 O [registro da Fase 01](docs/PHASE_01_PLAN.md) reúne os testes de software, as verificações no navegador e o alcance da reprodução por sistema.
 
+A partir da calculadora de serviços, **Comparar usando estes dados** leva o faturamento e o histórico ao [comparador C08](http://127.0.0.1:8005/simples/servicos/comparar/). O formulário admite históricos diferentes e mostra quanto da obrigação de março já pode ser calculado. [Exemplo, memória e replay](docs/SIMPLES_SERVICES_HYBRID_01.md)
+
 ## Referências do projeto
 
 | Para consultar | Documento |

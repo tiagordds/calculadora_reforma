@@ -1,5 +1,7 @@
 # Limitações de cobertura em 19/11/2026
 
+[DOCUMENTADO] Atualização de 25/11/2026. O comparador C08 produz uma estimativa agregada para o serviço homogêneo e o cliente privado qualificados. A nominal definitiva da CBS, a classificação real da NFS-e, o ISS excluível, a opção e os eventos de crédito dependem de evidência da competência. A diferença global exige duas obrigações comparáveis. [Condições e limites](SIMPLES_SERVICES_HYBRID_01.md)
+
 [DECISÃO] Atualização de 24/11/2026. A expansão cobre exclusivamente o C08 tradicional com premissas explícitas. Retenções, sexta faixa, excesso e classificação contratual dependem de análise adicional. A atividade 09 e a NBS 1.1502.20.00 aparecem na correlação preliminar da NFS-e. Validação fiscal e uso em empresa real continuam pendentes. [Cobertura efetiva e evidências](SIMPLES_SERVICES_01.md)
 
 [DOCUMENTADO] Posição de 21/11/2026. A consolidação mantém a revenda e a competência da 04. O ensaio de carga e a restauração foram locais, em uma estação. A observação humana e o confronto com PGDAS e contas assistidas de março/2027 estão pendentes. C16 continua excluído. O regular preservado tem avisos de segurança em biblioteca embutida. [Matriz e condições por caso](evidencias/05/CONFRONTO.md) · [Alcance operacional](evidencias/05/OPERACAO.md)

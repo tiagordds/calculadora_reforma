@@ -1,5 +1,7 @@
 # Especificação do produto
 
+[DECISÃO] Em 25/11/2026, a jornada de software sob encomenda passou a responder quanto a obrigação mensal pode mudar ao manter preço e volume e apurar IBS/CBS pelo regime regular. O gestor vê Fator R, anexo e composição do DAS por trajetória e pode refinar as contas antes da comparação. [C08 comparativo interno](SIMPLES_SERVICES_HYBRID_01.md)
+
 [DECISÃO] A partir de 24/11/2026, além do recorte original de revenda descrito abaixo, a página inicial oferece a apuração tradicional de software sob encomenda no estabelecimento em Florianópolis. A pergunta do gestor é quanto a folha dos doze meses muda o enquadramento e o DAS de março de 2027. [Primeiro perfil de serviços e limites](SIMPLES_SERVICES_01.md)
 
 [CÓDIGO] A entrega local da 04 permite comparar março para a mesma revenda. O gestor pode começar por preço e histórico e depois identificar a base regular, os créditos e a situação da opção. O resultado diferencia obrigação, saldo credor e guia pendente. [Comparador e campanha de aceite](PHASE_04.md)

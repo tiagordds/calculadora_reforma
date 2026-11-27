@@ -1,5 +1,7 @@
 # Roadmap
 
+**Posição em 25/11/2026.** O C08 tradicional e híbrido passou no ensaio interno de março/2027, incluindo históricos próprios, ISS e créditos por tributo. A diferença agregada depende da suficiência dos dados e da elegibilidade declarada. Qualificação documental, confronto fiscal independente e autorização da Fase 06 continuam pendentes. [Entrega e evidências](SIMPLES_SERVICES_HYBRID_01.md)
+
 **Posição em 24/11/2026.** A Fase 05 está versionada em `9b8b9cf`. A primeira expansão do Simples acrescenta o C08 de serviços para ensaio interno, com fronteira III/V, ISS e DAS de março/2027 reproduzidos. A Fase 06 aguarda autorização e condições de publicação. [Primeiro serviço](SIMPLES_SERVICES_01.md) · [Matriz de prontidão da 05](PHASE_05.md)
 
 ## Abertura da Fase 00C · 19/11/2026

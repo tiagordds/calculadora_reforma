@@ -116,7 +116,7 @@ def evaluate(data, memory):
     traditional = monthly_path(data, params, p, False, sn_assumptions, table_error)
     memory["traditional"] = traditional
     try:
-        rules = edition.regular_rules(PERIOD)
+        rules = edition.regular_rules(PERIOD, data["edition"])
         assumptions = edition.premises()
     except CatalogError as exc:
         hybrid = monthly_path(data, params, None, True, sn_assumptions, table_error)
@@ -203,8 +203,9 @@ def evaluate(data, memory):
 
 def compare(data):
     memory = section()
-    memory.update(software="comparador-04.1", software_sha256=SOFTWARE_HASH, revision=edition.REVISION,
-                  catalog_sha256=edition.RULE_HASH, simples_revision=edition.SIMPLES,
+    revision = data["edition"]
+    memory.update(software="comparador-04.2", software_sha256=SOFTWARE_HASH, revision=revision,
+                  catalog_sha256=edition.HASHES[revision], simples_revision=edition.SIMPLES,
                   simples_sha256=DIGESTS[edition.SIMPLES], premises_sha256=edition.PREMISE_HASH,
                   simples_premises_sha256=ASSUMPTIONS_HASH, processed_at=datetime.now(timezone.utc).isoformat(),
                   inputs=data, price=data["revenue"], engines=[], traditional=section(), hybrid=section(),

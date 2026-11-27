@@ -31,6 +31,38 @@ def day(label, **kwargs):
                            widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}), **kwargs)
 
 
+def validate_regular_fields(form, data):
+    for key, field in form.fields.items():
+        if isinstance(field, forms.BooleanField) and form.data.get(key) not in (None, "", "on"):
+            form.add_error(key, "Confirmação inválida.")
+    for part, total in (("exclusions", "revenue"), ("eligible_base", "purchase_base"),
+                        ("purchase_base", "purchases")):
+        if None not in (data.get(part), data.get(total)) and data[part] > data[total]:
+            form.add_error(part, "A parcela informada supera o total correspondente.")
+    if data.get("option_date") and data.get("cancel_date") and data["cancel_date"] < data["option_date"]:
+        form.add_error("cancel_date", "O cancelamento antecede o pedido.")
+    if data.get("event_month") and data.get("period") and data["event_month"] < data["period"].strftime("%Y-%m"):
+        form.add_error("event_month", "A apropriação não pode anteceder as compras do mês.")
+    if data.get("option_status") == "absent" and data.get("option_date") and not data.get("cancel_date"):
+        form.add_error("option_status", "Informe o estado do pedido ou seu cancelamento.")
+    if data.get("cancel_date") and not data.get("option_date"):
+        form.add_error("option_date", "Informe o pedido correspondente ao cancelamento.")
+    if data.get("zero_movements") and any(data.get(t + "_" + k) for t in ("ibs", "cbs")
+            for k in ("opening", "adjustment", "reversal", "extinguished")):
+        form.add_error("zero_movements", "Há movimentos diferentes de zero. Desmarque esta hipótese.")
+    if data.get("supplier") == "exempt" and any(data.get(t+"_"+k) for t in ("ibs", "cbs")
+                                                for k in ("potential", "credit", "transfer")):
+        form.add_error("supplier", "Há crédito positivo em operação declarada desonerada sem exceção.")
+    for tax in ("ibs", "cbs"):
+        key = tax + ("_transfer" if data.get("supplier") == "simples" else "_credit")
+        amount, potential = data.get(key), data.get(tax+"_potential")
+        if None not in (amount, potential) and amount > potential:
+            form.add_error(key, "O crédito elegível supera o potencial informado para estas compras.")
+    if any(data.get(k) == 0 for k in ("purchases", "purchase_base", "eligible_base")) and any(
+            data.get(t+"_"+k) for t in ("ibs", "cbs") for k in ("credit", "transfer")):
+        form.add_error("eligible_base", "Confira o crédito positivo diante das compras ou da base informadas como zero.")
+
+
 class ComparisonForm(TraditionalForm):
     accept_period = None
     edition = forms.ChoiceField(choices=[(REVISION, REVISION)], initial=REVISION, widget=forms.HiddenInput)
@@ -110,39 +142,11 @@ class ComparisonForm(TraditionalForm):
         data = super().clean()
         if data.get("quantity") == 0 and data.get("revenue"):
             self.add_error("quantity", "As vendas com preço positivo exigem quantidade positiva ou desconhecida.")
-        for key, field in self.fields.items():
-            if isinstance(field, forms.BooleanField) and self.data.get(key) not in (None, "", "on"):
-                self.add_error(key, "Confirmação inválida.")
-        for part, total in (("exclusions", "revenue"), ("eligible_base", "purchase_base"),
-                            ("purchase_base", "purchases")):
-            if None not in (data.get(part), data.get(total)) and data[part] > data[total]:
-                self.add_error(part, "A parcela informada supera o total correspondente.")
-        if data.get("option_date") and data.get("cancel_date") and data["cancel_date"] < data["option_date"]:
-            self.add_error("cancel_date", "O cancelamento antecede o pedido.")
-        if data.get("event_month") and data.get("period") and data["event_month"] < data["period"].strftime("%Y-%m"):
-            self.add_error("event_month", "A apropriação não pode anteceder as compras do mês.")
-        if data.get("option_status") == "absent" and data.get("option_date") and not data.get("cancel_date"):
-            self.add_error("option_status", "Informe o estado do pedido ou seu cancelamento.")
-        if data.get("cancel_date") and not data.get("option_date"):
-            self.add_error("option_date", "Informe o pedido correspondente ao cancelamento.")
-        if data.get("zero_movements") and any(data.get(t + "_" + k) for t in ("ibs", "cbs")
-                for k in ("opening", "adjustment", "reversal", "extinguished")):
-            self.add_error("zero_movements", "Há movimentos diferentes de zero. Desmarque esta hipótese.")
+        validate_regular_fields(self, data)
         if data.get("history_basis") != "real" and any(data.get("hybrid_"+m) is not None for m in self.months):
             self.add_error("history_basis", "Selecione os doze meses próprios para usar o histórico preenchido.")
         if data.get("history_basis") != "estimated" and data.get("hybrid_income") is not None:
             self.add_error("hybrid_income", "Selecione a estimativa por outra média.")
-        if data.get("supplier") == "exempt" and any(data.get(t+"_"+k) for t in ("ibs", "cbs")
-                                                    for k in ("potential", "credit", "transfer")):
-            self.add_error("supplier", "Há crédito positivo em operação declarada desonerada sem exceção.")
-        for tax in ("ibs", "cbs"):
-            key = tax + ("_transfer" if data.get("supplier") == "simples" else "_credit")
-            amount, potential = data.get(key), data.get(tax+"_potential")
-            if None not in (amount, potential) and amount > potential:
-                self.add_error(key, "O crédito elegível supera o potencial informado para estas compras.")
-        if any(data.get(k) == 0 for k in ("purchases", "purchase_base", "eligible_base")) and any(
-                data.get(t+"_"+k) for t in ("ibs", "cbs") for k in ("credit", "transfer")):
-            self.add_error("eligible_base", "Confira o crédito positivo diante das compras ou da base informadas como zero.")
         return data
 
     def scenario(self):

@@ -1,0 +1,48 @@
+{% load static traditional comparison %}<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparar serviços · Simples Nacional</title><link rel="stylesheet" href="{% static 'web/site.css' %}"></head>
+<body><header class="masthead"><div class="container masthead-inner"><a href="{% url 'services' %}">Calculadora de serviços</a></div></header>
+<main class="container operation traditional compare-page">
+<h1>Comparar serviços</h1>
+<p class="lead">Compare o Simples tradicional e o híbrido para o mesmo preço e volume de software sob encomenda em março de 2027.</p>
+{% if form.errors %}<section class="result"><h2 tabindex="-1" autofocus>Revise os dados</h2>{{ form.non_field_errors }}{{ form.edition.errors }}
+{% for f in form.visible_fields %}{% if f.errors %}<p><a href="#{{ f.id_for_label }}">{{ f.label }}</a></p>{% endif %}{% endfor %}</section>{% endif %}
+{% if memory %}
+<section class="result"><h2 id="result-heading" tabindex="-1" autofocus>{{ memory.states.completeness }}</h2>
+{% if memory.traditional.factor and memory.hybrid.factor and memory.traditional.factor.annex != memory.hybrid.factor.annex %}<p><strong>As trajetórias estão em anexos diferentes.</strong></p>{% endif %}
+<div class="options">{% for title, path in paths %}<div><h3>{{ title }}</h3><dl class="facts">
+<div><dt>Receita fiscal de março</dt><dd>{{ path.revenue|money }}</dd></div>
+<div><dt>RBT12r</dt><dd>{{ path.history.rbt12r|money }}</dd></div><div><dt>Folha e encargos (FS12)</dt><dd>{{ path.history.fs12|money }}</dd></div>
+<div><dt>Fator R</dt><dd>{{ path.factor.percent|rate }}{% if path.factor %} · Anexo {{ path.factor.annex }}{% endif %}</dd></div>
+{% if path.band %}<div><dt>Faixa {{ path.band.number }}</dt><dd>Nominal {{ path.band.nominal|percent }}</dd></div>{% endif %}
+<div><dt>{% if forloop.first %}DAS bruto{% else %}DAS remanescente{% endif %}</dt><dd>{{ path.das.displayed|money }}</dd></div>
+{% if path.das %}<div><dt>Alíquota efetiva do DAS</dt><dd>{{ path.das.effective_percent|percent }}</dd></div>{% endif %}
+{% for row in path.das.rows %}<div><dt>{{ row.tax }}</dt><dd>{{ row.displayed|money }}</dd></div>{% endfor %}</dl>
+<p>{{ path.states.eligibility }}</p>{% for reason in path.reasons %}<p>{{ reason }}</p>{% endfor %}</div>{% endfor %}</div>
+<h3>IBS e CBS no regime regular</h3>
+<p>{{ memory.option.status }}. {{ memory.hybrid.regular.cbs_origin }}</p>
+<dl class="facts"><div><dt>Base regular</dt><dd>{{ memory.hybrid.regular.base|money }}</dd></div>
+<div><dt>IBS estadual</dt><dd>{{ memory.hybrid.regular.state|money }}</dd></div><div><dt>IBS municipal</dt><dd>{{ memory.hybrid.regular.city|money }}</dd></div></dl>
+{% for tax, ledger in memory.hybrid.accounts.items %}<h3>{{ tax|upper }}</h3><dl class="facts">
+<div><dt>Débito</dt><dd>{{ ledger.debit|money }}</dd></div><div><dt>Crédito apropriado</dt><dd>{{ ledger.acquisition.appropriated|money }}</dd></div>
+<div><dt>Obrigação após créditos</dt><dd>{{ ledger.net|money }}</dd></div><div><dt>Saldo credor final</dt><dd>{{ ledger.closing|money }}</dd></div>
+</dl><p>{{ ledger.acquisition.reason }}</p>{% endfor %}
+<p>Obrigações do híbrido antes dos créditos <strong>{{ memory.hybrid.gross|money }}</strong>. Após os créditos <strong>{{ memory.hybrid.net|money }}</strong>.</p>
+{% if memory.difference %}<p><strong>Diferença mensal (híbrido menos tradicional) {{ memory.difference.amount|money }}</strong>.</p>{% else %}<p>A diferença global permanece em aberto.</p>{% endif %}
+{% for reason in memory.reasons %}<p>{{ reason }}</p>{% endfor %}{% for note in memory.conditions %}<p>{{ note }}</p>{% endfor %}
+<p>Ensaio agregado condicional. Pagamentos efetivos e guia dependem de conciliação própria.</p>
+<p>{{ memory.customer.reason }}</p>
+<details><summary>Memória de cálculo, históricos e fontes</summary><p>{{ memory.document }}</p>
+<p>O Fator R compara a folha com 28% da receita histórica antes de arredondar. A receita fiscal híbrida corresponde ao preço menos os débitos regulares. A base regular também exclui o ISS incidente e as demais exclusões identificadas.</p>
+{% for device, url in memory.traditional.sources.values %}<p><a href="{{ url }}">{{ device }}</a></p>{% endfor %}
+{% for src in memory.sources.values %}<p><a href="{{ src.url }}">{{ src.device }}</a></p>{% endfor %}
+<pre>{{ replay }}</pre></details><a href="#dados">Refinar e recalcular</a></section>{% endif %}
+{% if not form.is_bound %}<form method="post">{% csrf_token %}<button class="action" name="example" value="boundary">Explorar exemplo com históricos diferentes</button></form>{% endif %}
+<form method="post" class="scenario" id="dados" autocomplete="off">{% csrf_token %}{{ form.edition }}
+<p>Considere cliente privado, serviço doméstico ordinário, ISS no estabelecimento de Florianópolis e o faturamento fiscal conciliado por competência. Informe o preço após descontos, sem devoluções, exportação, benefício ou retenção.</p>
+{% for title, fields, opened in sections %}<details {% if opened %}open{% endif %}><summary>{{ title }}</summary>
+<div class="field-grid">{% for field in fields %}{% include 'web/traditional_field.html' %}{% endfor %}</div></details>{% endfor %}
+<p>Separe receitas e folha de fevereiro de 2026 a janeiro de 2027. Inclua remunerações declaradas, pró-labore, CPP e FGTS pagos uma vez cada. Salários e encargos da folha não geram crédito de IBS ou CBS. Informe zero quando conhecido e deixe valores desconhecidos em branco.</p>
+{% for title, rows, opened in histories %}<details {% if opened %}open{% endif %}><summary>Histórico mensal · {{ title }}</summary>
+{% for month, fields in rows %}<fieldset><legend>{{ month }}</legend><div class="field-grid">{% for field in fields %}{% include 'web/traditional_field.html' %}{% endfor %}</div></fieldset>{% endfor %}</details>{% endfor %}
+<button class="action">Comparar trajetórias</button></form></main></body></html>

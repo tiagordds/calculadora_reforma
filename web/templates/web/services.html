@@ -10,6 +10,7 @@
 <main class="container operation traditional">
     <h1>Fator R e DAS de serviços</h1>
     <p class="lead">Estime o DAS de março de 2027 para desenvolvimento de software sob encomenda em Florianópolis. A folha e a receita dos doze meses do histórico definem o anexo.</p>
+    <p><a href="{% url 'service_comparison' %}">Comparar as duas trajetórias de serviços</a></p>
     {% if memory %}
     <section class="result" aria-labelledby="result-heading">
         <h2 id="result-heading" tabindex="-1" autofocus>{{ memory.state }}</h2>
@@ -70,5 +71,6 @@
         </div></fieldset>
         {% endfor %}
         <button class="action" type="submit">Calcular Fator R e DAS</button>
+        <button class="action" formaction="{% url 'service_comparison' %}" name="carry" value="services">Comparar usando estes dados</button>
     </form>
 </main></body></html>

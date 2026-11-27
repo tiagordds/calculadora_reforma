@@ -29,3 +29,11 @@
 !docs/evidencias/00a/*.json
 !docs/evidencias/00b/
 !docs/evidencias/00b/reference.json
+!docs/evidencias/04/
+!docs/evidencias/04/*.json
+!docs/evidencias/05/
+!docs/evidencias/05/zero.json
+!docs/evidencias/05/middle.json
+!docs/evidencias/05/high.json
+!docs/evidencias/servicos-hibrido01/
+!docs/evidencias/servicos-hibrido01/*.json
