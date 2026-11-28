@@ -1,0 +1,84 @@
+{% load static traditional comparison %}<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DAS de comércio e serviços · Simples Nacional</title>
+    <link rel="stylesheet" href="{% static 'web/site.css' %}">
+</head>
+<body>
+<header class="masthead"><div class="container masthead-inner"><a href="{% url 'home' %}">Planejamento tributário</a></div></header>
+<main class="container operation traditional">
+    <h1>DAS de comércio e serviços</h1>
+    <p class="lead">Estime o DAS de março de 2027 para a empresa que revende canetas e desenvolve software sob encomenda em Florianópolis.</p>
+    {% if memory %}
+    <section class="result" aria-labelledby="result-heading">
+        <h2 id="result-heading" tabindex="-1" autofocus>{{ memory.state }}</h2>
+        <div class="summary"><p>DAS bruto consolidado de março</p><strong>{{ memory.amounts.monthly|money }}</strong></div>
+        <dl class="facts">
+            <div><dt>Receita total de março</dt><dd>{{ memory.revenue|money }}</dd></div>
+            <div><dt>Receita empresarial dos 12 meses (RBT12)</dt><dd>{{ memory.history.rbt12r|money }}</dd></div>
+            <div><dt>Folha e encargos dos 12 meses (FS12)</dt><dd>{{ memory.history.fs12|money }}</dd></div>
+            <div><dt>Fator R do serviço</dt><dd>{{ memory.factor.percent|rate }}</dd></div>
+        </dl>
+        {% for reason in memory.reasons %}<p>{{ reason }}</p>{% endfor %}
+        {% for group in memory.groups %}
+        <h3>{{ group.label }}{% if group.annex %} · Anexo {{ group.annex }}{% endif %}{% if group.band %} · faixa {{ group.band.number }}{% endif %}</h3>
+        <dl class="facts">
+            <div><dt>Receita de março</dt><dd>{{ group.revenue|money }}</dd></div>
+            <div><dt>Alíquota efetiva aplicada</dt><dd>{{ group.amounts.effective_percent|rate }}</dd></div>
+            <div><dt>Parcela do DAS</dt><dd>{{ group.amounts.monthly|money }}</dd></div>
+        </dl>
+        {% for reason in group.reasons %}<p>{{ reason }}</p>{% endfor %}
+        {% if group.amounts %}
+        <details><summary>Repartição de {{ group.label|lower }}</summary>
+            {% if group.amounts.iss_capped %}<p>ISS limitado a 5% da receita de serviços. Os demais tributos seguem a redistribuição da quinta faixa.</p>{% endif %}
+            <dl class="facts">{% for row in group.amounts.rows %}<div><dt>{{ row.tax }}</dt><dd>{{ row.displayed|reais }}</dd></div>{% endfor %}</dl>
+            <p>Diferença entre a soma exibida e a parcela da atividade: {{ group.amounts.residue|reais }}.</p>
+        </details>{% endif %}
+        {% endfor %}
+        {% if memory.amounts %}
+        <h3>Repartição consolidada por tributo</h3>
+        <dl class="facts">{% for row in memory.amounts.rows %}<div><dt>{{ row.tax }}</dt><dd>{{ row.displayed|reais }}</dd></div>{% endfor %}</dl>
+        <p>Os tributos exibidos somam {{ memory.amounts.sum_displayed|reais }}. A diferença para o DAS bruto é {{ memory.amounts.residue|reais }}.
+           A soma das duas parcelas de DAS exibidas difere do consolidado em {{ memory.amounts.activity_residue|reais }}.</p>
+        {% endif %}
+        {% if missing %}<h3>Meses a completar</h3><ul>{% for month, names in missing %}<li>{{ month }} · {{ names }}</li>{% endfor %}</ul>{% endif %}
+        <p>{{ memory.eligibility }} {{ memory.validation }} A guia depende da conciliação com o PGDAS-D.</p>
+        <details><summary>Histórico, memória de cálculo e fontes</summary>
+            <p>A faixa das duas atividades usa a receita empresarial. O enquadramento do serviço compara a folha com 28% dessa receita antes do arredondamento. Cada alíquota efetiva incide sobre o faturamento da respectiva atividade.</p>
+            <table><thead><tr><th>Mês</th><th>Comércio</th><th>Serviços</th><th>Total</th><th>Origem</th></tr></thead>
+            <tbody>{% for month, row in memory.history.series.items %}<tr><th scope="row">{{ month }}</th>
+              <td><span class="column-label">Comércio</span>{{ row.retail|money }}</td><td><span class="column-label">Serviços</span>{{ row.service|money }}</td>
+              <td><span class="column-label">Total</span>{{ row.turnover|money }}</td><td><span class="column-label">Origem</span>{% if row.origin == 'synthetic' %}Sintético{% elif row.origin == 'estimated' %}Estimado{% else %}Informado{% endif %}</td>
+            </tr>{% endfor %}</tbody></table>
+            <p>{{ memory.method }}</p>
+            {% if memory.sources.retail %}<p>{{ memory.sources.retail.table }} · <a href="{{ memory.sources.retail.url }}">Tabela oficial de comércio</a></p>{% endif %}
+            {% if memory.sources.service %}<p>Anexos III e V · <a href="{{ memory.sources.service.references.tables.1 }}">Tabelas oficiais de serviços</a></p>{% endif %}
+            <pre>{{ replay }}</pre>
+        </details>
+        <a href="#dados">Corrigir dados e recalcular</a>
+    </section>
+    {% endif %}
+    {% if form.errors %}<section class="result"><h2 tabindex="-1" autofocus>Revise os dados do formulário</h2>
+        {{ form.non_field_errors }}{{ form.edition.errors }}
+        {% for field in form.visible_fields %}{% if field.errors %}<p><a href="#{{ field.id_for_label }}">{{ field.label }}</a></p>{% endif %}{% endfor %}
+    </section>{% endif %}
+    {% if not form.is_bound and not example %}
+    <form method="post">{% csrf_token %}<button class="action" name="example" value="c09">Preencher exemplo de comércio e serviços</button></form>
+    {% endif %}
+    <form method="post" id="dados" class="scenario" autocomplete="off">
+        {% csrf_token %}{{ form.edition }}
+        <fieldset><legend>Empresa e receitas de março</legend>
+        <p>Considere o mesmo CNPJ, clientes privados e faturamento por competência já conciliado na transição de 2026. A loja adquire canetas esferográficas comuns nacionais de terceiros, revende e entrega no município por NF-e 55, sem monofasia, antecipação ou devoluções. O serviço é prestado no estabelecimento, com ISS devido em Florianópolis. Ambas as atividades têm tributação convencional, sem retenção, substituição ou benefício.</p>
+        <div class="field-grid">{% for field in profile %}{% include 'web/traditional_field.html' %}{% endfor %}</div></fieldset>
+        <h2>Histórico empresarial</h2>
+        <p>De fevereiro de 2026 a janeiro de 2027, informe as duas receitas e a folha de toda a empresa. Registre zero quando conhecido e deixe em branco o valor em aberto. Identifique os meses estimados.</p>
+        <p>Informe as remunerações declaradas e pagas separadamente do pró-labore, o 13º na competência de incidência e a CPP e o FGTS efetivamente recolhidos. Exclua aluguéis e lucros distribuídos.</p>
+        {% for month, fields in months %}
+        <fieldset><legend>{{ month }}</legend><div class="field-grid">
+            {% for field in fields %}{% include 'web/traditional_field.html' %}{% endfor %}
+        </div></fieldset>
+        {% endfor %}
+        <button class="action" type="submit">Calcular o DAS consolidado</button>
+    </form>
+</main></body></html>

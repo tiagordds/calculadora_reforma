@@ -11,6 +11,9 @@ from web.services import ServicesForm, flatten_history
 
 class Command(BaseCommand):
     help = "Reproduz a memória JSON da simulação de serviços, inclusive resultados parciais."
+    form_class = ServicesForm
+    simulate = staticmethod(simulate_services)
+    description = "de serviços"
 
     def add_arguments(self, parser):
         parser.add_argument("file", type=Path)
@@ -30,12 +33,12 @@ class Command(BaseCommand):
             post = QueryDict(mutable=True)
             for key, value in fields.items():
                 post[key] = "" if value is None else value
-            form = ServicesForm(post)
+            form = self.form_class(post)
             if not form.is_valid():
                 raise ValueError
-            replay = json.loads(json.dumps(simulate_services(form.scenario()), default=str))
+            replay = json.loads(json.dumps(self.simulate(form.scenario()), default=str))
             if saved != replay:
                 raise CommandError("A memória divergiu. Confira os dados e a revisão do cálculo.")
         except (ValueError, TypeError, KeyError, AttributeError, OSError) as exc:
-            raise CommandError("Memória de serviços inválida ou incompatível.") from exc
-        self.stdout.write("Memória de serviços reproduzida integralmente.")
+            raise CommandError(f"Memória {self.description} inválida ou incompatível.") from exc
+        self.stdout.write(f"Memória {self.description} reproduzida integralmente.")

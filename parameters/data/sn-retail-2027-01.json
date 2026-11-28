@@ -1,0 +1,19 @@
+{
+  "revision": "sn-retail-2027-01",
+  "extends": "sn-03-02",
+  "start": "2027-01-01",
+  "end": "2028-12-31",
+  "consulted": "2026-11-27",
+  "source": "Res. CGSN 196/2026, art. 3º, Anexo I, DOU 24/11/2026, seção 1, p. 39",
+  "url": "https://www.in.gov.br/web/dou/-/resolucao-cgsn-n-196-de-16-de-novembro-de-2026-745832719",
+  "additional_bands": [
+    {"number": 1, "above": "0", "through": "180000", "nominal": "4", "deduction": "0"},
+    {"number": 2, "above": "180000", "through": "360000", "nominal": "7.30", "deduction": "5940"}
+  ],
+  "share_overrides_from_band_4": {
+    "1": {"CPP": "41.50", "ICMS": "34.00"},
+    "2": {"CPP": "41.50", "ICMS": "34.00"},
+    "3": {},
+    "5": {}
+  }
+}

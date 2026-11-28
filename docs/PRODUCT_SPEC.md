@@ -1,5 +1,7 @@
 # Especificação do produto
 
+[CÓDIGO] No C09, o gestor informa separadamente a revenda local de canetas e o software sob encomenda do mesmo CNPJ. Vê a receita total de março, a folha e a receita histórica empresariais, os anexos, as duas parcelas e a estimativa consolidada. Pode corrigir um mês ou completar uma atividade mantendo os demais dados. [Jornada tradicional mista](SIMPLES_MIXED_01.md)
+
 [DECISÃO] Em 25/11/2026, a jornada de software sob encomenda passou a responder quanto a obrigação mensal pode mudar ao manter preço e volume e apurar IBS/CBS pelo regime regular. O gestor vê Fator R, anexo e composição do DAS por trajetória e pode refinar as contas antes da comparação. [C08 comparativo interno](SIMPLES_SERVICES_HYBRID_01.md)
 
 [DECISÃO] A partir de 24/11/2026, além do recorte original de revenda descrito abaixo, a página inicial oferece a apuração tradicional de software sob encomenda no estabelecimento em Florianópolis. A pergunta do gestor é quanto a folha dos doze meses muda o enquadramento e o DAS de março de 2027. [Primeiro perfil de serviços e limites](SIMPLES_SERVICES_01.md)

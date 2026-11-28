@@ -1,5 +1,7 @@
 # Decisões
 
+[DECISÃO] Em 27/11/2026, habilitar o C09 tradicional na jornada própria de março/2027. Usar uma RBT12 e uma folha empresariais. Consolidar os valores analíticos das duas incidências e expor os resíduos. Complementar o catálogo comercial em edição derivada e conservar cada edição histórica. O comparador misto depende de nova autorização. [Perfil, parâmetros e referências](SIMPLES_MIXED_01.md)
+
 [DECISÃO] Em 25/11/2026, habilitar a comparação interna do C08 ao mesmo preço final e volume, com duas apurações do Fator R. Aceitar o ISS excluível documental ou a hipótese identificada de proporcionalidade nas prestações homogêneas. Preservar resultados parciais e a edição anterior do calendário de opção. [Fundamentos e ensaios](SIMPLES_SERVICES_HYBRID_01.md)
 
 [DECISÃO] Em 24/11/2026, habilitar somente a jornada tradicional do C08 para março/2027, qualificando a tabela da Res. CGSN 196 publicada nesta data. Preservar zero e ausência por componente e comparar FS12 com 28% da receita histórica antes de exibir a divisão. O catálogo preliminar da NFS-e fornece pistas documentais. O enquadramento depende da atividade exercida e das premissas declaradas. [Regras, ensaio e condições para uso real](SIMPLES_SERVICES_01.md)
