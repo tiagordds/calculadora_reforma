@@ -8,6 +8,8 @@ A página inicial oferece três experiências para uma papelaria de Florianópol
 
 Para estimar o DAS de um mesmo CNPJ com comércio e serviços, abra **Estimar o DAS de atividades mistas** na página inicial. O exemplo sintético permite alterar as receitas de março, as receitas históricas segregadas e a folha de cada mês. [C09, memórias e comandos de replay](docs/SIMPLES_MIXED_01.md)
 
+No mesmo formulário, **Comparar usando estes dados** leva a empresa e o histórico tradicional ao comparador de março/2027. Informe o histórico híbrido, as exclusões e os créditos por tributo ou explore o exemplo de R$ 60 mil de comércio e R$ 40 mil de serviços. [Comparação mista, cinco memórias e reprodução](docs/SIMPLES_MIXED_HYBRID_01.md)
+
 A quarta jornada é a de [serviços do Simples tradicional](http://127.0.0.1:8005/simples/servicos/). Para desenvolvimento de software sob encomenda em Florianópolis, o formulário aceita o histórico de receita e folha, apresenta o Fator R, o anexo e o DAS bruto com ISS. O exemplo de 28% pode ser editado para reproduzir a mudança de anexo por um centavo. [Recorte, fontes e reprodução do C08](docs/SIMPLES_SERVICES_01.md)
 
 Use a raiz desta cópia, que contém `manage.py`. A Fase 05 consolidou o **MVP interno para ensaio sintético** em Windows e Compose. O relatório inclui a matriz de prontidão, as condições de revisão profissional e os comandos para repetir as jornadas. [Consolidação da Fase 05](docs/PHASE_05.md)

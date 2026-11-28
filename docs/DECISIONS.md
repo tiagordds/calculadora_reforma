@@ -1,5 +1,7 @@
 # Decisões
 
+[DECISÃO] O Prompt 13, em 27/11/2026, autorizou a comparação mista interna do C09. Apurar o histórico e a folha de cada trajetória, qualificar separadamente a base da revenda e do software e aplicar uma única opção empresarial. Consolidar as aquisições identificadas uma vez por tributo e comparar a obrigação após créditos apenas com cobertura e comparabilidade confirmadas no cenário. [Fundamentos, evidências e limites](SIMPLES_MIXED_HYBRID_01.md)
+
 [DECISÃO] Em 27/11/2026, habilitar o C09 tradicional na jornada própria de março/2027. Usar uma RBT12 e uma folha empresariais. Consolidar os valores analíticos das duas incidências e expor os resíduos. Complementar o catálogo comercial em edição derivada e conservar cada edição histórica. O comparador misto depende de nova autorização. [Perfil, parâmetros e referências](SIMPLES_MIXED_01.md)
 
 [DECISÃO] Em 25/11/2026, habilitar a comparação interna do C08 ao mesmo preço final e volume, com duas apurações do Fator R. Aceitar o ISS excluível documental ou a hipótese identificada de proporcionalidade nas prestações homogêneas. Preservar resultados parciais e a edição anterior do calendário de opção. [Fundamentos e ensaios](SIMPLES_SERVICES_HYBRID_01.md)

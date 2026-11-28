@@ -1,0 +1,112 @@
+{% load static comparison %}<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comparar o Simples de comércio e serviços</title>
+    <link rel="stylesheet" href="{% static 'web/site.css' %}">
+</head>
+<body>
+<header class="masthead"><div class="container masthead-inner"><a href="{% url 'home' %}">Planejamento tributário</a></div></header>
+<main class="container operation traditional compare-page">
+    <h1>Comparar o Simples de comércio e serviços</h1>
+    <p class="lead">Quanto muda a obrigação de março de 2027 se o mesmo CNPJ apurar IBS e CBS pelo regime regular em todas as suas atividades?</p>
+    {% if memory %}
+    <section class="result" aria-labelledby="result-heading">
+        <h2 id="result-heading" autofocus tabindex="-1">{{ memory.state }}</h2>
+        <dl class="facts">
+            <div><dt>DAS tradicional consolidado</dt><dd>{{ memory.traditional.amounts.monthly|money }}</dd></div>
+            <div><dt>Obrigação híbrida após créditos</dt><dd>{{ memory.hybrid.net|money }}</dd></div>
+            {% if memory.difference %}<div><dt>Diferença mensal · híbrido menos tradicional</dt><dd>{{ memory.difference.amount|money }}</dd></div>{% endif %}
+        </dl>
+        {% if not memory.difference %}<p>A diferença global está em aberto.</p>{% endif %}
+        {% if memory.option %}<p>{{ memory.option.status }}. {{ memory.option.return_status }}
+           {% if memory.option.active %}O tradicional é contrafactual para março.{% endif %}</p>{% endif %}
+        {% for note in memory.reasons %}<p>{{ note }}</p>{% endfor %}
+        {% if memory.inputs.origin == 'synthetic' %}<p>Exemplo sintético para ensaio interno.</p>{% endif %}
+        {% if memory.inputs.history_basis == 'shared' %}<p>Foi aceita a igualdade dos dois históricos de receitas e folha.</p>{% endif %}
+        <h3>Simples tradicional</h3>
+        {% include 'web/mixed_company.html' with path=memory.traditional title="Tradicional" consolidated=memory.traditional.amounts %}
+        {% for group in memory.traditional.groups %}
+        <h4>{{ group.label }} · Anexo {{ group.annex|default:"em aberto" }}</h4>
+        <p>Receita fiscal {{ group.revenue|money }} · efetiva {{ group.amounts.effective_percent|rate }} · DAS bruto {{ group.amounts.monthly|money }}.</p>
+        {% for reason in group.reasons %}<p>{{ reason }}</p>{% endfor %}
+        {% if group.amounts %}<details><summary>Partilha do DAS bruto · {{ group.label }}</summary>
+            <dl class="facts">{% for row in group.amounts.rows %}<div><dt>{{ row.tax }}</dt><dd>{{ row.displayed|money }}</dd></div>{% endfor %}</dl>
+            <p>Resíduo das rubricas exibidas {{ group.amounts.residue|money }}.</p>
+        </details>{% endif %}
+        {% endfor %}
+        {% if memory.hybrid %}
+        <h3>Simples com IBS/CBS regular</h3>
+        {% include 'web/mixed_company.html' with path=memory.hybrid title="Híbrido" consolidated=memory.hybrid.das %}
+        <p>CBS {{ memory.rates.cbs_percent|rate }} · {{ memory.rates.cbs_origin }}.
+           IBS estadual {{ memory.rates.state_percent|rate }} e municipal {{ memory.rates.city_percent|rate }}.</p>
+        {% for group in memory.hybrid.groups %}
+        <h4>{{ group.label }} · Anexo {{ group.annex|default:"em aberto" }}</h4>
+        <dl class="facts">
+            <div><dt>Preço final</dt><dd>{{ group.regular.price|money }}</dd></div>
+            <div><dt>Receita fiscal híbrida</dt><dd>{{ group.revenue|money }}</dd></div>
+            {% if forloop.first %}<div><dt>ICMS identificado ou estimado</dt><dd>{{ group.regular.icms|money }}</dd></div>
+            {% else %}<div><dt>ISS excluível</dt><dd>{{ group.regular.iss_excluded|money }}</dd></div>{% endif %}
+            <div><dt>Demais exclusões</dt><dd>{{ group.regular.other_exclusions|money }}</dd></div>
+            <div><dt>Base regular</dt><dd>{{ group.regular.base|money }}</dd></div>
+            <div><dt>Débito de CBS</dt><dd>{{ group.regular.cbs|money }}</dd></div>
+            <div><dt>IBS estadual / municipal</dt><dd>{{ group.regular.state|money }} / {{ group.regular.city|money }}</dd></div>
+            <div><dt>Alíquota remanescente{% if group.band %} · faixa {{ group.band.number }}{% endif %}</dt><dd>{{ group.das.effective_percent|rate }}</dd></div>
+            <div><dt>DAS remanescente</dt><dd>{{ group.das.displayed|money }}</dd></div>
+        </dl>
+        {% if group.regular.origin == 'assumed' %}<p>Exclusões informadas sob hipótese.</p>{% endif %}
+        {% if not forloop.first and memory.inputs.iss_basis == 'proportional' %}<p>Hipótese proporcional de ISS aceita para as prestações homogêneas.</p>{% endif %}
+        {% for reason in group.regular.reasons %}<p>{{ reason }}</p>{% endfor %}
+        {% for reason in group.reasons %}<p>{{ reason }}</p>{% endfor %}
+        {% if group.das %}<details><summary>Partilha do DAS remanescente · {{ group.label }}</summary>
+            {% if group.iss_capped %}<p>ISS limitado a 5% antes da redistribuição.</p>{% endif %}
+            <dl class="facts">{% for row in group.das.rows %}<div><dt>{{ row.tax }}</dt><dd>{{ row.displayed|money }}</dd></div>{% endfor %}</dl>
+            <p>Resíduo da soma das rubricas exibidas {{ group.das.residue|money }}.</p>
+        </details>{% endif %}
+        {% endfor %}
+        <h3>Contas do CNPJ em março</h3>
+        <p>DAS remanescente consolidado <strong>{{ memory.hybrid.das.monthly|money }}</strong>.
+           Obrigação antes de créditos <strong>{{ memory.hybrid.gross|money }}</strong>.</p>
+        {% for tax, ledger in memory.hybrid.accounts.items %}
+        <h4>{{ tax|upper }}</h4>
+        <dl class="facts">
+            <div><dt>Débito consolidado</dt><dd>{{ ledger.debit|money }}</dd></div>
+            <div><dt>Crédito apropriado no mês</dt><dd>{{ ledger.appropriated|money }}</dd></div>
+            <div><dt>Saldo inicial</dt><dd>{{ ledger.opening|money }}</dd></div>
+            <div><dt>Crédito utilizado</dt><dd>{{ ledger.used|money }}</dd></div>
+            <div><dt>Obrigação após créditos</dt><dd>{{ ledger.net|money }}</dd></div>
+            <div><dt>Saldo credor final</dt><dd>{{ ledger.closing|money }}</dd></div>
+        </dl>
+        {% for item in ledger.acquisitions %}<p>{{ item.document }} · {{ item.label }} · {{ item.reason }}</p>{% endfor %}
+        {% if ledger.reconciliation_required %}<p>As outras extinções informadas superam a obrigação após créditos. Concilie os pagamentos antes de estimar a guia.</p>{% endif %}
+        {% endfor %}
+        {% endif %}
+        <p>A guia e o fluxo de caixa dependem da conciliação dos pagamentos. A análise de rentabilidade exige custos, margem e efeitos comerciais.</p>
+        <details><summary>Memória de cálculo, premissas e fontes</summary>
+            <p>{{ memory.document }} {{ memory.traditional.rounding }}</p>
+            {% if memory.traditional.sources.retail %}<p><a href="{{ memory.traditional.sources.retail.url }}">Tabela comercial de 2027</a></p>{% endif %}
+            {% for device, url in memory.traditional.sources.service.references.values %}<p><a href="{{ url }}">{{ device }}</a></p>{% endfor %}
+            {% for source in memory.sources.values %}<p><a href="{{ source.url }}">{{ source.device }}</a></p>{% endfor %}
+            <pre>{{ replay }}</pre>
+        </details>
+        <a href="#dados">Corrigir dados e recalcular</a>
+    </section>
+    {% endif %}
+    {% if form.errors %}<section class="result"><h2 autofocus tabindex="-1">Revise os campos indicados</h2>{{ form.non_field_errors }}{{ form.edition.errors }}</section>{% endif %}
+    {% if not form.is_bound %}<form method="post">{% csrf_token %}<button class="action" name="example" value="mixed">Explorar exemplo com históricos diferentes</button></form>{% endif %}
+    <form method="post" class="scenario" id="dados" autocomplete="off">{% csrf_token %}{{ form.edition }}
+        <p>Perfil interno de Florianópolis. Revenda e entrega local de canetas nacionais por NF-e 55 e software sob encomenda prestado no estabelecimento, com ISS local. Considere clientes privados e operações homogêneas por grupo, após descontos, sem retenções, devoluções ou benefícios.</p>
+        {% for title, fields, opened in sections %}<details {% if opened %}open{% endif %}><summary>{{ title }}</summary>
+            <div class="field-grid">{% for field in fields %}{% include 'web/traditional_field.html' %}{% endfor %}</div></details>{% endfor %}
+        <h2>Aquisições de março</h2>
+        <p>Use uma referência local por documento e registre a destinação uma vez. Informe explicitamente zero quando conhecido. Uma aquisição compartilhada entra inteira na conta da empresa. Folha e pró-labore ficam no histórico. Se os documentos informados cobrirem apenas parte das compras, deixe desmarcada a confirmação de abrangência da conta.</p>
+        {% for title, purchase in purchases %}<details {% if purchase.errors %}open{% endif %}><summary>Aquisição · {{ title }}</summary>
+            <div class="field-grid">{% for field in purchase %}{% include 'web/traditional_field.html' %}{% endfor %}</div></details>{% endfor %}
+        {% for key, label in destinations.items %}<button name="add_purchase" value="{{ key }}" formnovalidate>Adicionar aquisição · {{ label }}</button>{% endfor %}
+        <h2>Históricos fiscais e folha</h2>
+        <p>Informe as duas receitas por competência, já conciliadas na transição de dezembro de 2026. Inclua remuneração e pró-labore pagos, CPP e FGTS recolhidos pela empresa. Indique a origem de cada mês e deixe valores desconhecidos em branco.</p>
+        {% for title, rows, opened in histories %}<details {% if opened %}open{% endif %}><summary>Histórico mensal · {{ title }}</summary>
+            {% for month, fields in rows %}<fieldset><legend>{{ month }}</legend><div class="field-grid">{% for field in fields %}{% include 'web/traditional_field.html' %}{% endfor %}</div></fieldset>{% endfor %}</details>{% endfor %}
+        <button class="action">Comparar trajetórias</button>
+    </form>
+</main></body></html>

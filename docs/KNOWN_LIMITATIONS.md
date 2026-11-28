@@ -1,5 +1,7 @@
 # Limitações de cobertura em 19/11/2026
 
+[DOCUMENTADO] Em 27/11/2026, o ensaio híbrido do C09 cobre a empresa madura, o par de atividades e o município qualificados, em março/2027. A estimativa depende da CBS do cenário, da composição de cada preço, da situação da opção e dos eventos de crédito. A NFS-e do software ainda exige qualificação documental e a obrigação empresarial depende de confronto fiscal independente. [Casos completos e parciais](SIMPLES_MIXED_HYBRID_01.md)
+
 [DOCUMENTADO] Em 27/11/2026, a apuração mista tradicional passou a cobrir a revenda e o serviço específicos do C09 nas faixas 1–5. A falta da folha pode deixar apenas a parcela comercial calculada. A classificação contratual, o demonstrativo do PGDAS-D e a conciliação de centavos seguem pendentes para uso fiscal. [Escopo e bloqueios](SIMPLES_MIXED_01.md)
 
 [DOCUMENTADO] Atualização de 25/11/2026. O comparador C08 produz uma estimativa agregada para o serviço homogêneo e o cliente privado qualificados. A nominal definitiva da CBS, a classificação real da NFS-e, o ISS excluível, a opção e os eventos de crédito dependem de evidência da competência. A diferença global exige duas obrigações comparáveis. [Condições e limites](SIMPLES_SERVICES_HYBRID_01.md)

@@ -10,6 +10,12 @@ from web.service_comparison import ServiceComparisonForm, replay_post
 
 class Command(BaseCommand):
     help = "Reproduz as duas trajetórias do C08 com os históricos e parâmetros registrados."
+    form_class = ServiceComparisonForm
+    restore = staticmethod(replay_post)
+    simulate = staticmethod(compare_services)
+    case = "C08"
+    success = "Comparação de serviços reproduzida integralmente."
+    max_bytes = 131072
 
     def add_arguments(self, parser):
         parser.add_argument("file", type=Path)
@@ -17,16 +23,16 @@ class Command(BaseCommand):
     def handle(self, file, **options):
         try:
             with file.open("rb") as stream:
-                raw = stream.read(131073)
-            if len(raw) > 131072:
+                raw = stream.read(self.max_bytes + 1)
+            if len(raw) > self.max_bytes:
                 raise ValueError
             saved = json.loads(raw, object_pairs_hook=unique_keys)
-            form = ServiceComparisonForm(replay_post(saved["inputs"]))
+            form = self.form_class(self.restore(saved["inputs"]))
             if not form.is_valid():
                 raise ValueError
-            repeated = json.loads(json.dumps(compare_services(form.scenario()), default=str))
+            repeated = json.loads(json.dumps(self.simulate(form.scenario()), default=str))
             if repeated != saved:
-                raise CommandError("Divergência na memória comparativa do C08.")
+                raise CommandError(f"Divergência na memória comparativa do {self.case}.")
         except (ValueError, OSError, TypeError, KeyError, AttributeError) as exc:
             raise CommandError("Memória comparativa inválida.") from exc
-        self.stdout.write("Comparação de serviços reproduzida integralmente.")
+        self.stdout.write(self.success)

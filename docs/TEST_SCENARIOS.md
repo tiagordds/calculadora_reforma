@@ -1,5 +1,7 @@
 # Casos de referência e validação
 
+[EXECUTADO] O comparador misto do C09 cobre III/III, V/V, V/III e III/V nas duas trajetórias, créditos de uso compartilhado, excesso por tributo, opção, perdas localizadas de dados, integridade do replay e navegação sem JavaScript. [Campanha, contas de referência e cinco memórias](SIMPLES_MIXED_HYBRID_01.md) · [Testes do C09 comparativo](../tests/test_mixed_comparison.py)
+
 [EXECUTADO] Em 27/11/2026, a campanha do C09 exercitou segregação, folha empresarial, alterações de proporção, séries incompletas, elegibilidade, repartição, centavos, formulário e replay. [Testes executáveis](../tests/test_mixed.py) · [Referências independentes e resultados](SIMPLES_MIXED_01.md)
 
 [EXECUTADO] A campanha do C08 comparativo em 25/11/2026 exercitou III/III, V/V, III/V, V/III, ausência por componente, teto de ISS, créditos e saldos distintos, opção e replays completos e parciais. [Resultados por ambiente](SIMPLES_SERVICES_HYBRID_01.md) · [Casos executáveis](../tests/test_service_comparison.py)
@@ -54,7 +56,7 @@
 | C06 | 04, triagem do fornecedor | Identificação do regime, DF-e e referência fiscal pendente; unitário + fiscal | Falta de documento deixa valor desconhecido nos ramos afetados |
 | C07 | 04–05, crédito do comprador | Titular, destino e finalidade; unitário + UI + fiscal | Trocar perfil do cliente preserva carga própria e altera apenas a análise comercial justificável |
 | C08 | Expansão de serviços, triagem desde 03 | Regras e séries FS12/RBT12r, atividade 09 e revisão; regressão de fronteira + fiscal | Recusar cálculo de serviço no varejo. Habilitar III/V somente após confronto independente |
-| C09 | Expansão mista tradicional, triagem desde 03 | Receitas segregadas, histórico global e folha empresarial. Testes por parcela e consolidação | Jornada própria para o caso coberto. A revenda isolada continua a bloquear mistura. Confronto da guia pendente |
+| C09 | Expansão mista tradicional e híbrida, triagem desde 03 | Receitas segregadas, faixa e folha empresariais por trajetória. Testes de bases, partilha e contas consolidadas | Jornada própria para o caso coberto. A revenda isolada continua a bloquear mistura. Confronto da guia e das contas assistidas pendente |
 | C10 | 03, triagem de limites/excessos | RBA/ano e histórico do SN, UF e vigência; unitário de limiar + fiscal | Separar limite/sublimite e efeito temporal, bloquear simplificação. Cálculo de excesso fica para expansão |
 | C11 | 03, triagem de abertura | Data de abertura, S140 e PGDAS futuro; unitário/UI | Recusar empresa sem maturidade no recorte; anualização especial é teste de expansão |
 | C12 | 03, RBT12 móvel | Série não constante e esperado manual; unitário + regressão | Março usa fev/26–jan/27, abril avança um mês. Teste interno de abril independe da habilitação pública desse PA |

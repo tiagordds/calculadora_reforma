@@ -1,0 +1,23 @@
+{% load comparison %}
+<dl class="facts">
+    <div><dt>Receita fiscal total de março</dt><dd>{{ path.revenue|money }}</dd></div>
+    <div><dt>RBT12 empresarial</dt><dd>{{ path.history.rbt12r|money }}</dd></div>
+    <div><dt>FS12 empresarial</dt><dd>{{ path.history.fs12|money }}</dd></div>
+    <div><dt>Fator R do serviço</dt><dd>{{ path.factor.percent|rate }}</dd></div>
+</dl>
+{% for reason in path.reasons %}<p>{{ reason }}</p>{% endfor %}
+<details><summary>Doze meses de receita · {{ title }}</summary>
+    <table><thead><tr><th>Competência</th><th>Comércio</th><th>Serviços</th><th>Empresa</th><th>Origem</th></tr></thead>
+    <tbody>{% for month, row in path.history.series.items %}<tr>
+        <th scope="row">{{ month }}</th>
+        <td><span class="column-label">Comércio</span>{{ row.retail|money }}</td>
+        <td><span class="column-label">Serviços</span>{{ row.service|money }}</td>
+        <td><span class="column-label">Empresa</span>{{ row.turnover|money }}</td>
+        <td><span class="column-label">Origem</span>{% if row.origin == 'synthetic' %}Sintética{% elif row.origin == 'estimated' %}Estimada{% else %}Informada{% endif %}</td>
+    </tr>{% endfor %}</tbody></table>
+</details>
+{% if consolidated %}<details><summary>Repartição consolidada · {{ title }}</summary>
+    <dl class="facts">{% for row in consolidated.rows %}<div><dt>{{ row.tax }}</dt><dd>{{ row.displayed|money }}</dd></div>{% endfor %}</dl>
+    <p>Resíduo da soma das rubricas exibidas {{ consolidated.residue|money }}.
+       Resíduo da soma das parcelas exibidas por atividade {{ consolidated.activity_residue|money }}.</p>
+</details>{% endif %}

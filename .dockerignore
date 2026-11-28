@@ -39,3 +39,5 @@
 !docs/evidencias/servicos-hibrido01/*.json
 !docs/evidencias/mistas01/
 !docs/evidencias/mistas01/*.json
+!docs/evidencias/mistas-hibrido01/
+!docs/evidencias/mistas-hibrido01/*.json

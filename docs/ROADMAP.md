@@ -1,6 +1,6 @@
 # Roadmap
 
-**Posição em 27/11/2026.** [CÓDIGO] O C09 tradicional está disponível para ensaio interno. A próxima verificação fiscal depende da conciliação das duas segregações com o PGDAS-D de março/2027 e de revisão profissional. O comparador híbrido misto e a publicação têm autorizações próprias. [Entrega e memórias do C09](SIMPLES_MIXED_01.md)
+**Posição em 27/11/2026.** [CÓDIGO] O C09 permite estimar o DAS empresarial e comparar a opção regular ao mesmo preço e volume por atividade. O ensaio técnico interno cobre históricos, partilha, débitos e créditos no CNPJ. A homologação depende de conciliar as duas segregações com o PGDAS-D e as contas assistidas de março/2027, com revisão profissional. A publicação depende de autorização própria. [Tradicional](SIMPLES_MIXED_01.md) · [Comparação e evidências](SIMPLES_MIXED_HYBRID_01.md)
 
 **Posição em 25/11/2026.** O C08 tradicional e híbrido passou no ensaio interno de março/2027, incluindo históricos próprios, ISS e créditos por tributo. A diferença agregada depende da suficiência dos dados e da elegibilidade declarada. Qualificação documental, confronto fiscal independente e autorização da Fase 06 continuam pendentes. [Entrega e evidências](SIMPLES_SERVICES_HYBRID_01.md)
 
@@ -23,7 +23,7 @@ Plano: delimitar cobertura e pesquisar interfaces e versões, desenhar jornada e
 | 04 · Tradicional e híbrido | Comparar opção de IBS/CBS regular com recolhimento tradicional em bases consistentes, incluindo demais parcelas, créditos e elegibilidade. | Concluída tecnicamente no recorte local e condicional de março/2027. Homologação fiscal pendente |
 | 05 · Consolidação do MVP | Refinar cenário sem recadastro, demonstrar sensibilidade, conferir cálculos e avaliar interface, segurança e desempenho. | Concluída no recorte técnico interno sintético. Observação humana, homologação e promoção do motor pendentes |
 | 06 · Primeira publicação | Escolher hospedagem, configurar domínio/HTTPS, rede privada, limites, monitoramento, atualização, privacidade e recuperação. Depende de validação profissional e autorização de publicação. | Planejada |
-| Expansão do Simples · Serviços | Programação sob encomenda, folha paga, faixa e fronteira III/V na apuração tradicional de março/2027. | C08 concluído tecnicamente para ensaio local. Homologação pendente. Ampliações e C09 dependem de autorização. |
+| Expansão do Simples · Serviços e atividades mistas | Programação sob encomenda isolada ou combinada com a revenda local qualificada, março/2027. | C08 e C09 tradicionais e híbridos disponíveis para ensaio técnico interno. Homologação pendente. |
 | 07 · Lucro Presumido | Acrescentar apuração e comparação verificadas para os perfis cobertos. | Planejada |
 | 08 · Lucro Real | Acrescentar apuração e comparação verificadas com os insumos contábeis necessários. | Planejada |
 | 09 · Planejamento avançado | Projetar até 2033 conforme vigências, simular sensibilidade, pontos de mudança, preços e impactos financeiros. | Planejada |

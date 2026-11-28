@@ -1,5 +1,7 @@
 # Catálogo versionado de parâmetros tributários
 
+[CÓDIGO] O C09 híbrido combina os Anexos I, III e V das edições abaixo com as taxas e janelas de opção de `comparison-04-02`. A referência à revenda no catálogo regular descreve o canário comercial. O destino, o ISS e a base do serviço seguem a qualificação específica do C08. A CBS do exemplo é hipótese registrada na entrada. [Conferência e identidades reproduzíveis](SIMPLES_MIXED_HYBRID_01.md)
+
 [CÓDIGO] A edição `sn-retail-2027-01` completa as faixas 1–5 do Anexo I de `sn-03-02`. A resolução herda os valores coincidentes, acrescenta as duas primeiras faixas e aplica as diferenças de partilha do quadro oficial. O C09 usa `sn-services-01` para III/V. As três identidades constam na memória. [Complemento versionado](../parameters/data/sn-retail-2027-01.json) · [Conferência dos quadros](SIMPLES_MIXED_01.md)
 
 [OFICIAL][CÓDIGO] Em 25/11/2026, a edição comparativa ativa passou a `comparison-04-02`. A Res. 196 fixa o início das janelas ordinárias de cancelamento em 1º de maio ou 1º de novembro conforme o semestre. A edição `comparison-04-01` atende aos replays históricos. O C08 combina somente os parâmetros regulares comuns com o catálogo `sn-services-01`. [Conferência por dispositivo](SIMPLES_SERVICES_HYBRID_01.md) · [Edição](../parameters/data/comparison-04-02.json)

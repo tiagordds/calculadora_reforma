@@ -1,5 +1,7 @@
 # Especificação do produto
 
+[CÓDIGO] A partir da apuração mista, o gestor pode comparar a obrigação mensal do CNPJ nas duas modalidades, verificar como os históricos alteram o anexo do serviço e identificar o que falta para fechar as contas de IBS e CBS. [Comparação mista de março de 2027](SIMPLES_MIXED_HYBRID_01.md)
+
 [CÓDIGO] No C09, o gestor informa separadamente a revenda local de canetas e o software sob encomenda do mesmo CNPJ. Vê a receita total de março, a folha e a receita histórica empresariais, os anexos, as duas parcelas e a estimativa consolidada. Pode corrigir um mês ou completar uma atividade mantendo os demais dados. [Jornada tradicional mista](SIMPLES_MIXED_01.md)
 
 [DECISÃO] Em 25/11/2026, a jornada de software sob encomenda passou a responder quanto a obrigação mensal pode mudar ao manter preço e volume e apurar IBS/CBS pelo regime regular. O gestor vê Fator R, anexo e composição do DAS por trajetória e pode refinar as contas antes da comparação. [C08 comparativo interno](SIMPLES_SERVICES_HYBRID_01.md)
